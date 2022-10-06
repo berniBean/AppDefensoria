@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clases.interfaces
 {
-    internal interface IConfig
+    public interface IConfig
     {
     }
 }
