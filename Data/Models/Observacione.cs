@@ -10,7 +10,9 @@ namespace Data.Models
         public string Idobservaciones { get; set; }
         public string Resultados { get; set; }
         public string ArchivoIdarchivo { get; set; }
+        public string ArchivoIdarchivo1 { get; set; }
+        public string ArchivoReportesIdreportes { get; set; }
 
-        public virtual Archivo ArchivoIdarchivoNavigation { get; set; }
+        public virtual Archivo Archivo { get; set; }
     }
 }

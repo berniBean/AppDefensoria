@@ -1,3 +1,4 @@
+
 using Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -54,9 +55,10 @@ namespace INVEDEP
             #region Connexion  con bases de DAtos mysql 
             collection.AddOptions();
 
-            
 
-            collection.AddDbContext<ednita_dbContext>(opt => {
+
+            collection.AddDbContext<ednita_dbContext>(opt =>
+            {
                 opt.UseMySQL(configuration.GetConnectionString("SefiplanConnection"))
                 .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }
                     , Microsoft.Extensions.Logging.LogLevel.Information);

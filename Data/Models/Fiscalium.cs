@@ -12,7 +12,7 @@ namespace Data.Models
             Archivos = new HashSet<Archivo>();
         }
 
-        public int Idfiscalia { get; set; }
+        public string Idfiscalia { get; set; }
         public string Adscripcion { get; set; }
 
         public virtual ICollection<Archivo> Archivos { get; set; }
