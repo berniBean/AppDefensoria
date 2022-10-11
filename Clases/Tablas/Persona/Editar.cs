@@ -32,6 +32,7 @@ namespace Clases.Tablas.Persona
                 registro.Amaterno = request.Amaterno ?? registro.Amaterno;
                 registro.Nombre = request.Nombre ?? registro.Nombre;
 
+                
                 return RestultadoEF.Salvado(await _context.SaveChangesAsync());
             }
         }

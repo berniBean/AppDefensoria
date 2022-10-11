@@ -3,14 +3,13 @@ using Clases.helpers;
 using Clases.Repository;
 using MediatR;
 
-namespace Clases.Tablas.Cargo
+namespace Clases.Tablas.Fiscalia
 {
-    public class Eliminar
+    public class Nuevo
     {
         public class Ejecuta : IRequest
         {
-            public string? Idcargo { get; set; }
-            public string? Puesto { get; set; }
+            public string Adscripcion { get; set; }
         }
 
         public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
@@ -21,12 +20,15 @@ namespace Clases.Tablas.Cargo
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var registro = await _unitOfWork.Cargo.GetAsync(request.Idcargo);
+                var nuevaFiscalia = new Data.Models.Fiscalium
+                {
+                    Idfiscalia = Guid.NewGuid().ToString(),
+                    Adscripcion = request.Adscripcion
+                };
 
-                await _unitOfWork.Cargo.DeleteAsync(registro.Idcargo);
-               
+                await _unitOfWork.Fiscalia.AddAsync(nuevaFiscalia);
 
-                return RestultadoEF.Salvado(await _unitOfWork.Cargo.SaveAsync());
+                return RestultadoEF.Salvado(await _unitOfWork.Fiscalia.SaveAsync());
             }
         }
     }

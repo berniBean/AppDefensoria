@@ -1,6 +1,6 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
-using Data.Models;
+using Clases.Repository;
 using MediatR;
 
 namespace Clases.Tablas.Funcionario
@@ -15,23 +15,24 @@ namespace Clases.Tablas.Funcionario
             public string? CargoIdcargo { get; set; }
         }
 
-        public class Handler : HandlerRequestBase, IRequestHandler<Ejecuta>
+        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
         {
-            private readonly IMediator _mediator;
-            public Handler(ednita_dbContext context, IMediator mediator) : base(context)
+            public Handler(IUnitOfWork unitOfWork) : base(unitOfWork)
             {
-                _mediator = mediator;
             }
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var registro = await _mediator.Send(new Consulta.Ejecuta() { IdFuncionario = request.IdFuncionario });
+                var registro = await _unitOfWork.Funcionario.GetAsync(request.IdFuncionario);
+
+                if (registro == null)
+                    throw new Exception("No se encontró el registro");
 
                 registro.PersonaIdPersona = request.PersonaIdPersona ?? registro.PersonaIdPersona;
                 registro.OficinaIdoficina = request.OficinaIdoficina ?? registro.OficinaIdoficina;
                 registro.CargoIdcargo = request.CargoIdcargo ?? registro.CargoIdcargo;
 
-                return RestultadoEF.Salvado(await _context.SaveChangesAsync());
+                return RestultadoEF.Salvado(await _unitOfWork.Funcionario.SaveAsync()) ;
                 
             }
         }

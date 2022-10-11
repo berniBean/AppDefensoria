@@ -1,6 +1,6 @@
 ﻿namespace Clases.DTO.view
 {
-    public class FuncionarioDTO
+    internal class ReporteDTO
     {
     }
 }

@@ -1,16 +1,16 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
 using Clases.Repository;
-using Data.Models;
 using MediatR;
 
-namespace Clases.Tablas.Cargo
+namespace Clases.Tablas.Familiar
 {
     public class Nuevo
     {
         public class Ejecuta : IRequest
-        {           
-            public string? Puesto { get; set; }
+        {
+            public string IdPersona { get; set; }
+            public string IdPeticionario { get; set; }
         }
 
         public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
@@ -21,14 +21,13 @@ namespace Clases.Tablas.Cargo
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var nuevoPuesto = new Data.Models.Cargo
+                var nuevoFamiliar = new Data.Models.Famiiliar
                 {
-                    Idcargo = Guid.NewGuid().ToString(),
-                    Puesto = request.Puesto
-
+                    PersonaIdPersona = request.IdPersona,
+                    PeticionarioIdPeticionario = request.IdPeticionario
                 };
 
-                await _unitOfWork.Cargo.AddAsync(nuevoPuesto);
+                await _unitOfWork.Familiar.AddAsync(nuevoFamiliar);
 
                 return RestultadoEF.Salvado(await _unitOfWork.Save());
             }

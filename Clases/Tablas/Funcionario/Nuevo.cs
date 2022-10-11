@@ -1,5 +1,6 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
+using Clases.Repository;
 using Data.Models;
 using MediatR;
 
@@ -10,24 +11,22 @@ namespace Clases.Tablas.Funcionario
         public class Ejecuta : IRequest
         {
             public string? IdFuncionario { get; set; }
-            public string? PersonaIdPersona { get; set; }
-            public string? OficinaIdoficina { get; set; }
-            public string? CargoIdcargo { get; set; }
+            public string? IdPersona { get; set; }
+            public string? IdOficina { get; set; }
+            public string? IdCargo { get; set; }
         }
 
-        public class Handler : HandlerRequestBase, IRequestHandler<Ejecuta>
+        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
         {
-            private readonly IMediator _mediator;
-            public Handler(ednita_dbContext context, IMediator mediator) : base(context)
+            public Handler(IUnitOfWork unitOfWork) : base(unitOfWork)
             {
-                _mediator = mediator;
             }
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var persona = await _mediator.Send(new Tablas.Persona.Consulta.Ejecuta() { IdPersona = request.PersonaIdPersona });
-                var oficina = await _mediator.Send(new Tablas.Oficina.Consulta.Ejecuta() { IdOficina = request.OficinaIdoficina });
-                var cargo = await _mediator.Send(new Tablas.Cargo.Consulta.Ejecuta() { IdCargo = request.CargoIdcargo }); 
+                var persona = await _unitOfWork.Persona.GetAsync(request.IdPersona);
+                var oficina = await _unitOfWork.Oficina.GetAsync(request.IdOficina);
+                var cargo = await _unitOfWork.Cargo.GetAsync(request.IdCargo);
                 
                 var nuevoFuncionaro = new Data.Models.Funcionario
                 {
@@ -36,11 +35,9 @@ namespace Clases.Tablas.Funcionario
                     OficinaIdoficina = oficina.Idoficina,
                     CargoIdcargo = cargo.Idcargo
                 };
+                await _unitOfWork.Funcionario.AddAsync(nuevoFuncionaro);
 
-                await _context.Funcionarios.AddRangeAsync(nuevoFuncionaro);
-                await _context.SaveChangesAsync();
-
-                return RestultadoEF.Salvado(await _context.SaveChangesAsync());
+                return RestultadoEF.Salvado(await _unitOfWork.Funcionario.SaveAsync());
             }
         }
     }

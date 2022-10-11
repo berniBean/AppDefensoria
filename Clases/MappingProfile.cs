@@ -9,6 +9,11 @@ namespace Clases
         {
             CreateMap<Data.Models.Oficina, OficinaDTO>();
             CreateMap<Data.Models.Cargo, CargoDTO>();
+            CreateMap<Data.Models.Persona, PersonaDTO>();
+            CreateMap<Data.Models.Archivo, ArchivoDTO>();
+            CreateMap<Data.Models.Cita, CitaDTO>();
+            CreateMap<Data.Models.Fiscalium, FiscaliaDTO>();
+
         }
     }
 }

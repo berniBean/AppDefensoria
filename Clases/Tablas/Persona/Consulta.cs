@@ -1,27 +1,32 @@
-﻿using Clases.ClasesBase;
-using Data.Models;
+﻿using AutoMapper;
+using Clases.ClasesBase;
+using Clases.DTO.view;
+using Clases.Repository;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Clases.Tablas.Persona
 {
     public class Consulta 
     {
-        public class Ejecuta : EjecutaRespuestaGen<Data.Models.Persona>
+        public class Ejecuta : EjecutaRespuestaGen<PersonaDTO>
         {
             public string? IdPersona { get; set; }
         }
 
-        public class Handler : HandlerRequestBase, IRequestHandler<Ejecuta, Data.Models.Persona>
+        public class Handler : HandlerMapperOfWork, IRequestHandler<Ejecuta, PersonaDTO>
         {
-            public Handler(ednita_dbContext context) : base(context)
+            public Handler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
             {
             }
 
-            public async Task<Data.Models.Persona> Handle(Ejecuta request, CancellationToken cancellationToken)
+            public async Task<PersonaDTO> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var persona = await _context.Personas.FirstOrDefaultAsync(x => x.IdPersona.Equals(request.IdPersona));
-                return persona;
+                var persona = await _unitOfWork.Persona.GetAsync(request.IdPersona);
+                if (persona == null)
+                    throw new Exception("No se encontró el registro");
+
+                var mapper = _mapper.Map<Data.Models.Persona, PersonaDTO>(persona);
+                return mapper;
             }
         }
     }
