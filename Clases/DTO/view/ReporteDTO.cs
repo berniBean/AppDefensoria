@@ -1,6 +1,8 @@
 ﻿namespace Clases.DTO.view
 {
-    internal class ReporteDTO
+    public class ReporteDTO
     {
+        public string Idreportes { get; set; }
+        public DateTime? Fecha { get; set; }
     }
 }

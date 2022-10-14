@@ -9,7 +9,7 @@ namespace Clases.Tablas.Peticionario
     {
         public class Ejecuta : IRequest
         {
-            public string IdPeticionario { get; set; }
+            
             public string Alias { get; set; }
             public string IdentidadResguardada { get; set; }
             public string Domicilio { get; set; }

@@ -9,8 +9,8 @@ namespace Clases.Tablas.Archivo
     public class Nuevo
     {
         public class Ejecuta : IRequest
-        {
-            public string Idarchivo { get; set; }
+        {   
+            public string Persona { get; set; }
             public int? Serieindevep { get; set; }
             public string Delito { get; set; }
             public string Carpeta { get; set; }
@@ -26,6 +26,8 @@ namespace Clases.Tablas.Archivo
             public string ReportesIdreportes { get; set; }
             public string ParticularesIdParticulares { get; set; }
             public string VictinaIdvictina { get; set; }
+            
+
         }
 
         public class Handler : HandlerMapperOfWork, IRequestHandler<Ejecuta>
@@ -54,8 +56,9 @@ namespace Clases.Tablas.Archivo
                     ReportesIdreportes = request.ReportesIdreportes,
                     ParticularesIdParticulares = request.ParticularesIdParticulares,
                     VictinaIdvictina = request.VictinaIdvictina
-
                 };
+
+                
 
                 await _unitOfWork.Archivo.AddAsync(archivo);
 

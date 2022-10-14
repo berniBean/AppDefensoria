@@ -1,8 +1,11 @@
 
+using Clases.Repository;
 using Data.Models;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Clases.Tablas.Persona;
 
 namespace INVEDEP
 {
@@ -38,9 +41,16 @@ namespace INVEDEP
             collection.AddScoped<Inicio>();
             collection.AddScoped<Peticionario>();
             collection.AddScoped<Usuario>();
-            
+
             #endregion
 
+            #region UnitOfWork
+            collection.AddScoped<IUnitOfWork,UnitOfWork>();
+            #endregion
+
+            #region MApper MeditR
+            collection.AddMediatR(typeof(Consulta.Handler).Assembly);
+            #endregion
 
             #region Configuracion de connexion JSON
             IConfiguration configuration = new ConfigurationBuilder()
@@ -55,11 +65,11 @@ namespace INVEDEP
             #region Connexion  con bases de DAtos mysql 
             collection.AddOptions();
 
-
+           
 
             collection.AddDbContext<ednita_dbContext>(opt =>
             {
-                opt.UseMySQL(configuration.GetConnectionString("SefiplanConnection"))
+                opt.UseMySQL(configuration.GetConnectionString("DefaultConnection"))
                 .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }
                     , Microsoft.Extensions.Logging.LogLevel.Information);
 

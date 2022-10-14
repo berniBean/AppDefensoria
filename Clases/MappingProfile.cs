@@ -13,6 +13,9 @@ namespace Clases
             CreateMap<Data.Models.Archivo, ArchivoDTO>();
             CreateMap<Data.Models.Cita, CitaDTO>();
             CreateMap<Data.Models.Fiscalium, FiscaliaDTO>();
+            CreateMap<Data.Models.Victina, VictimaDTO>();
+            CreateMap<Data.Models.Observacione,ObservacionesDTO>();
+            CreateMap<List<Data.Models.Persona>,List<PersonaDTO>>();
 
         }
     }

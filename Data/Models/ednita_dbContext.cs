@@ -16,7 +16,7 @@ namespace Data.Models
             : base(options)
         {
         }
-
+        #region dbSets
         public virtual DbSet<Archivo> Archivos { get; set; }
         public virtual DbSet<Cargo> Cargos { get; set; }
         public virtual DbSet<Cita> Citas { get; set; }
@@ -30,13 +30,13 @@ namespace Data.Models
         public virtual DbSet<Peticionario> Peticionarios { get; set; }
         public virtual DbSet<Reporte> Reportes { get; set; }
         public virtual DbSet<Victina> Victinas { get; set; }
-
+        #endregion
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySQL("server=localhost; Uid=monty; Password=berninet2013; Database=ednita_db; Port=3306");
+                optionsBuilder.UseMySQL("server=localhost; Uid=root; Password=efloresp2013; Database=ednita_db; Port=3306");
             }
         }
 
