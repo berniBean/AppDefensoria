@@ -15,6 +15,20 @@ namespace INVEDEP
             _mediator = mediator;
             _datosPersona = datosPersona;
         }
+        private  void Peticionario_Load(object sender, EventArgs e)
+        {
+            CargarTablaPeticionarios();
+        }
+
+        private async void CargarTablaPeticionarios()
+        {
+            var listado = await _mediator.Send(new Clases.Tablas.Peticionario.ListConsulta.Ejecuta()
+            {
+                IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
+            });
+
+            DgPeticionarioParticulares.DataSource = listado;
+        }
 
         private void BtnCrear_Click(object sender, EventArgs e)
         {
@@ -41,6 +55,7 @@ namespace INVEDEP
 
         private void btnNuevoPeticionario_Click(object sender, EventArgs e)
         {
+            _datosPersona.TipoPersona = "Peticionario";
             _datosPersona.Show();
             
 
@@ -49,7 +64,7 @@ namespace INVEDEP
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            _idPersona = _datosPersona.IdPesona;
+           
             var res = await _mediator.Send(new Clases.Tablas.Peticionario.Nuevo.Ejecuta()
             {
                 Domicilio = tbDirecciones.Text,
@@ -60,5 +75,7 @@ namespace INVEDEP
                 FuncionarioIdFuncionario = "95735ce7-ed42-4f40-afbc-99c688abf123"
             });
         }
+
+
     }
 }

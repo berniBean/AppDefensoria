@@ -1,5 +1,6 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
+using Clases.Repository;
 using Data.Models;
 using MediatR;
 
@@ -7,34 +8,34 @@ namespace Clases.Tablas.Persona
 {
     public class Nuevo
     {
-        public class Ejecuta : IRequest
+        public class Ejecuta : IRequest<string>
         {
             public string? Apaterno { get; set; }
             public string? Amaterno { get; set; }
             public string? Nombre { get; set; }
         }
 
-        public class Handler : HandlerRequestBase, IRequestHandler<Ejecuta>
+        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta,string>
         {
-            public Handler(ednita_dbContext context) : base(context)
+            public Handler(IUnitOfWork unitOfWork) : base(unitOfWork)
             {
             }
 
-            public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
+            public async Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
                 var nuevaPersona = new Data.Models.Persona
                 {
                     IdPersona = Guid.NewGuid().ToString(),
-                    Apaterno = request.Amaterno,
+                    Apaterno = request.Apaterno,
                     Amaterno = request.Amaterno,
                     Nombre = request.Nombre
 
                 };
 
-                await _context.Personas.AddRangeAsync(nuevaPersona);
-                await _context.SaveChangesAsync();
+                await _unitOfWork.Persona.AddAsync(nuevaPersona);
+                await _unitOfWork.Save();
 
-                return RestultadoEF.Salvado(await _context.SaveChangesAsync());
+                return nuevaPersona.IdPersona.ToString();
             }
         }
 

@@ -35,7 +35,13 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DgPeticionarioParticulares = new System.Windows.Forms.DataGridView();
+            this.idPeticionarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idPersonaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peticionarioDGViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -99,14 +105,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.PeticionarioBox = new System.Windows.Forms.GroupBox();
             this.dataGridAudiencia = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPesonales.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgPeticionarioParticulares)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peticionarioDGViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.SuspendLayout();
@@ -134,7 +140,6 @@
             this.tlDatosCarpeta.SuspendLayout();
             this.PeticionarioBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAudiencia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -204,7 +209,7 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.81032F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.18968F));
-            this.tableLayoutPanel6.Controls.Add(this.dataGridView2, 1, 8);
+            this.tableLayoutPanel6.Controls.Add(this.DgPeticionarioParticulares, 1, 8);
             this.tableLayoutPanel6.Controls.Add(this.label16, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label17, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.label18, 0, 2);
@@ -237,15 +242,57 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(793, 572);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
-            // dataGridView2
+            // DgPeticionarioParticulares
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(112, 275);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(678, 294);
-            this.dataGridView2.TabIndex = 0;
+            this.DgPeticionarioParticulares.AutoGenerateColumns = false;
+            this.DgPeticionarioParticulares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgPeticionarioParticulares.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idPeticionarioDataGridViewTextBoxColumn,
+            this.idPersonaDataGridViewTextBoxColumn,
+            this.apaternoDataGridViewTextBoxColumn,
+            this.amaternoDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn});
+            this.DgPeticionarioParticulares.DataSource = this.peticionarioDGViewBindingSource;
+            this.DgPeticionarioParticulares.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgPeticionarioParticulares.Location = new System.Drawing.Point(112, 275);
+            this.DgPeticionarioParticulares.Name = "DgPeticionarioParticulares";
+            this.DgPeticionarioParticulares.RowTemplate.Height = 25;
+            this.DgPeticionarioParticulares.Size = new System.Drawing.Size(678, 294);
+            this.DgPeticionarioParticulares.TabIndex = 0;
+            // 
+            // idPeticionarioDataGridViewTextBoxColumn
+            // 
+            this.idPeticionarioDataGridViewTextBoxColumn.DataPropertyName = "IdPeticionario";
+            this.idPeticionarioDataGridViewTextBoxColumn.HeaderText = "IdPeticionario";
+            this.idPeticionarioDataGridViewTextBoxColumn.Name = "idPeticionarioDataGridViewTextBoxColumn";
+            // 
+            // idPersonaDataGridViewTextBoxColumn
+            // 
+            this.idPersonaDataGridViewTextBoxColumn.DataPropertyName = "IdPersona";
+            this.idPersonaDataGridViewTextBoxColumn.HeaderText = "IdPersona";
+            this.idPersonaDataGridViewTextBoxColumn.Name = "idPersonaDataGridViewTextBoxColumn";
+            // 
+            // apaternoDataGridViewTextBoxColumn
+            // 
+            this.apaternoDataGridViewTextBoxColumn.DataPropertyName = "Apaterno";
+            this.apaternoDataGridViewTextBoxColumn.HeaderText = "Apaterno";
+            this.apaternoDataGridViewTextBoxColumn.Name = "apaternoDataGridViewTextBoxColumn";
+            // 
+            // amaternoDataGridViewTextBoxColumn
+            // 
+            this.amaternoDataGridViewTextBoxColumn.DataPropertyName = "Amaterno";
+            this.amaternoDataGridViewTextBoxColumn.HeaderText = "Amaterno";
+            this.amaternoDataGridViewTextBoxColumn.Name = "amaternoDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // peticionarioDGViewBindingSource
+            // 
+            this.peticionarioDGViewBindingSource.DataSource = typeof(Clases.DTO.TableViews.PeticionarioDGView);
             // 
             // label16
             // 
@@ -942,6 +989,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Peticionario";
             this.Text = "Peticionario";
+            this.Load += new System.EventHandler(this.Peticionario_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabPesonales.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -949,7 +997,8 @@
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgPeticionarioParticulares)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peticionarioDGViewBindingSource)).EndInit();
             this.splitContainer3.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
@@ -980,7 +1029,6 @@
             this.tlDatosCarpeta.PerformLayout();
             this.PeticionarioBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAudiencia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -988,7 +1036,6 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private BindingSource bindingSource1;
         private TabControl tabPesonales;
         private TabPage tabPage2;
         private TableLayoutPanel tableLayoutPanel5;
@@ -1057,6 +1104,13 @@
         private Button btnNuevoPeticionario;
         private Button btnGuardar;
         private Button btnEliminar;
-        private DataGridView dataGridView2;
+        private DataGridView DgPeticionarioParticulares;
+        private BindingSource peticionarioDGViewBindingSource;
+        private DataGridViewTextBoxColumn idPeticionarioDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn idPersonaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn apaternoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn amaternoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn personasDataGridViewTextBoxColumn;
     }
 }

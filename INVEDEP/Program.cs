@@ -41,6 +41,7 @@ namespace INVEDEP
             collection.AddScoped<Inicio>();
             collection.AddScoped<Peticionario>();
             collection.AddScoped<Usuario>();
+            
 
             #endregion
 

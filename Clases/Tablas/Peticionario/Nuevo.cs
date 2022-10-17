@@ -29,23 +29,32 @@ namespace Clases.Tablas.Peticionario
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var nuevo = new Data.Models.Peticionario
+                try
                 {
-                    IdPeticionario = Guid.NewGuid().ToString(),
-                    Alias = request.Alias,
-                    IdentidadResguardada = request.IdentidadResguardada,
-                    Domicilio = request.Domicilio,
-                    GrupoEtnico = request.GrupoEtnico,
-                    Lengua = request.Lengua,
-                    Telefono = request.Telefono,
-                    PersonaIdPersona = request.PersonaIdPersona,
-                    FuncionarioIdFuncionario = request.FuncionarioIdFuncionario
+                    var nuevo = new Data.Models.Peticionario
+                    {
+                        IdPeticionario = Guid.NewGuid().ToString(),
+                        Alias = request.Alias,
+                        IdentidadResguardada = request.IdentidadResguardada,
+                        Domicilio = request.Domicilio,
+                        GrupoEtnico = request.GrupoEtnico,
+                        Lengua = request.Lengua,
+                        Telefono = request.Telefono,
+                        PersonaIdPersona = request.PersonaIdPersona,
+                        FuncionarioIdFuncionario = request.FuncionarioIdFuncionario
 
-                };
+                    };
 
-                await _unitOfWork.Peticionario.AddAsync(nuevo);
+                    await _unitOfWork.Peticionario.AddAsync(nuevo);
 
-                return RestultadoEF.Salvado(await _unitOfWork.Save());
+                    return RestultadoEF.Salvado(await _unitOfWork.Save());
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception(e.ToString());
+                }
+ 
             }
         }
     }
