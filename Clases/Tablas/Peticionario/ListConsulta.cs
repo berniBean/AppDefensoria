@@ -1,34 +1,38 @@
 ﻿using AutoMapper;
 using Clases.ClasesBase;
 using Clases.DTO.TableViews;
-using Clases.Repository;
+using Data.Models;
 using MediatR;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace Clases.Tablas.Peticionario
 {
     public class ListConsulta
     {
-        public class Ejecuta : IRequest<List<PeticionarioDGView>>
+        public class Ejecuta : IRequest<List<PeticionarioParticularesDGView>>
         {
             public string? IdFuncionario { get; set; }
         }
-        public class Handler : HandlerMapperOfWork, IRequestHandler<Ejecuta, List<PeticionarioDGView>>
+        public class Handler : HandlerRequestMapperBase, IRequestHandler<Ejecuta, List<PeticionarioParticularesDGView>>
         {
-            public Handler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
+            public Handler(ednita_dbContext context, IMapper mapper) : base(context, mapper)
             {
             }
 
-            public async Task<List<PeticionarioDGView>> Handle(Ejecuta request, CancellationToken cancellationToken)
+            public async Task<List<PeticionarioParticularesDGView>> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var peticionario = await _unitOfWork.Peticionario.GetASync();
 
-                if (peticionario == null)
-                    throw new Exception("no hay registros");
 
-                var filtoPeticionario= peticionario.Where(x => x.FuncionarioIdFuncionario.Equals(request.IdFuncionario)).ToList();
+                var ArchivoPeticionario = await _context.Archivos.Include(peticionario => peticionario.IdPeticionarioNavigation)
+                    .ThenInclude(funcionario => funcionario.FuncionarioIdFuncionarioNavigation)
+                    .ThenInclude(persona => persona.PersonaIdPersonaNavigation)
+                    .Where(funcionario => funcionario.IdPeticionarioNavigation.FuncionarioIdFuncionario.Equals(request.IdFuncionario)).ToListAsync();
 
-                var mapper = _mapper.Map<List<Data.Models.Peticionario>, List<PeticionarioDGView>>(filtoPeticionario);
+                if (ArchivoPeticionario == null)
+                    throw new Exception("aun no existen Registros");
+
+
+                var mapper = _mapper.Map<List<Data.Models.Archivo>, List<PeticionarioParticularesDGView>>(ArchivoPeticionario);
 
                 return mapper.ToList();
 

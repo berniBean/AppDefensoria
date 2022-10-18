@@ -25,6 +25,8 @@ namespace Clases.Tablas.Oficina
             {
                 var oficina =  await _context.Oficinas.FirstOrDefaultAsync(x => x.Idoficina.Equals(request.IdOficina));
 
+                
+
                 var mapper = _mapper.Map<Data.Models.Oficina, OficinaDTO>(oficina);
 
                 return mapper;

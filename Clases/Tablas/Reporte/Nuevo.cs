@@ -1,5 +1,4 @@
 ﻿using Clases.ClasesBase;
-using Clases.helpers;
 using Clases.Repository;
 using MediatR;
 
@@ -7,19 +6,18 @@ namespace Clases.Tablas.Reporte
 {
     public class Nuevo
     {
-        public class Ejecuta : IRequest
-        {
-            public string Idreportes { get; set; }
+        public class Ejecuta : IRequest<string>
+        {           
             public DateTime? Fecha { get; set; }
         }
 
-        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
+        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta, string>
         {
             public Handler(IUnitOfWork unitOfWork) : base(unitOfWork)
             {
             }
 
-            public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
+            public async Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
                 var nuevoReporte = new Data.Models.Reporte
                 {
@@ -28,7 +26,7 @@ namespace Clases.Tablas.Reporte
                 };
 
                 await _unitOfWork.Reporte.AddAsync(nuevoReporte);
-                return RestultadoEF.Salvado(await _unitOfWork.Reporte.SaveAsync());
+                return nuevoReporte.Idreportes;
             }
         }
     }

@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Clases.Strategy.Concretas
 {
-    public class FamiliarStrategy : IPersonaStrategy<PersonaDTO>
+    public class FamiliarStrategy : IGuardarStrategy<PersonaDTO>
     {
         public string? Peticionario { get; set; }
         private IMediator _mediator;

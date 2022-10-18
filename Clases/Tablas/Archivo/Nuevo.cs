@@ -10,7 +10,6 @@ namespace Clases.Tablas.Archivo
     {
         public class Ejecuta : IRequest
         {   
-            public string Persona { get; set; }
             public int? Serieindevep { get; set; }
             public string Delito { get; set; }
             public string Carpeta { get; set; }
@@ -38,31 +37,40 @@ namespace Clases.Tablas.Archivo
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var archivo = new Data.Models.Archivo
+                try
                 {
-                    Idarchivo = Guid.NewGuid().ToString(),
-                    Serieindevep = request.Serieindevep,
-                    Delito = request.Delito,
-                    Carpeta = request.Carpeta,
-                    Juez = request.Juez,
-                    ProcesoPenal = request.ProcesoPenal,
-                    SegundaInstancia = request.SegundaInstancia,
-                    Toca = request.Toca,
-                    Amparo = request.Amparo,
-                    ExpedinteAmparo = request.ExpedinteAmparo,
-                    Estatus = request.Estatus,
-                    IdPeticionario = request.IdPeticionario,
-                    FiscaliaIdfiscalia = request.FiscaliaIdfiscalia,
-                    ReportesIdreportes = request.ReportesIdreportes,
-                    ParticularesIdParticulares = request.ParticularesIdParticulares,
-                    VictinaIdvictina = request.VictinaIdvictina
-                };
+                    var archivo = new Data.Models.Archivo
+                    {
+                        Idarchivo = Guid.NewGuid().ToString(),
+                        Serieindevep = request.Serieindevep,
+                        Delito = request.Delito,
+                        Carpeta = request.Carpeta,
+                        Juez = request.Juez,
+                        ProcesoPenal = request.ProcesoPenal,
+                        SegundaInstancia = request.SegundaInstancia,
+                        Toca = request.Toca,
+                        Amparo = request.Amparo,
+                        ExpedinteAmparo = request.ExpedinteAmparo,
+                        Estatus = request.Estatus,
+                        IdPeticionario = request.IdPeticionario,
+                        FiscaliaIdfiscalia = request.FiscaliaIdfiscalia,
+                        ReportesIdreportes = request.ReportesIdreportes,
+                        ParticularesIdParticulares = request.ParticularesIdParticulares,
+                        VictinaIdvictina = request.VictinaIdvictina
+                    };
 
-                
 
-                await _unitOfWork.Archivo.AddAsync(archivo);
 
-                return RestultadoEF.Salvado(await _unitOfWork.Archivo.SaveAsync());
+                    await _unitOfWork.Archivo.AddAsync(archivo);
+
+                    return RestultadoEF.Salvado(await _unitOfWork.Archivo.SaveAsync());
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception(e.ToString());
+                }
+
             }
         }
     }

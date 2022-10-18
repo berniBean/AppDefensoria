@@ -8,6 +8,8 @@ namespace INVEDEP
         private DatosPersona _datosPersona;
         IMediator _mediator;
         private string _idPersona { get; set; }
+        private string _idPeticionario { get; set; }
+
 
         public Peticionario(DatosPersona datosPersona, IMediator mediator)
         {
@@ -20,37 +22,26 @@ namespace INVEDEP
             CargarTablaPeticionarios();
         }
 
-        private async void CargarTablaPeticionarios()
+
+
+        private async void BtnCrear_Click(object sender, EventArgs e)
         {
-            var listado = await _mediator.Send(new Clases.Tablas.Peticionario.ListConsulta.Ejecuta()
+            try
             {
-                IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
-            });
 
-            DgPeticionarioParticulares.DataSource = listado;
-        }
+            }
+            catch (Exception lo)
+            {
 
-        private void BtnCrear_Click(object sender, EventArgs e)
-        {
-           
+                throw new Exception(lo.ToString());
+            }
+
             
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
-            var res = _mediator.Send(new Nuevo.Ejecuta()
-            {
-                Serieindevep =  Convert.ToInt32(TbInvedep.Text),
-                Delito = tbDelito.Text,
-                Carpeta = tbCarpeta.Text,
-                Juez = tbJuez.Text,
-                ProcesoPenal = tbProcesoPenal.Text,
-                Toca = tbToca.Text,
-                Amparo = tbAmparo.Text,
-                ExpedinteAmparo = tbArchivoAmparo.Text
-                
-                
-            }) ;
+
         }
 
         private void btnNuevoPeticionario_Click(object sender, EventArgs e)
@@ -61,19 +52,65 @@ namespace INVEDEP
 
 
         }
-
+        #region ParticularesPeticionarios
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-           
+
             var res = await _mediator.Send(new Clases.Tablas.Peticionario.Nuevo.Ejecuta()
             {
-                Domicilio = tbDirecciones.Text,
-                GrupoEtnico = tbGrupoEtnico.Text,
+                Domicilio = tbDirecciones.Text,                
                 Lengua = tbLengua.Text,
                 Telefono = tbTelefono.Text,
                 PersonaIdPersona = _idPersona,
                 FuncionarioIdFuncionario = "95735ce7-ed42-4f40-afbc-99c688abf123"
             });
+        }
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+
+        private void DgPeticionarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+
+        }
+
+        
+
+        #region Funcionalidades
+        private async void CargarTablaPeticionarios()
+        {
+            var listado = await _mediator.Send(new Clases.Tablas.Peticionario.ListConsulta.Ejecuta()
+            {
+                IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
+            });
+
+            DgPeticionarioParticulares.DataSource = listado;
+           
+        }
+
+        private async void CargarDatosParticularesPeticionario()
+        {
+            //var datoParticular = await _mediator.Send(new Clases.Tablas.)
+        }
+
+
+        #endregion
+
+        private void DgPeticionarioParticulares_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void DgPeticionarioParticulares_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _idPersona = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+           
         }
 
 

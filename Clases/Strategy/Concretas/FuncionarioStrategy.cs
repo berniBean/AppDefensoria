@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Clases.Strategy.Concretas
 {
-    public class FuncionarioStrategy : IPersonaStrategy<PersonaDTO>
+    public class FuncionarioStrategy : IGuardarStrategy<PersonaDTO>
     {
         public string Cargo { get; set; }
         public string Oficina { get; set; }

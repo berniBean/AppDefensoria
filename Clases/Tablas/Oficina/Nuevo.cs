@@ -29,6 +29,8 @@ namespace Clases.Tablas.Oficina
 
                 };
 
+
+
                 await _context.Oficinas.AddRangeAsync(nuevaOficina);
                 await _context.SaveChangesAsync();
 

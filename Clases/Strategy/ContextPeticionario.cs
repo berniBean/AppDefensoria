@@ -5,12 +5,12 @@ namespace Clases.Strategy
 {
     public class ContextPeticionario
     {
-        private IPersonaStrategy<PersonaDTO> _strategy;
-        public IPersonaStrategy<PersonaDTO> Strategy
+        private IGuardarStrategy<PersonaDTO> _strategy;
+        public IGuardarStrategy<PersonaDTO> Strategy
         {
             get { return _strategy; }
         }
-        public ContextPeticionario(IPersonaStrategy<PersonaDTO> strategy)
+        public ContextPeticionario(IGuardarStrategy<PersonaDTO> strategy)
         {
             _strategy = strategy;
         }

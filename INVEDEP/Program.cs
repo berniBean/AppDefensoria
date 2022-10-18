@@ -51,6 +51,8 @@ namespace INVEDEP
 
             #region MApper MeditR
             collection.AddMediatR(typeof(Consulta.Handler).Assembly);
+            collection.AddMediatR(typeof(Clases.Tablas.Peticionario.Consulta.Handler).Assembly);
+            collection.AddAutoMapper(typeof(Clases.Tablas.Peticionario.ListConsulta.Handler).Assembly);
             #endregion
 
             #region Configuracion de connexion JSON
@@ -70,7 +72,7 @@ namespace INVEDEP
 
             collection.AddDbContext<ednita_dbContext>(opt =>
             {
-                opt.UseMySQL(configuration.GetConnectionString("DefaultConnection"))
+                opt.UseMySQL(configuration.GetConnectionString("SefiplanConnection"))
                 .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }
                     , Microsoft.Extensions.Logging.LogLevel.Information);
 

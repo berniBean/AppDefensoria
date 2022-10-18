@@ -7,18 +7,18 @@ namespace Clases.Tablas.Fiscalia
 {
     public class Nuevo
     {
-        public class Ejecuta : IRequest
+        public class Ejecuta : IRequest<string>
         {
             public string Adscripcion { get; set; }
         }
 
-        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
+        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta,string>
         {
             public Handler(IUnitOfWork unitOfWork) : base(unitOfWork)
             {
             }
 
-            public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
+            public async Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
                 var nuevaFiscalia = new Data.Models.Fiscalium
                 {
@@ -28,8 +28,10 @@ namespace Clases.Tablas.Fiscalia
 
                 await _unitOfWork.Fiscalia.AddAsync(nuevaFiscalia);
 
-                return RestultadoEF.Salvado(await _unitOfWork.Fiscalia.SaveAsync());
+                return nuevaFiscalia.Idfiscalia;
             }
+
+
         }
     }
 }
