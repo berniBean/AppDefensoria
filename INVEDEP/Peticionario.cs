@@ -1,14 +1,21 @@
 ﻿using MediatR;
-using Clases.Tablas.Archivo;
+
 
 namespace INVEDEP
 {
     public partial class Peticionario : Form
     {
         private DatosPersona _datosPersona;
+        private string _idArchivo;
+        private string _idPeticionario;
+        private string _idFiscalia;
+        private string _idReportes;
+        private string _idParticulares;
+        private string _idVictima;
+
+        
         IMediator _mediator;
         private string _idPersona { get; set; }
-        private string _idPeticionario { get; set; }
 
 
         public Peticionario(DatosPersona datosPersona, IMediator mediator)
@@ -19,7 +26,7 @@ namespace INVEDEP
         }
         private  void Peticionario_Load(object sender, EventArgs e)
         {
-            CargarTablaPeticionarios();
+            CargarDatosParticularesPeticionario();
         }
 
 
@@ -48,21 +55,33 @@ namespace INVEDEP
         {
             _datosPersona.TipoPersona = "Peticionario";
             _datosPersona.Show();
-            
+
+
+            CargarDatosParticularesPeticionario();
 
 
         }
         #region ParticularesPeticionarios
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            var res = await _mediator.Send(new Clases.Tablas.Peticionario.Nuevo.Ejecuta()
+            var res = _mediator.Send(new Clases.Tablas.Peticionario.Editar.Ejecuta()
             {
-                Domicilio = tbDirecciones.Text,                
-                Lengua = tbLengua.Text,
-                Telefono = tbTelefono.Text,
-                PersonaIdPersona = _idPersona,
-                FuncionarioIdFuncionario = "95735ce7-ed42-4f40-afbc-99c688abf123"
+               IdPeticionario = _idPeticionario,
+               Domicilio = tbDirecciones.Text,
+               Lengua = tbLengua.Text,
+               Telefono = tbTelefono.Text
+
+            });
+
+            var particulares = _mediator.Send(new Clases.Tablas.Particulares.Editar.Ejecuta()
+            {
+                IdParticulares = _idParticulares,
+                Edad = Convert.ToInt16(tbEdad.Text),
+                Ocupacion = tbOcupacion.Text,
+                EstadoCivil = tbEstadoCivil.Text,
+                Estudios = tbEstudios.Text
+
+
             });
         }
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -93,9 +112,14 @@ namespace INVEDEP
            
         }
 
-        private async void CargarDatosParticularesPeticionario()
+        private async Task CargarDatosParticularesPeticionario()
         {
-            //var datoParticular = await _mediator.Send(new Clases.Tablas.)
+            var datosArchivosPeticionario = await _mediator.Send(new Clases.Tablas.Peticionario.ListConsulta.Ejecuta()
+            {
+                IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
+            }) ;
+
+            DgPeticionarioParticulares.DataSource = datosArchivosPeticionario;
         }
 
 
@@ -109,9 +133,30 @@ namespace INVEDEP
         private void DgPeticionarioParticulares_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             _idPersona = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[0].Value.ToString();
+            _idPeticionario = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[1].Value.ToString();
+            _idFiscalia = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[2].Value.ToString();
+            _idReportes = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[3].Value.ToString();
+            _idParticulares= DgPeticionarioParticulares.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-           
+
         }
+
+
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+
+
+        
+        }
+
 
 
     }

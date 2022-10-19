@@ -8,7 +8,6 @@ namespace Clases.Tablas.Victima
     {
         public class Ejecuta : IRequest<string>
         {
-            public string Alias { get; set; }
         }
 
         public class Handler : HandlerOfWork, IRequestHandler<Ejecuta, string>
@@ -22,11 +21,12 @@ namespace Clases.Tablas.Victima
                 var nuevaVictima = new Data.Models.Victina
                 {
                     Idvictina = Guid.NewGuid().ToString(),
-                    Alias = request.Alias
+
 
                 };
 
                await _unitOfWork.Victima.AddAsync(nuevaVictima);
+               await _unitOfWork.Save();
                 return nuevaVictima.Idvictina;
             }
         }

@@ -17,8 +17,6 @@ namespace Clases.Tablas.Peticionario
             public string GrupoEtnico { get; set; }
             public string Lengua { get; set; }
             public string Telefono { get; set; }
-            public string PersonaIdPersona { get; set; }
-            public string FuncionarioIdFuncionario { get; set; }
 
         }
 
@@ -42,9 +40,7 @@ namespace Clases.Tablas.Peticionario
                 registro.GrupoEtnico = request.GrupoEtnico ?? registro.GrupoEtnico;
                 registro.Lengua = request.Lengua ?? registro.Lengua;
                 registro.Telefono = request.Telefono ?? registro.Telefono;
-                registro.PersonaIdPersona = request.PersonaIdPersona ?? registro.PersonaIdPersona;
-                registro.FuncionarioIdFuncionario = request.FuncionarioIdFuncionario ?? registro.FuncionarioIdFuncionario;
-                
+
 
                 _unitOfWork.Peticionario.Upadate(registro);
 

@@ -3,7 +3,6 @@
     public partial class Inicio : Form
     {
         private readonly Citas _formCitas;
-   
         private readonly Informes _formInformes;
         private readonly Usuario _formUsuario;
         private readonly Peticionario _formPeticionario;

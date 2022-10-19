@@ -19,20 +19,8 @@ namespace Clases.Strategy.Concretas
         {
             var res = await _mediator.Send(new Clases.Tablas.Archivo.Nuevo.Ejecuta()
             {
-                Serieindevep = persona.Serieindevep,
-                Delito = persona.Delito,
-                Carpeta = persona.Carpeta,
-                Juez = persona.Juez,
-                ProcesoPenal = persona.ProcesoPenal,
-                SegundaInstancia = persona.SegundaInstancia,
-                Toca = persona.Toca,
-                Amparo = persona.Amparo,
-                ExpedinteAmparo = persona.ExpedinteAmparo,
-                IdPeticionario = persona.IdPeticionario,
 
-                
-
-
+                IdPeticionario = persona.IdPeticionario
             });
         }
     }

@@ -35,12 +35,13 @@ namespace INVEDEP
             IServiceCollection collection = new ServiceCollection();
 
             #region Agregar las ventanas de WindowsForms
-            collection.AddScoped<Citas>();
-            collection.AddScoped<DatosPersona>();
-            collection.AddScoped<Informes>();
-            collection.AddScoped<Inicio>();
-            collection.AddScoped<Peticionario>();
-            collection.AddScoped<Usuario>();
+            collection.AddTransient<Citas>();
+            collection.AddTransient<DatosPersona>();
+            collection.AddTransient<Informes>();
+            collection.AddTransient<Inicio>();
+            collection.AddTransient<Peticionario>();
+            collection.AddTransient<Usuario>();
+            
             
 
             #endregion

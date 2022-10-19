@@ -1,13 +1,16 @@
 ﻿using Clases.ClasesBase;
+using Clases.DTO.view;
 using Clases.Repository;
 using MediatR;
 
-namespace Clases.Tablas.Reporte
+namespace Clases.Tablas.Particulares
 {
     public class Nuevo
     {
         public class Ejecuta : IRequest<string>
-        {           
+        {
+            public string IdPeticionario { get; set; }
+            
         }
 
         public class Handler : HandlerOfWork, IRequestHandler<Ejecuta, string>
@@ -18,14 +21,15 @@ namespace Clases.Tablas.Reporte
 
             public async Task<string> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var nuevoReporte = new Data.Models.Reporte
+                var particulares = new Data.Models.Particulare
                 {
-                    Idreportes = Guid.NewGuid().ToString()
+                    IdParticulares = Guid.NewGuid().ToString(),
+                    IdPeticionario = request.IdPeticionario
                 };
 
-                await _unitOfWork.Reporte.AddAsync(nuevoReporte);
+                await _unitOfWork.Particulares.AddAsync(particulares);
                 await _unitOfWork.Save();
-                return nuevoReporte.Idreportes;
+                return particulares.IdParticulares;
             }
         }
     }

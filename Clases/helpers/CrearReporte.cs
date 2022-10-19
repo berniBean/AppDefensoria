@@ -5,12 +5,9 @@ namespace Clases.helpers
 {
     public static class CrearReporte
     {
-        public async static Task<string> NuevoReporte(ReporteDTO reporte, IMediator _mediator)
+        public async static Task<string> NuevoReporte(IMediator _mediator)
         {
-            var Nuevoreporte = await _mediator.Send(new Clases.Tablas.Reporte.Nuevo.Ejecuta()
-            {
-                Fecha = reporte.Fecha ?? default
-            }) ;
+            var Nuevoreporte = await _mediator.Send(new Clases.Tablas.Reporte.Nuevo.Ejecuta()) ;
 
             return Nuevoreporte;
         }

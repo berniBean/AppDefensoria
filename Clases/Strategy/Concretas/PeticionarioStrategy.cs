@@ -19,11 +19,30 @@ namespace Clases.Strategy.Concretas
         {
             var IdPersona = await helpers.CrearPersona.NuevaPersona(persona, _mediator);
 
-            var peticionario = await _mediator.Send(new Clases.Tablas.Peticionario.Nuevo.Ejecuta()
+            var Idpeticionario = await _mediator.Send(new Clases.Tablas.Peticionario.Nuevo.Ejecuta()
             {
                 PersonaIdPersona = IdPersona,
                 FuncionarioIdFuncionario = Funcionario
             }) ;
+
+            var IdFiscalia = await helpers.CrearFiscal.NuevoFiscal(_mediator);
+
+            var IdParticulares = await helpers.CrearParticulares.NuevoPartculares(Idpeticionario, _mediator);
+
+            var IdReporte = await helpers.CrearReporte.NuevoReporte(_mediator);
+
+            var IdVictima = await helpers.CrearVictima.NuevaVictima(_mediator);
+
+            var archivo = await _mediator.Send(new Clases.Tablas.Archivo.Nuevo.Ejecuta()
+            {
+                IdPeticionario = Idpeticionario,
+                FiscaliaIdfiscalia = IdFiscalia,
+                ReportesIdreportes = IdReporte,
+                ParticularesIdParticulares =IdParticulares,
+                VictinaIdvictina = IdVictima
+            });
+
+
         }
     }
 }

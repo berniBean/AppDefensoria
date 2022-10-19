@@ -23,10 +23,10 @@ namespace Clases.Tablas.Peticionario
             {
 
 
-                var ArchivoPeticionario = await _context.Archivos.Include(peticionario => peticionario.IdPeticionarioNavigation)
-                    .ThenInclude(funcionario => funcionario.FuncionarioIdFuncionarioNavigation)
-                    .ThenInclude(persona => persona.PersonaIdPersonaNavigation)
-                    .Where(funcionario => funcionario.IdPeticionarioNavigation.FuncionarioIdFuncionario.Equals(request.IdFuncionario)).ToListAsync();
+
+                var ArchivoPeticionario = await _context.Archivos.Where(funcionario => funcionario.IdPeticionarioNavigation.FuncionarioIdFuncionario.Equals(request.IdFuncionario))
+                    .Include(peticionario => peticionario.IdPeticionarioNavigation.PersonaIdPersonaNavigation)
+                    .ToListAsync();
 
                 if (ArchivoPeticionario == null)
                     throw new Exception("aun no existen Registros");

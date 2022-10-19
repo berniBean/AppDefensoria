@@ -9,7 +9,6 @@ namespace Clases.Tablas.Fiscalia
     {
         public class Ejecuta : IRequest<string>
         {
-            public string Adscripcion { get; set; }
         }
 
         public class Handler : HandlerOfWork, IRequestHandler<Ejecuta,string>
@@ -22,11 +21,11 @@ namespace Clases.Tablas.Fiscalia
             {
                 var nuevaFiscalia = new Data.Models.Fiscalium
                 {
-                    Idfiscalia = Guid.NewGuid().ToString(),
-                    Adscripcion = request.Adscripcion
+                    Idfiscalia = Guid.NewGuid().ToString()
                 };
 
                 await _unitOfWork.Fiscalia.AddAsync(nuevaFiscalia);
+                await _unitOfWork.Save();
 
                 return nuevaFiscalia.Idfiscalia;
             }
