@@ -16,7 +16,7 @@ namespace Data.Models
             : base(options)
         {
         }
-        #region dbSets
+
         public virtual DbSet<Archivo> Archivos { get; set; }
         public virtual DbSet<Cargo> Cargos { get; set; }
         public virtual DbSet<Cita> Citas { get; set; }
@@ -30,14 +30,10 @@ namespace Data.Models
         public virtual DbSet<Peticionario> Peticionarios { get; set; }
         public virtual DbSet<Reporte> Reportes { get; set; }
         public virtual DbSet<Victina> Victinas { get; set; }
-        #endregion
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySQL("server=localhost; Uid=root; Password=efloresp2013; Database=ednita_db; Port=3306");
-            }
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -200,7 +196,8 @@ namespace Data.Models
 
             modelBuilder.Entity<Famiiliar>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.PersonaIdPersona, e.PeticionarioIdPeticionario })
+                    .HasName("PRIMARY");
 
                 entity.ToTable("famiiliar");
 
@@ -209,23 +206,21 @@ namespace Data.Models
                 entity.HasIndex(e => e.PeticionarioIdPeticionario, "fk_famiiliar_peticionario1_idx");
 
                 entity.Property(e => e.PersonaIdPersona)
-                    .IsRequired()
                     .HasMaxLength(90)
                     .HasColumnName("persona_idPersona");
 
                 entity.Property(e => e.PeticionarioIdPeticionario)
-                    .IsRequired()
                     .HasMaxLength(90)
                     .HasColumnName("peticionario_idPeticionario");
 
                 entity.HasOne(d => d.PersonaIdPersonaNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Famiiliars)
                     .HasForeignKey(d => d.PersonaIdPersona)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_famiiliar_persona");
 
                 entity.HasOne(d => d.PeticionarioIdPeticionarioNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Famiiliars)
                     .HasForeignKey(d => d.PeticionarioIdPeticionario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_famiiliar_peticionario");

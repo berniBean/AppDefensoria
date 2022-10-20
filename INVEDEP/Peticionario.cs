@@ -36,24 +36,30 @@ namespace INVEDEP
 
 
 
-        private async void BtnCrear_Click(object sender, EventArgs e)
+        private void BtnRefresh_Click(object sender, EventArgs e)
         {
             try
             {
+                var res = _mediator.Send(new Clases.Tablas.Archivo.Editar.Ejecuta()
+                {
+                    Idarchivo = _idArchivo,
+                    Serieindevep = Convert.ToInt16(TbInvedep.Text),
+                    Delito = tbDelito.Text,
+                    Carpeta = tbCarpeta.Text,
+                    Juez = tbJuez.Text,
+                    ProcesoPenal = tbProcesoPenal.Text,
+                    SegundaInstancia = tbInstancia.Text,
+                    Toca = tbToca.Text,
+                    Amparo = tbAmparo.Text,
+                    ExpedinteAmparo = tbArchivoAmparo.Text
 
+                });
             }
             catch (Exception lo)
             {
 
                 throw new Exception(lo.ToString());
             }
-
-            
-        }
-
-        private void BtnRefresh_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnNuevoPeticionario_Click(object sender, EventArgs e)
@@ -65,6 +71,7 @@ namespace INVEDEP
         private void BtnFamiliar_Click(object sender, EventArgs e)
         {
             _datosPersona.TipoPersona = "Familiar";
+            _datosPersona.UpdateEventHandler += DatosPersonaUpdateEventHandler;
             _datosPersona.IdPeticionario = _idPeticionario;
             _datosPersona.ShowDialog();
         }
@@ -136,7 +143,7 @@ namespace INVEDEP
 
         private void DgPeticionarioParticulares_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _idPersona = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[0].Value.ToString();
+            _idArchivo = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[0].Value.ToString();
             _idPeticionario = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[1].Value.ToString();
             _idFiscalia = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[2].Value.ToString();
             _idReportes = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[3].Value.ToString();

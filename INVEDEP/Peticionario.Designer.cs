@@ -91,7 +91,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnCrear = new System.Windows.Forms.Button();
             this.BtnRefresh = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
@@ -425,7 +424,7 @@
             this.BtnFamiliar.Name = "BtnFamiliar";
             this.BtnFamiliar.Size = new System.Drawing.Size(130, 24);
             this.BtnFamiliar.TabIndex = 0;
-            this.BtnFamiliar.Text = "Nuevo familiar";
+            this.BtnFamiliar.Text = "Editar Familiar";
             this.BtnFamiliar.UseVisualStyleBackColor = true;
             this.BtnFamiliar.Click += new System.EventHandler(this.BtnFamiliar_Click);
             // 
@@ -845,7 +844,6 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.BtnCrear, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.BtnRefresh, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.button3, 0, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -856,17 +854,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(134, 147);
             this.tableLayoutPanel2.TabIndex = 12;
-            // 
-            // BtnCrear
-            // 
-            this.BtnCrear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnCrear.Location = new System.Drawing.Point(3, 3);
-            this.BtnCrear.Name = "BtnCrear";
-            this.BtnCrear.Size = new System.Drawing.Size(128, 37);
-            this.BtnCrear.TabIndex = 11;
-            this.BtnCrear.Text = "Crear";
-            this.BtnCrear.UseVisualStyleBackColor = true;
-            this.BtnCrear.Click += new System.EventHandler(this.BtnCrear_Click);
             // 
             // BtnRefresh
             // 
@@ -1073,7 +1060,6 @@
         private SplitContainer splitContainer2;
         private TableLayoutPanel tableLayoutPanel3;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button BtnCrear;
         private Button BtnRefresh;
         private Button button3;
         private TableLayoutPanel tlDatosCarpeta;

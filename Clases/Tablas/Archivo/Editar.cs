@@ -1,4 +1,6 @@
 ﻿using Clases.ClasesBase;
+using Clases.helpers;
+using Clases.Repository;
 using Data.Models;
 using MediatR;
 
@@ -19,22 +21,45 @@ namespace Clases.Tablas.Archivo
             public string Amparo { get; set; }
             public string ExpedinteAmparo { get; set; }
             public string Estatus { get; set; }
-            public string IdPeticionario { get; set; }
-            public string FiscaliaIdfiscalia { get; set; }
-            public string ReportesIdreportes { get; set; }
-            public string ParticularesIdParticulares { get; set; }
-            public string VictinaIdvictina { get; set; }
         }
 
-        public class Handler : HandlerRequestBase, IRequestHandler<Ejecuta>
+        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
         {
-            public Handler(ednita_dbContext context) : base(context)
+            public Handler(IUnitOfWork unitOfWork) : base(unitOfWork)
             {
             }
 
-            public Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                throw new NotImplementedException();
+                try
+                {
+                    var registro = await _unitOfWork.Archivo.GetAsync(request.Idarchivo);
+                    
+                    if (registro == null)
+                        throw new Exception("No se encontró el registro");
+
+                    registro.Serieindevep = request.Serieindevep ?? registro.Serieindevep;
+                    registro.Delito = request.Delito ?? registro.Delito;
+                    registro.Carpeta = request.Carpeta ?? registro.Carpeta;
+                    registro.Juez = request.Juez ?? registro.Juez;
+                    registro.ProcesoPenal = request.ProcesoPenal ?? registro.ProcesoPenal;
+                    registro.SegundaInstancia = request.SegundaInstancia ?? registro.SegundaInstancia;
+                    registro.Toca = request.Toca ?? registro.Toca;
+                    registro.Amparo = request.Amparo ?? registro.Amparo;
+                    registro.ExpedinteAmparo = request.ExpedinteAmparo ?? registro.ExpedinteAmparo;
+
+                    _unitOfWork.Archivo.Upadate(registro);
+                }
+                catch (Exception e)
+                {
+
+                    throw new Exception(e.ToString());
+                }
+                
+                
+
+
+                return RestultadoEF.Salvado(await _unitOfWork.Archivo.SaveAsync());
             }
         }
     }

@@ -10,6 +10,7 @@ namespace Data.Models
         public Peticionario()
         {
             Archivos = new HashSet<Archivo>();
+            Famiiliars = new HashSet<Famiiliar>();
         }
 
         public string IdPeticionario { get; set; }
@@ -25,5 +26,6 @@ namespace Data.Models
         public virtual Funcionario FuncionarioIdFuncionarioNavigation { get; set; }
         public virtual Persona PersonaIdPersonaNavigation { get; set; }
         public virtual ICollection<Archivo> Archivos { get; set; }
+        public virtual ICollection<Famiiliar> Famiiliars { get; set; }
     }
 }
