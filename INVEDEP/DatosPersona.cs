@@ -10,6 +10,7 @@ namespace INVEDEP
     {
         private IMediator _mediator;
         public string? TipoPersona { get; set; }
+        public string? IdPeticionario { get; set; }
         public DatosPersona(IMediator mediator)
         {
             InitializeComponent();
@@ -24,13 +25,31 @@ namespace INVEDEP
             Persona.Apaterno = tbApellidoPaterno.Text;
             Persona.Amaterno = tbApellidoMaterno.Text;
 
-            var context = new ContextPeticionario(new PeticionarioStrategy(_mediator) 
-            { Funcionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4" });
-            await context.Add(Persona);
+            ContextPeticionario context = TipoPersona.Equals("Peticionario") ? 
+                new ContextPeticionario(new PeticionarioStrategy(_mediator) { Funcionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4" }) :
+                new ContextPeticionario(new FamiliarStrategy(_mediator) { Peticionario = IdPeticionario });
 
-       
+            //var context = new ContextPeticionario(new PeticionarioStrategy(_mediator) 
+            //{ Funcionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4" });
+            await context.Add(Persona);
+            Insert();
+
+
         }
 
+        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
+        public event UpdateDelegate UpdateEventHandler;
+
+        public class UpdateEventArgs : EventArgs
+        {
+            public string Data { get; set; }
+
+        }
+        protected void Insert()
+        {
+            UpdateEventArgs args = new UpdateEventArgs();
+            UpdateEventHandler.Invoke(this, args);
+        }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -39,6 +58,7 @@ namespace INVEDEP
             {
                 e.Cancel = true;
                 Hide();
+                
             }
 
 

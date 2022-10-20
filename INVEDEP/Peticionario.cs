@@ -24,6 +24,11 @@ namespace INVEDEP
             _mediator = mediator;
             _datosPersona = datosPersona;
         }
+
+        private void DatosPersonaUpdateEventHandler(object sender, DatosPersona.UpdateEventArgs args)
+        {
+            CargarDatosParticularesPeticionario();
+        }
         private  void Peticionario_Load(object sender, EventArgs e)
         {
             CargarDatosParticularesPeticionario();
@@ -54,17 +59,19 @@ namespace INVEDEP
         private void btnNuevoPeticionario_Click(object sender, EventArgs e)
         {
             _datosPersona.TipoPersona = "Peticionario";
-            _datosPersona.Show();
-
-
-            CargarDatosParticularesPeticionario();
-
-
+            _datosPersona.UpdateEventHandler += DatosPersonaUpdateEventHandler;
+            _datosPersona.ShowDialog();
+        }
+        private void BtnFamiliar_Click(object sender, EventArgs e)
+        {
+            _datosPersona.TipoPersona = "Familiar";
+            _datosPersona.IdPeticionario = _idPeticionario;
+            _datosPersona.ShowDialog();
         }
         #region ParticularesPeticionarios
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            var res = _mediator.Send(new Clases.Tablas.Peticionario.Editar.Ejecuta()
+            var res = await _mediator.Send(new Clases.Tablas.Peticionario.Editar.Ejecuta()
             {
                IdPeticionario = _idPeticionario,
                Domicilio = tbDirecciones.Text,
@@ -73,7 +80,7 @@ namespace INVEDEP
 
             });
 
-            var particulares = _mediator.Send(new Clases.Tablas.Particulares.Editar.Ejecuta()
+            var particulares = await _mediator.Send(new Clases.Tablas.Particulares.Editar.Ejecuta()
             {
                 IdParticulares = _idParticulares,
                 Edad = Convert.ToInt16(tbEdad.Text),
@@ -84,10 +91,7 @@ namespace INVEDEP
 
             });
         }
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
 
-        }
         #endregion
 
 
@@ -156,7 +160,6 @@ namespace INVEDEP
 
         
         }
-
 
 
     }

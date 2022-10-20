@@ -26,6 +26,7 @@ namespace Clases.Tablas.Peticionario
 
                 var ArchivoPeticionario = await _context.Archivos.Where(funcionario => funcionario.IdPeticionarioNavigation.FuncionarioIdFuncionario.Equals(request.IdFuncionario))
                     .Include(peticionario => peticionario.IdPeticionarioNavigation.PersonaIdPersonaNavigation)
+                    .Include(particulares => particulares.ParticularesIdParticularesNavigation)
                     .ToListAsync();
 
                 if (ArchivoPeticionario == null)
