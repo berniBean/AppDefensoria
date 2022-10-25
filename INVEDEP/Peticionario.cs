@@ -1,5 +1,6 @@
-﻿using MediatR;
-
+﻿using Clases.helpers;
+using MediatR;
+using System.Runtime.CompilerServices;
 
 namespace INVEDEP
 {
@@ -8,14 +9,10 @@ namespace INVEDEP
         private DatosPersona _datosPersona;
         private string _idArchivo;
         private string _idPeticionario;
-        private string _idFiscalia;
-        private string _idReportes;
         private string _idParticulares;
-        private string _idVictima;
 
         
         IMediator _mediator;
-        private string _idPersona { get; set; }
 
 
         public Peticionario(DatosPersona datosPersona, IMediator mediator)
@@ -51,8 +48,9 @@ namespace INVEDEP
                     SegundaInstancia = tbInstancia.Text,
                     Toca = tbToca.Text,
                     Amparo = tbAmparo.Text,
-                    ExpedinteAmparo = tbArchivoAmparo.Text
-
+                    ExpedinteAmparo = tbArchivoAmparo.Text,
+                    Victima = TbVictima.Text,
+                    Fiscalia = tbFiscalia.Text
                 });
             }
             catch (Exception lo)
@@ -75,6 +73,7 @@ namespace INVEDEP
             _datosPersona.IdPeticionario = _idPeticionario;
             _datosPersona.ShowDialog();
         }
+
         #region ParticularesPeticionarios
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -145,9 +144,7 @@ namespace INVEDEP
         {
             _idArchivo = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[0].Value.ToString();
             _idPeticionario = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[1].Value.ToString();
-            _idFiscalia = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[2].Value.ToString();
-            _idReportes = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[3].Value.ToString();
-            _idParticulares= DgPeticionarioParticulares.Rows[e.RowIndex].Cells[4].Value.ToString();
+            _idParticulares= DgPeticionarioParticulares.Rows[e.RowIndex].Cells[2].Value.ToString();
 
 
         }

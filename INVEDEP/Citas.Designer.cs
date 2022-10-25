@@ -28,37 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.DtFechaAudiencia = new System.Windows.Forms.DateTimePicker();
+            this.TbSala = new System.Windows.Forms.TextBox();
+            this.TbTipoAudiencia = new System.Windows.Forms.TextBox();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblSala = new System.Windows.Forms.Label();
+            this.lblTipoAudiencia = new System.Windows.Forms.Label();
+            this.txtResultado = new System.Windows.Forms.RichTextBox();
+            this.lblResumen = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.DgViewCitas = new System.Windows.Forms.DataGridView();
+            this.idcitasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportesIdreportesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.archivoIdarchivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaAudienciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.audienciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResultadoAudiencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.archivosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.citaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peticionariosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.citasDGViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgViewCitas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citasDGViewBindingSource)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -85,8 +103,8 @@
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.74947F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.25053F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.37688F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.62313F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1016, 467);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -95,98 +113,99 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.40938F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.59062F));
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.richTextBox1, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.DtFechaAudiencia, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.TbSala, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.TbTipoAudiencia, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.lblFecha, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.lblSala, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.lblTipoAudiencia, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.txtResultado, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.lblResumen, 0, 5);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(466, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.67347F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.32653F));
+            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(547, 231);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 229F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(547, 331);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // DtFechaAudiencia
             // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Location = new System.Drawing.Point(180, 21);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(364, 23);
-            this.dateTimePicker1.TabIndex = 0;
+            this.DtFechaAudiencia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtFechaAudiencia.Location = new System.Drawing.Point(180, 3);
+            this.DtFechaAudiencia.Name = "DtFechaAudiencia";
+            this.DtFechaAudiencia.Size = new System.Drawing.Size(364, 23);
+            this.DtFechaAudiencia.TabIndex = 0;
             // 
-            // textBox1
+            // TbSala
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(180, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(364, 23);
-            this.textBox1.TabIndex = 1;
+            this.TbSala.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TbSala.Location = new System.Drawing.Point(180, 36);
+            this.TbSala.Name = "TbSala";
+            this.TbSala.Size = new System.Drawing.Size(364, 23);
+            this.TbSala.TabIndex = 1;
             // 
-            // textBox2
+            // TbTipoAudiencia
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(180, 86);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(364, 23);
-            this.textBox2.TabIndex = 2;
+            this.TbTipoAudiencia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TbTipoAudiencia.Location = new System.Drawing.Point(180, 66);
+            this.TbTipoAudiencia.Name = "TbTipoAudiencia";
+            this.TbTipoAudiencia.Size = new System.Drawing.Size(364, 23);
+            this.TbTipoAudiencia.TabIndex = 2;
             // 
-            // label1
+            // lblFecha
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Location = new System.Drawing.Point(133, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 35);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Fecha:";
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblFecha.Location = new System.Drawing.Point(133, 0);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(41, 33);
+            this.lblFecha.TabIndex = 3;
+            this.lblFecha.Text = "Fecha:";
             // 
-            // label2
+            // lblSala
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Location = new System.Drawing.Point(143, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 30);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Sala:";
+            this.lblSala.AutoSize = true;
+            this.lblSala.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblSala.Location = new System.Drawing.Point(143, 33);
+            this.lblSala.Name = "lblSala";
+            this.lblSala.Size = new System.Drawing.Size(31, 30);
+            this.lblSala.TabIndex = 4;
+            this.lblSala.Text = "Sala:";
             // 
-            // label3
+            // lblTipoAudiencia
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label3.Location = new System.Drawing.Point(87, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 33);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Tipo audiencia:";
+            this.lblTipoAudiencia.AutoSize = true;
+            this.lblTipoAudiencia.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblTipoAudiencia.Location = new System.Drawing.Point(87, 63);
+            this.lblTipoAudiencia.Name = "lblTipoAudiencia";
+            this.lblTipoAudiencia.Size = new System.Drawing.Size(87, 31);
+            this.lblTipoAudiencia.TabIndex = 5;
+            this.lblTipoAudiencia.Text = "Tipo audiencia:";
             // 
-            // richTextBox1
+            // txtResultado
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(180, 119);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(364, 109);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "";
+            this.txtResultado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtResultado.Location = new System.Drawing.Point(180, 105);
+            this.txtResultado.Name = "txtResultado";
+            this.txtResultado.Size = new System.Drawing.Size(364, 223);
+            this.txtResultado.TabIndex = 6;
+            this.txtResultado.Text = "";
             // 
-            // label4
+            // lblResumen
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Location = new System.Drawing.Point(61, 116);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 115);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Resumen audiencia:";
+            this.lblResumen.AutoSize = true;
+            this.lblResumen.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblResumen.Location = new System.Drawing.Point(61, 102);
+            this.lblResumen.Name = "lblResumen";
+            this.lblResumen.Size = new System.Drawing.Size(113, 229);
+            this.lblResumen.TabIndex = 7;
+            this.lblResumen.Text = "Resumen audiencia:";
             // 
             // groupBox2
             // 
@@ -194,66 +213,10 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(457, 231);
+            this.groupBox2.Size = new System.Drawing.Size(457, 331);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Peticionario";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(451, 178);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 240);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(457, 224);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Registro citas";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(451, 202);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.48701F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.51299F));
-            this.tableLayoutPanel1.Controls.Add(this.btnGuardar, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(466, 240);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.64286F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.35714F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(547, 224);
-            this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGuardar.Location = new System.Drawing.Point(415, 3);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(129, 38);
-            this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -269,9 +232,9 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(451, 209);
-            this.splitContainer1.SplitterDistance = 27;
+            this.splitContainer1.Panel2.Controls.Add(this.DgViewCitas);
+            this.splitContainer1.Size = new System.Drawing.Size(451, 309);
+            this.splitContainer1.SplitterDistance = 36;
             this.splitContainer1.TabIndex = 1;
             // 
             // textBox3
@@ -282,6 +245,188 @@
             this.textBox3.Size = new System.Drawing.Size(451, 23);
             this.textBox3.TabIndex = 0;
             // 
+            // DgViewCitas
+            // 
+            this.DgViewCitas.AllowUserToAddRows = false;
+            this.DgViewCitas.AutoGenerateColumns = false;
+            this.DgViewCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgViewCitas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idcitasDataGridViewTextBoxColumn,
+            this.reportesIdreportesDataGridViewTextBoxColumn,
+            this.archivoIdarchivoDataGridViewTextBoxColumn,
+            this.fechaAudienciaDataGridViewTextBoxColumn,
+            this.salaDataGridViewTextBoxColumn,
+            this.audienciaDataGridViewTextBoxColumn,
+            this.ResultadoAudiencia,
+            this.apaternoDataGridViewTextBoxColumn,
+            this.amaternoDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.estatusDataGridViewTextBoxColumn,
+            this.personasDataGridViewTextBoxColumn,
+            this.archivosDataGridViewTextBoxColumn,
+            this.citaDataGridViewTextBoxColumn,
+            this.peticionariosDataGridViewTextBoxColumn});
+            this.DgViewCitas.DataSource = this.citasDGViewBindingSource;
+            this.DgViewCitas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgViewCitas.Location = new System.Drawing.Point(0, 0);
+            this.DgViewCitas.Name = "DgViewCitas";
+            this.DgViewCitas.RowTemplate.Height = 25;
+            this.DgViewCitas.Size = new System.Drawing.Size(451, 269);
+            this.DgViewCitas.TabIndex = 0;
+            this.DgViewCitas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // idcitasDataGridViewTextBoxColumn
+            // 
+            this.idcitasDataGridViewTextBoxColumn.DataPropertyName = "Idcitas";
+            this.idcitasDataGridViewTextBoxColumn.HeaderText = "Idcitas";
+            this.idcitasDataGridViewTextBoxColumn.Name = "idcitasDataGridViewTextBoxColumn";
+            this.idcitasDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // reportesIdreportesDataGridViewTextBoxColumn
+            // 
+            this.reportesIdreportesDataGridViewTextBoxColumn.DataPropertyName = "ReportesIdreportes";
+            this.reportesIdreportesDataGridViewTextBoxColumn.HeaderText = "ReportesIdreportes";
+            this.reportesIdreportesDataGridViewTextBoxColumn.Name = "reportesIdreportesDataGridViewTextBoxColumn";
+            this.reportesIdreportesDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // archivoIdarchivoDataGridViewTextBoxColumn
+            // 
+            this.archivoIdarchivoDataGridViewTextBoxColumn.DataPropertyName = "ArchivoIdarchivo";
+            this.archivoIdarchivoDataGridViewTextBoxColumn.HeaderText = "ArchivoIdarchivo";
+            this.archivoIdarchivoDataGridViewTextBoxColumn.Name = "archivoIdarchivoDataGridViewTextBoxColumn";
+            this.archivoIdarchivoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // fechaAudienciaDataGridViewTextBoxColumn
+            // 
+            this.fechaAudienciaDataGridViewTextBoxColumn.DataPropertyName = "FechaAudiencia";
+            this.fechaAudienciaDataGridViewTextBoxColumn.HeaderText = "FechaAudiencia";
+            this.fechaAudienciaDataGridViewTextBoxColumn.Name = "fechaAudienciaDataGridViewTextBoxColumn";
+            this.fechaAudienciaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // salaDataGridViewTextBoxColumn
+            // 
+            this.salaDataGridViewTextBoxColumn.DataPropertyName = "Sala";
+            this.salaDataGridViewTextBoxColumn.HeaderText = "Sala";
+            this.salaDataGridViewTextBoxColumn.Name = "salaDataGridViewTextBoxColumn";
+            this.salaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // audienciaDataGridViewTextBoxColumn
+            // 
+            this.audienciaDataGridViewTextBoxColumn.DataPropertyName = "Audiencia";
+            this.audienciaDataGridViewTextBoxColumn.HeaderText = "Audiencia";
+            this.audienciaDataGridViewTextBoxColumn.Name = "audienciaDataGridViewTextBoxColumn";
+            this.audienciaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ResultadoAudiencia
+            // 
+            this.ResultadoAudiencia.DataPropertyName = "ResultadoAudiencia";
+            this.ResultadoAudiencia.HeaderText = "ResultadoAudiencia";
+            this.ResultadoAudiencia.Name = "ResultadoAudiencia";
+            this.ResultadoAudiencia.Visible = false;
+            // 
+            // apaternoDataGridViewTextBoxColumn
+            // 
+            this.apaternoDataGridViewTextBoxColumn.DataPropertyName = "Apaterno";
+            this.apaternoDataGridViewTextBoxColumn.HeaderText = "Apaterno";
+            this.apaternoDataGridViewTextBoxColumn.Name = "apaternoDataGridViewTextBoxColumn";
+            // 
+            // amaternoDataGridViewTextBoxColumn
+            // 
+            this.amaternoDataGridViewTextBoxColumn.DataPropertyName = "Amaterno";
+            this.amaternoDataGridViewTextBoxColumn.HeaderText = "Amaterno";
+            this.amaternoDataGridViewTextBoxColumn.Name = "amaternoDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // estatusDataGridViewTextBoxColumn
+            // 
+            this.estatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus";
+            this.estatusDataGridViewTextBoxColumn.HeaderText = "Estatus";
+            this.estatusDataGridViewTextBoxColumn.Name = "estatusDataGridViewTextBoxColumn";
+            // 
+            // personasDataGridViewTextBoxColumn
+            // 
+            this.personasDataGridViewTextBoxColumn.DataPropertyName = "Personas";
+            this.personasDataGridViewTextBoxColumn.HeaderText = "Personas";
+            this.personasDataGridViewTextBoxColumn.Name = "personasDataGridViewTextBoxColumn";
+            this.personasDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // archivosDataGridViewTextBoxColumn
+            // 
+            this.archivosDataGridViewTextBoxColumn.DataPropertyName = "Archivos";
+            this.archivosDataGridViewTextBoxColumn.HeaderText = "Archivos";
+            this.archivosDataGridViewTextBoxColumn.Name = "archivosDataGridViewTextBoxColumn";
+            this.archivosDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // citaDataGridViewTextBoxColumn
+            // 
+            this.citaDataGridViewTextBoxColumn.DataPropertyName = "Cita";
+            this.citaDataGridViewTextBoxColumn.HeaderText = "Cita";
+            this.citaDataGridViewTextBoxColumn.Name = "citaDataGridViewTextBoxColumn";
+            this.citaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // peticionariosDataGridViewTextBoxColumn
+            // 
+            this.peticionariosDataGridViewTextBoxColumn.DataPropertyName = "Peticionarios";
+            this.peticionariosDataGridViewTextBoxColumn.HeaderText = "Peticionarios";
+            this.peticionariosDataGridViewTextBoxColumn.Name = "peticionariosDataGridViewTextBoxColumn";
+            this.peticionariosDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // citasDGViewBindingSource
+            // 
+            this.citasDGViewBindingSource.DataSource = typeof(Clases.DTO.TableViews.CitasDGView);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 340);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(457, 124);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Registro citas";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 19);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.Size = new System.Drawing.Size(451, 102);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.48701F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.51299F));
+            this.tableLayoutPanel1.Controls.Add(this.btnGuardar, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(466, 340);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.06452F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.93549F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(547, 124);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGuardar.Location = new System.Drawing.Point(415, 3);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(129, 35);
+            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // Citas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -290,20 +435,22 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Citas";
             this.Text = "Citas";
+            this.Load += new System.EventHandler(this.Citas_Load);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgViewCitas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citasDGViewBindingSource)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -312,22 +459,39 @@
 
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private RichTextBox richTextBox1;
-        private Label label4;
+        private DateTimePicker DtFechaAudiencia;
+        private TextBox TbSala;
+        private TextBox TbTipoAudiencia;
+        private Label lblFecha;
+        private Label lblSala;
+        private Label lblTipoAudiencia;
         private TableLayoutPanel tableLayoutPanel3;
         private GroupBox groupBox2;
-        private DataGridView dataGridView1;
+        private DataGridView DgViewCitas;
         private GroupBox groupBox3;
         private DataGridView dataGridView2;
         private TableLayoutPanel tableLayoutPanel1;
         private Button btnGuardar;
         private SplitContainer splitContainer1;
         private TextBox textBox3;
+        private RichTextBox txtResultado;
+        private Label lblResumen;
+        private DataGridViewTextBoxColumn observacionesDataGridViewTextBoxColumn;
+        private BindingSource citasDGViewBindingSource;
+        private DataGridViewTextBoxColumn idcitasDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn reportesIdreportesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn archivoIdarchivoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fechaAudienciaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn salaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn audienciaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn ResultadoAudiencia;
+        private DataGridViewTextBoxColumn apaternoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn amaternoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn estatusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn personasDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn archivosDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn citaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn peticionariosDataGridViewTextBoxColumn;
     }
 }

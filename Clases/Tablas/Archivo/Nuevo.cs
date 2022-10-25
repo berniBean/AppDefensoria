@@ -11,10 +11,7 @@ namespace Clases.Tablas.Archivo
         public class Ejecuta : IRequest<string>
         {   
             public string IdPeticionario { get; set; }
-            public string FiscaliaIdfiscalia { get; set; }
-            public string ReportesIdreportes { get; set; }
             public string ParticularesIdParticulares { get; set; }
-            public string VictinaIdvictina { get; set; }
             
 
         }
@@ -32,11 +29,8 @@ namespace Clases.Tablas.Archivo
                     var archivo = new Data.Models.Archivo
                     {
                         Idarchivo = Guid.NewGuid().ToString(),
-                        IdPeticionario = request.IdPeticionario,
-                        FiscaliaIdfiscalia = request.FiscaliaIdfiscalia,
-                        ReportesIdreportes = request.ReportesIdreportes,
-                        ParticularesIdParticulares = request.ParticularesIdParticulares,
-                        VictinaIdvictina = request.VictinaIdvictina
+                        IdPeticionario = request.IdPeticionario,                      
+                        ParticularesIdParticulares = request.ParticularesIdParticulares
                     };
 
 
@@ -46,10 +40,10 @@ namespace Clases.Tablas.Archivo
 
                     return archivo.Idarchivo;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
 
-                    throw new Exception(e.ToString());
+                    throw;
                 }
             }
         }

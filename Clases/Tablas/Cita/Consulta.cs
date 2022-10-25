@@ -10,7 +10,7 @@ namespace Clases.Tablas.Cita
     {
         public class Ejecuta : IRequest<CitaDTO>
         {
-            public string IdCIta { get; set; }
+            public string? IdCIta { get; set; }
         }
 
         public class Handler : HandlerMapperOfWork, IRequestHandler<Ejecuta, CitaDTO>

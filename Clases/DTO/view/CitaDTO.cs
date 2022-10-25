@@ -1,4 +1,6 @@
-﻿namespace Clases.DTO.view
+﻿using Data.Models;
+
+namespace Clases.DTO.view
 {
     public class CitaDTO
     {
@@ -8,5 +10,7 @@
         public string Audiencia { get; set; }
         public string ArchivoIdarchivo { get; set; }
         public string ArchivoReportesIdreportes { get; set; }
+
+        
     }
 }

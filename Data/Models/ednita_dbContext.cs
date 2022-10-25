@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Data.Seeding;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
@@ -21,47 +20,40 @@ namespace Data.Models
         public virtual DbSet<Cargo> Cargos { get; set; }
         public virtual DbSet<Cita> Citas { get; set; }
         public virtual DbSet<Famiiliar> Famiiliars { get; set; }
-        public virtual DbSet<Fiscalium> Fiscalia { get; set; }
         public virtual DbSet<Funcionario> Funcionarios { get; set; }
-        public virtual DbSet<Observacione> Observaciones { get; set; }
         public virtual DbSet<Oficina> Oficinas { get; set; }
         public virtual DbSet<Particulare> Particulares { get; set; }
         public virtual DbSet<Persona> Personas { get; set; }
         public virtual DbSet<Peticionario> Peticionarios { get; set; }
         public virtual DbSet<Reporte> Reportes { get; set; }
-        public virtual DbSet<Victina> Victinas { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseMySQL("server=localhost; Uid=monty; Password=berninet2013; Database=ednita_db; Port=3306");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            SeedersIniciales.Seed(modelBuilder);
+
             modelBuilder.Entity<Archivo>(entity =>
             {
-                entity.HasKey(e => new { e.Idarchivo, e.ReportesIdreportes })
+                entity.HasKey(e => e.Idarchivo)
                     .HasName("PRIMARY");
 
                 entity.ToTable("archivo");
-
-                entity.HasIndex(e => e.FiscaliaIdfiscalia, "fk_archivo_fiscalia1_idx");
 
                 entity.HasIndex(e => e.ParticularesIdParticulares, "fk_archivo_particulares1_idx");
 
                 entity.HasIndex(e => e.IdPeticionario, "fk_archivo_peticionario1_idx");
 
-                entity.HasIndex(e => e.ReportesIdreportes, "fk_archivo_reportes1_idx1");
-
-                entity.HasIndex(e => e.VictinaIdvictina, "fk_archivo_victina1_idx");
-
                 entity.Property(e => e.Idarchivo)
                     .HasMaxLength(90)
                     .HasColumnName("idarchivo");
-
-                entity.Property(e => e.ReportesIdreportes)
-                    .HasMaxLength(90)
-                    .HasColumnName("reportes_idreportes");
 
                 entity.Property(e => e.Amparo).HasMaxLength(45);
 
@@ -73,14 +65,11 @@ namespace Data.Models
                     .HasMaxLength(255)
                     .HasColumnName("delito");
 
-                entity.Property(e => e.Estatus).HasMaxLength(45);
+                entity.Property(e => e.Estatus).HasDefaultValue(EstatusArchivo.Activo);
 
                 entity.Property(e => e.ExpedinteAmparo).HasMaxLength(45);
 
-                entity.Property(e => e.FiscaliaIdfiscalia)
-                    .IsRequired()
-                    .HasMaxLength(90)
-                    .HasColumnName("fiscalia_idfiscalia");
+                entity.Property(e => e.Fiscalia).HasMaxLength(255);
 
                 entity.Property(e => e.IdPeticionario)
                     .IsRequired()
@@ -104,16 +93,7 @@ namespace Data.Models
 
                 entity.Property(e => e.Toca).HasMaxLength(45);
 
-                entity.Property(e => e.VictinaIdvictina)
-                    .IsRequired()
-                    .HasMaxLength(90)
-                    .HasColumnName("victina_idvictina");
-
-                entity.HasOne(d => d.FiscaliaIdfiscaliaNavigation)
-                    .WithMany(p => p.Archivos)
-                    .HasForeignKey(d => d.FiscaliaIdfiscalia)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_archivo_fiscalia1");
+                entity.Property(e => e.Victima).HasMaxLength(255);
 
                 entity.HasOne(d => d.IdPeticionarioNavigation)
                     .WithMany(p => p.Archivos)
@@ -126,18 +106,6 @@ namespace Data.Models
                     .HasForeignKey(d => d.ParticularesIdParticulares)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_archivo_particulares1");
-
-                entity.HasOne(d => d.ReportesIdreportesNavigation)
-                    .WithMany(p => p.Archivos)
-                    .HasForeignKey(d => d.ReportesIdreportes)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_archivo_reportes1");
-
-                entity.HasOne(d => d.VictinaIdvictinaNavigation)
-                    .WithMany(p => p.Archivos)
-                    .HasForeignKey(d => d.VictinaIdvictina)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_archivo_victina1");
             });
 
             modelBuilder.Entity<Cargo>(entity =>
@@ -163,7 +131,9 @@ namespace Data.Models
 
                 entity.ToTable("citas");
 
-                entity.HasIndex(e => new { e.ArchivoIdarchivo, e.ArchivoReportesIdreportes }, "fk_citas_archivo1_idx");
+                entity.HasIndex(e => e.ArchivoIdarchivo, "fk_citas_archivo1_idx1");
+
+                entity.HasIndex(e => e.ReportesIdreportes, "fk_citas_reportes1_idx");
 
                 entity.Property(e => e.Idcitas)
                     .HasMaxLength(90)
@@ -174,24 +144,32 @@ namespace Data.Models
                     .HasMaxLength(90)
                     .HasColumnName("archivo_idarchivo");
 
-                entity.Property(e => e.ArchivoReportesIdreportes)
+                entity.Property(e => e.Audiencia)
+                    .HasMaxLength(155)
+                    .HasColumnName("audiencia");
+
+                entity.Property(e => e.ReportesIdreportes)
                     .IsRequired()
                     .HasMaxLength(90)
-                    .HasColumnName("archivo_reportes_idreportes");
+                    .HasColumnName("reportes_idreportes");
 
-                entity.Property(e => e.Audiencia)
-                    .HasMaxLength(45)
-                    .HasColumnName("audiencia");
+                entity.Property(e => e.ResultadoAudiencia).HasColumnType("longtext");
 
                 entity.Property(e => e.Sala)
                     .HasMaxLength(45)
                     .HasColumnName("sala");
 
-                entity.HasOne(d => d.Archivo)
+                entity.HasOne(d => d.ArchivoIdarchivoNavigation)
                     .WithMany(p => p.Cita)
-                    .HasForeignKey(d => new { d.ArchivoIdarchivo, d.ArchivoReportesIdreportes })
+                    .HasForeignKey(d => d.ArchivoIdarchivo)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_citas_archivo1");
+
+                entity.HasOne(d => d.ReportesIdreportesNavigation)
+                    .WithMany(p => p.Cita)
+                    .HasForeignKey(d => d.ReportesIdreportes)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_citas_reportes1");
             });
 
             modelBuilder.Entity<Famiiliar>(entity =>
@@ -224,22 +202,6 @@ namespace Data.Models
                     .HasForeignKey(d => d.PeticionarioIdPeticionario)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_famiiliar_peticionario");
-            });
-
-            modelBuilder.Entity<Fiscalium>(entity =>
-            {
-                entity.HasKey(e => e.Idfiscalia)
-                    .HasName("PRIMARY");
-
-                entity.ToTable("fiscalia");
-
-                entity.Property(e => e.Idfiscalia)
-                    .HasMaxLength(90)
-                    .HasColumnName("idfiscalia");
-
-                entity.Property(e => e.Adscripcion)
-                    .HasMaxLength(45)
-                    .HasColumnName("adscripcion");
             });
 
             modelBuilder.Entity<Funcionario>(entity =>
@@ -291,47 +253,6 @@ namespace Data.Models
                     .HasForeignKey(d => d.PersonaIdPersona)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Funcionario_persona1");
-            });
-
-            modelBuilder.Entity<Observacione>(entity =>
-            {
-                entity.HasKey(e => e.Idobservaciones)
-                    .HasName("PRIMARY");
-
-                entity.ToTable("observaciones");
-
-                entity.HasIndex(e => e.ArchivoIdarchivo, "fk_observaciones_archivo1_idx");
-
-                entity.HasIndex(e => new { e.ArchivoIdarchivo1, e.ArchivoReportesIdreportes }, "fk_observaciones_archivo1_idx1");
-
-                entity.Property(e => e.Idobservaciones)
-                    .HasMaxLength(90)
-                    .HasColumnName("idobservaciones");
-
-                entity.Property(e => e.ArchivoIdarchivo)
-                    .IsRequired()
-                    .HasMaxLength(90)
-                    .HasColumnName("archivo_idarchivo");
-
-                entity.Property(e => e.ArchivoIdarchivo1)
-                    .IsRequired()
-                    .HasMaxLength(90)
-                    .HasColumnName("archivo_idarchivo1");
-
-                entity.Property(e => e.ArchivoReportesIdreportes)
-                    .IsRequired()
-                    .HasMaxLength(90)
-                    .HasColumnName("archivo_reportes_idreportes");
-
-                entity.Property(e => e.Resultados)
-                    .HasMaxLength(255)
-                    .HasColumnName("resultados");
-
-                entity.HasOne(d => d.Archivo)
-                    .WithMany(p => p.Observaciones)
-                    .HasForeignKey(d => new { d.ArchivoIdarchivo1, d.ArchivoReportesIdreportes })
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_observaciones_archivo1");
             });
 
             modelBuilder.Entity<Oficina>(entity =>
@@ -473,20 +394,6 @@ namespace Data.Models
                     .HasColumnName("idreportes");
 
                 entity.Property(e => e.Fecha).HasColumnName("fecha");
-            });
-
-            modelBuilder.Entity<Victina>(entity =>
-            {
-                entity.HasKey(e => e.Idvictina)
-                    .HasName("PRIMARY");
-
-                entity.ToTable("victina");
-
-                entity.Property(e => e.Idvictina)
-                    .HasMaxLength(90)
-                    .HasColumnName("idvictina");
-
-                entity.Property(e => e.Alias).HasMaxLength(45);
             });
 
             OnModelCreatingPartial(modelBuilder);

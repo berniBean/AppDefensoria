@@ -1,4 +1,6 @@
-﻿namespace Clases.DTO.view
+﻿using Data.Models;
+
+namespace Clases.DTO.view
 {
     public class ArchivoDTO
     {
@@ -13,10 +15,11 @@
         public string Amparo { get; set; }
         public string ExpedinteAmparo { get; set; }
         public string Estatus { get; set; }
+        public string Fiscalia { get; set; }
+        public string Victima { get; set; }
         public string IdPeticionario { get; set; }
-        public string FiscaliaIdfiscalia { get; set; }
         public string ReportesIdreportes { get; set; }
         public string ParticularesIdParticulares { get; set; }
-        public string VictinaIdvictina { get; set; }
+        public virtual ICollection<Cita> Cita { get; set; }
     }
 }

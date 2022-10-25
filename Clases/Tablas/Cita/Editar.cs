@@ -13,8 +13,9 @@ namespace Clases.Tablas.Cita
             public DateTime? FechaAudiencia { get; set; }
             public string Sala { get; set; }
             public string Audiencia { get; set; }
-            public string ArchivoIdarchivo { get; set; }
-            public string ArchivoReportesIdreportes { get; set; }
+            public string ResultadoAudiencia { get; set; }
+
+
         }
 
         public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
@@ -30,8 +31,7 @@ namespace Clases.Tablas.Cita
                 registro.FechaAudiencia = request.FechaAudiencia ?? registro.FechaAudiencia;
                 registro.Sala = request.Sala ?? registro.Sala;
                 registro.Audiencia = request.Audiencia ?? registro.Audiencia;
-                registro.ArchivoIdarchivo = request.ArchivoIdarchivo ?? registro.ArchivoIdarchivo;
-                registro.ArchivoReportesIdreportes = request.ArchivoReportesIdreportes ?? registro.ArchivoReportesIdreportes;
+                registro.ResultadoAudiencia = request.ResultadoAudiencia ?? registro.ResultadoAudiencia;
 
                 return RestultadoEF.Salvado(await _unitOfWork.Cita.SaveAsync());
 

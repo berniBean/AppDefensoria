@@ -34,7 +34,7 @@ namespace Clases.Tablas.Peticionario
                 if (registro == null)
                     throw new Exception("No se encontró el registro");
 
-                registro.Alias = request.Alias ?? registro.Alias;
+                //registro.Alias = request.Alias ?? registro.Alias;
                 registro.IdentidadResguardada = request.IdentidadResguardada ?? registro.IdentidadResguardada;
                 registro.Domicilio = request.Domicilio ?? registro.Domicilio;
                 registro.GrupoEtnico = request.GrupoEtnico ?? registro.GrupoEtnico;

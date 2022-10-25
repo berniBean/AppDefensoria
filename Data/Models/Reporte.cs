@@ -9,12 +9,12 @@ namespace Data.Models
     {
         public Reporte()
         {
-            Archivos = new HashSet<Archivo>();
+            Cita = new HashSet<Cita>();
         }
 
         public string Idreportes { get; set; }
         public DateTime? Fecha { get; set; }
 
-        public virtual ICollection<Archivo> Archivos { get; set; }
+        public virtual ICollection<Cita> Cita { get; set; }
     }
 }

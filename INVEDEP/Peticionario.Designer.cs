@@ -40,7 +40,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tbEdad = new System.Windows.Forms.TextBox();
-            this.peticionarioParticularesDGViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbOcupacion = new System.Windows.Forms.TextBox();
             this.tbEstadoCivil = new System.Windows.Forms.TextBox();
             this.tbEstudios = new System.Windows.Forms.TextBox();
@@ -77,8 +76,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbVictima = new System.Windows.Forms.TextBox();
-            this.tbFiscalia = new System.Windows.Forms.TextBox();
             this.tbArchivoAmparo = new System.Windows.Forms.TextBox();
             this.tbAmparo = new System.Windows.Forms.TextBox();
             this.tbToca = new System.Windows.Forms.TextBox();
@@ -89,6 +86,11 @@
             this.tbDelito = new System.Windows.Forms.TextBox();
             this.TbInvedep = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.Estatus = new System.Windows.Forms.Label();
+            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+            this.CboxEstatus = new System.Windows.Forms.ComboBox();
+            this.tbFiscalia = new System.Windows.Forms.TextBox();
+            this.TbVictima = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnRefresh = new System.Windows.Forms.Button();
@@ -98,20 +100,36 @@
             this.DgPeticionarioParticulares = new System.Windows.Forms.DataGridView();
             this.idarchivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idPeticionarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fiscaliaIdfiscaliaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportesIdreportesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.particularesIdParticularesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.victinaIdvictinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fiscaliaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.victimaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.peticionarioParticularesDGViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPesonales.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.peticionarioParticularesDGViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
@@ -133,6 +151,9 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tlDatosCarpeta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
+            this.splitContainer8.Panel1.SuspendLayout();
+            this.splitContainer8.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
@@ -140,6 +161,7 @@
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgPeticionarioParticulares)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peticionarioParticularesDGViewBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -285,21 +307,14 @@
             // 
             // tbEdad
             // 
-            this.tbEdad.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.peticionarioParticularesDGViewBindingSource, "Edad", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.tbEdad.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.peticionarioParticularesDGViewBindingSource, "Edad", true));
             this.tbEdad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbEdad.Location = new System.Drawing.Point(120, 3);
             this.tbEdad.Name = "tbEdad";
             this.tbEdad.Size = new System.Drawing.Size(731, 23);
             this.tbEdad.TabIndex = 11;
             // 
-            // peticionarioParticularesDGViewBindingSource
-            // 
-            this.peticionarioParticularesDGViewBindingSource.DataSource = typeof(Clases.DTO.TableViews.PeticionarioParticularesDGView);
-            // 
             // tbOcupacion
             // 
-            this.tbOcupacion.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.peticionarioParticularesDGViewBindingSource, "Ocupacion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tbOcupacion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbOcupacion.Location = new System.Drawing.Point(120, 33);
             this.tbOcupacion.Name = "tbOcupacion";
@@ -308,8 +323,6 @@
             // 
             // tbEstadoCivil
             // 
-            this.tbEstadoCivil.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.peticionarioParticularesDGViewBindingSource, "EstadoCivil", true));
-            this.tbEstadoCivil.DataBindings.Add(new System.Windows.Forms.Binding("Tag", this.peticionarioParticularesDGViewBindingSource, "EstadoCivil", true));
             this.tbEstadoCivil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbEstadoCivil.Location = new System.Drawing.Point(120, 64);
             this.tbEstadoCivil.Name = "tbEstadoCivil";
@@ -318,7 +331,6 @@
             // 
             // tbEstudios
             // 
-            this.tbEstudios.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.peticionarioParticularesDGViewBindingSource, "Estudios", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tbEstudios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbEstudios.Location = new System.Drawing.Point(120, 94);
             this.tbEstudios.Name = "tbEstudios";
@@ -327,7 +339,6 @@
             // 
             // tbLengua
             // 
-            this.tbLengua.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.peticionarioParticularesDGViewBindingSource, "Lengua", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tbLengua.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbLengua.Location = new System.Drawing.Point(120, 125);
             this.tbLengua.Name = "tbLengua";
@@ -336,7 +347,6 @@
             // 
             // tbTelefono
             // 
-            this.tbTelefono.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.peticionarioParticularesDGViewBindingSource, "Telefono", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tbTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbTelefono.Location = new System.Drawing.Point(120, 157);
             this.tbTelefono.Name = "tbTelefono";
@@ -345,7 +355,6 @@
             // 
             // tbDirecciones
             // 
-            this.tbDirecciones.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.peticionarioParticularesDGViewBindingSource, "Domicilio", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.tbDirecciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbDirecciones.Location = new System.Drawing.Point(120, 188);
             this.tbDirecciones.Name = "tbDirecciones";
@@ -599,8 +608,6 @@
             this.tlDatosCarpeta.Controls.Add(this.label3, 0, 3);
             this.tlDatosCarpeta.Controls.Add(this.label2, 0, 2);
             this.tlDatosCarpeta.Controls.Add(this.label1, 0, 1);
-            this.tlDatosCarpeta.Controls.Add(this.tbVictima, 1, 10);
-            this.tlDatosCarpeta.Controls.Add(this.tbFiscalia, 1, 9);
             this.tlDatosCarpeta.Controls.Add(this.tbArchivoAmparo, 1, 8);
             this.tlDatosCarpeta.Controls.Add(this.tbAmparo, 1, 7);
             this.tlDatosCarpeta.Controls.Add(this.tbToca, 1, 6);
@@ -611,10 +618,14 @@
             this.tlDatosCarpeta.Controls.Add(this.tbDelito, 1, 1);
             this.tlDatosCarpeta.Controls.Add(this.TbInvedep, 1, 0);
             this.tlDatosCarpeta.Controls.Add(this.label13, 0, 0);
+            this.tlDatosCarpeta.Controls.Add(this.Estatus, 0, 11);
+            this.tlDatosCarpeta.Controls.Add(this.splitContainer8, 1, 11);
+            this.tlDatosCarpeta.Controls.Add(this.tbFiscalia, 1, 10);
+            this.tlDatosCarpeta.Controls.Add(this.TbVictima, 1, 9);
             this.tlDatosCarpeta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlDatosCarpeta.Location = new System.Drawing.Point(0, 0);
             this.tlDatosCarpeta.Name = "tlDatosCarpeta";
-            this.tlDatosCarpeta.RowCount = 11;
+            this.tlDatosCarpeta.RowCount = 13;
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
@@ -625,7 +636,9 @@
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
+            this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tlDatosCarpeta.Size = new System.Drawing.Size(869, 480);
             this.tlDatosCarpeta.TabIndex = 11;
             // 
@@ -635,7 +648,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Right;
             this.label10.Location = new System.Drawing.Point(92, 328);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 152);
+            this.label10.Size = new System.Drawing.Size(48, 29);
             this.label10.TabIndex = 15;
             this.label10.Text = "Fiscalia:";
             // 
@@ -729,22 +742,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Delito:";
             // 
-            // tbVictima
-            // 
-            this.tbVictima.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbVictima.Location = new System.Drawing.Point(146, 331);
-            this.tbVictima.Name = "tbVictima";
-            this.tbVictima.Size = new System.Drawing.Size(720, 23);
-            this.tbVictima.TabIndex = 10;
-            // 
-            // tbFiscalia
-            // 
-            this.tbFiscalia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbFiscalia.Location = new System.Drawing.Point(146, 300);
-            this.tbFiscalia.Name = "tbFiscalia";
-            this.tbFiscalia.Size = new System.Drawing.Size(720, 23);
-            this.tbFiscalia.TabIndex = 9;
-            // 
             // tbArchivoAmparo
             // 
             this.tbArchivoAmparo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -826,6 +823,56 @@
             this.label13.Size = new System.Drawing.Size(56, 36);
             this.label13.TabIndex = 17;
             this.label13.Text = "INVEDEP:";
+            // 
+            // Estatus
+            // 
+            this.Estatus.AutoSize = true;
+            this.Estatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Estatus.Location = new System.Drawing.Point(93, 357);
+            this.Estatus.Name = "Estatus";
+            this.Estatus.Size = new System.Drawing.Size(47, 34);
+            this.Estatus.TabIndex = 20;
+            this.Estatus.Text = "Estatus:";
+            // 
+            // splitContainer8
+            // 
+            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer8.Location = new System.Drawing.Point(146, 360);
+            this.splitContainer8.Name = "splitContainer8";
+            // 
+            // splitContainer8.Panel1
+            // 
+            this.splitContainer8.Panel1.Controls.Add(this.CboxEstatus);
+            this.splitContainer8.Size = new System.Drawing.Size(720, 28);
+            this.splitContainer8.SplitterDistance = 196;
+            this.splitContainer8.TabIndex = 21;
+            // 
+            // CboxEstatus
+            // 
+            this.CboxEstatus.DisplayMember = "Estatus";
+            this.CboxEstatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboxEstatus.FormattingEnabled = true;
+            this.CboxEstatus.Location = new System.Drawing.Point(0, 0);
+            this.CboxEstatus.Name = "CboxEstatus";
+            this.CboxEstatus.Size = new System.Drawing.Size(196, 23);
+            this.CboxEstatus.TabIndex = 0;
+            this.CboxEstatus.ValueMember = "Estatus";
+            // 
+            // tbFiscalia
+            // 
+            this.tbFiscalia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbFiscalia.Location = new System.Drawing.Point(146, 331);
+            this.tbFiscalia.Name = "tbFiscalia";
+            this.tbFiscalia.Size = new System.Drawing.Size(720, 23);
+            this.tbFiscalia.TabIndex = 22;
+            // 
+            // TbVictima
+            // 
+            this.TbVictima.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TbVictima.Location = new System.Drawing.Point(146, 300);
+            this.TbVictima.Name = "TbVictima";
+            this.TbVictima.Size = new System.Drawing.Size(720, 23);
+            this.TbVictima.TabIndex = 23;
             // 
             // tableLayoutPanel3
             // 
@@ -909,13 +956,29 @@
             this.DgPeticionarioParticulares.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idarchivoDataGridViewTextBoxColumn,
             this.idPeticionarioDataGridViewTextBoxColumn,
-            this.fiscaliaIdfiscaliaDataGridViewTextBoxColumn,
-            this.reportesIdreportesDataGridViewTextBoxColumn,
             this.particularesIdParticularesDataGridViewTextBoxColumn,
-            this.victinaIdvictinaDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20,
+            this.fiscaliaDataGridViewTextBoxColumn,
+            this.victimaDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
             this.apaternoDataGridViewTextBoxColumn,
             this.amaternoDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn});
+            this.nombreDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn21});
             this.DgPeticionarioParticulares.DataSource = this.peticionarioParticularesDGViewBindingSource;
             this.DgPeticionarioParticulares.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgPeticionarioParticulares.Location = new System.Drawing.Point(0, 0);
@@ -944,22 +1007,6 @@
             this.idPeticionarioDataGridViewTextBoxColumn.ReadOnly = true;
             this.idPeticionarioDataGridViewTextBoxColumn.Visible = false;
             // 
-            // fiscaliaIdfiscaliaDataGridViewTextBoxColumn
-            // 
-            this.fiscaliaIdfiscaliaDataGridViewTextBoxColumn.DataPropertyName = "FiscaliaIdfiscalia";
-            this.fiscaliaIdfiscaliaDataGridViewTextBoxColumn.HeaderText = "FiscaliaIdfiscalia";
-            this.fiscaliaIdfiscaliaDataGridViewTextBoxColumn.Name = "fiscaliaIdfiscaliaDataGridViewTextBoxColumn";
-            this.fiscaliaIdfiscaliaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fiscaliaIdfiscaliaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // reportesIdreportesDataGridViewTextBoxColumn
-            // 
-            this.reportesIdreportesDataGridViewTextBoxColumn.DataPropertyName = "ReportesIdreportes";
-            this.reportesIdreportesDataGridViewTextBoxColumn.HeaderText = "ReportesIdreportes";
-            this.reportesIdreportesDataGridViewTextBoxColumn.Name = "reportesIdreportesDataGridViewTextBoxColumn";
-            this.reportesIdreportesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.reportesIdreportesDataGridViewTextBoxColumn.Visible = false;
-            // 
             // particularesIdParticularesDataGridViewTextBoxColumn
             // 
             this.particularesIdParticularesDataGridViewTextBoxColumn.DataPropertyName = "ParticularesIdParticulares";
@@ -968,13 +1015,149 @@
             this.particularesIdParticularesDataGridViewTextBoxColumn.ReadOnly = true;
             this.particularesIdParticularesDataGridViewTextBoxColumn.Visible = false;
             // 
-            // victinaIdvictinaDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn12
             // 
-            this.victinaIdvictinaDataGridViewTextBoxColumn.DataPropertyName = "VictinaIdvictina";
-            this.victinaIdvictinaDataGridViewTextBoxColumn.HeaderText = "VictinaIdvictina";
-            this.victinaIdvictinaDataGridViewTextBoxColumn.Name = "victinaIdvictinaDataGridViewTextBoxColumn";
-            this.victinaIdvictinaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.victinaIdvictinaDataGridViewTextBoxColumn.Visible = false;
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Serieindevep";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Serieindevep";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Delito";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Delito";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Carpeta";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Carpeta";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Juez";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Juez";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "ProcesoPenal";
+            this.dataGridViewTextBoxColumn16.HeaderText = "ProcesoPenal";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "SegundaInstancia";
+            this.dataGridViewTextBoxColumn17.HeaderText = "SegundaInstancia";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Toca";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Toca";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Amparo";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Amparo";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "ExpedinteAmparo";
+            this.dataGridViewTextBoxColumn20.HeaderText = "ExpedinteAmparo";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Visible = false;
+            // 
+            // fiscaliaDataGridViewTextBoxColumn
+            // 
+            this.fiscaliaDataGridViewTextBoxColumn.DataPropertyName = "Fiscalia";
+            this.fiscaliaDataGridViewTextBoxColumn.HeaderText = "Fiscalia";
+            this.fiscaliaDataGridViewTextBoxColumn.Name = "fiscaliaDataGridViewTextBoxColumn";
+            this.fiscaliaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fiscaliaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // victimaDataGridViewTextBoxColumn
+            // 
+            this.victimaDataGridViewTextBoxColumn.DataPropertyName = "Victima";
+            this.victimaDataGridViewTextBoxColumn.HeaderText = "Victima";
+            this.victimaDataGridViewTextBoxColumn.Name = "victimaDataGridViewTextBoxColumn";
+            this.victimaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.victimaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Domicilio";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Domicilio";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            this.dataGridViewTextBoxColumn22.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "Lengua";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Lengua";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "Telefono";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Telefono";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            this.dataGridViewTextBoxColumn24.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "Edad";
+            this.dataGridViewTextBoxColumn25.HeaderText = "Edad";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "Ocupacion";
+            this.dataGridViewTextBoxColumn26.HeaderText = "Ocupacion";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
+            this.dataGridViewTextBoxColumn26.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "EstadoCivil";
+            this.dataGridViewTextBoxColumn27.HeaderText = "EstadoCivil";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            this.dataGridViewTextBoxColumn27.ReadOnly = true;
+            this.dataGridViewTextBoxColumn27.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "Estudios";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Estudios";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Visible = false;
             // 
             // apaternoDataGridViewTextBoxColumn
             // 
@@ -997,6 +1180,17 @@
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "Estatus";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Estatus";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // peticionarioParticularesDGViewBindingSource
+            // 
+            this.peticionarioParticularesDGViewBindingSource.DataSource = typeof(Clases.DTO.TableViews.CitasDGView);
+            // 
             // Peticionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1013,7 +1207,6 @@
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.peticionarioParticularesDGViewBindingSource)).EndInit();
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel1.PerformLayout();
             this.splitContainer5.Panel2.ResumeLayout(false);
@@ -1037,6 +1230,9 @@
             this.splitContainer2.ResumeLayout(false);
             this.tlDatosCarpeta.ResumeLayout(false);
             this.tlDatosCarpeta.PerformLayout();
+            this.splitContainer8.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
+            this.splitContainer8.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
@@ -1045,6 +1241,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgPeticionarioParticulares)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peticionarioParticularesDGViewBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1073,8 +1270,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox tbVictima;
-        private TextBox tbFiscalia;
         private TextBox tbArchivoAmparo;
         private TextBox tbAmparo;
         private TextBox tbToca;
@@ -1149,17 +1344,41 @@
         private DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lenguaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
-        private BindingSource peticionarioParticularesDGViewBindingSource;
+        private DataGridViewTextBoxColumn reportesIdreportesDataGridViewTextBoxColumn;
+        private SplitContainer splitContainer5;
+        private Button BtnFamiliar;
+        private Label Estatus;
+        private SplitContainer splitContainer8;
+        private ComboBox CboxEstatus;
+        private DataGridViewTextBoxColumn fiscaliaIdfiscaliaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn victinaIdvictinaDataGridViewTextBoxColumn;
+        private TextBox tbFiscalia;
+        private TextBox TbVictima;
         private DataGridViewTextBoxColumn idarchivoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idPeticionarioDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn fiscaliaIdfiscaliaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn reportesIdreportesDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn particularesIdParticularesDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn victinaIdvictinaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private DataGridViewTextBoxColumn fiscaliaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn victimaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
         private DataGridViewTextBoxColumn apaternoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn amaternoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private SplitContainer splitContainer5;
-        private Button BtnFamiliar;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private BindingSource peticionarioParticularesDGViewBindingSource;
     }
 }

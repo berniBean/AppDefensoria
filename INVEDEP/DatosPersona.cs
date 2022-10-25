@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Clases.Tablas.Persona;
 using Clases.Strategy;
 using Clases.Strategy.Concretas;
 using Clases.DTO.view;
@@ -9,8 +8,10 @@ namespace INVEDEP
     public partial class DatosPersona : Form
     {
         private IMediator _mediator;
-        public string? TipoPersona { get; set; }
-        public string? IdPeticionario { get; set; }
+        public string TipoPersona { get; set; }
+        public string IdPeticionario { get; set; }
+        public string IdArchivo { get; set; }
+
         public DatosPersona(IMediator mediator)
         {
             InitializeComponent();
@@ -25,9 +26,12 @@ namespace INVEDEP
             Persona.Apaterno = tbApellidoPaterno.Text;
             Persona.Amaterno = tbApellidoMaterno.Text;
 
-            ContextPeticionario context = TipoPersona.Equals("Peticionario") ? 
+            //peticionario familiar funcionario
+            ContextPeticionario context = TipoPersona.Equals("Peticionario") ?
                 new ContextPeticionario(new PeticionarioStrategy(_mediator) { Funcionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4" }) :
-                new ContextPeticionario(new FamiliarStrategy(_mediator) { Peticionario = IdPeticionario });
+                TipoPersona.Equals("Familiar") ? new ContextPeticionario(new FamiliarStrategy(_mediator) { Peticionario = IdPeticionario })                  
+                : new ContextPeticionario(new FuncionarioStrategy(_mediator));
+                
 
             //var context = new ContextPeticionario(new PeticionarioStrategy(_mediator) 
             //{ Funcionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4" });

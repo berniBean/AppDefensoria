@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.Migrations
 {
-    public partial class InitDB : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,18 +17,6 @@ namespace Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PRIMARY", x => x.idcargo);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "fiscalia",
-                columns: table => new
-                {
-                    idfiscalia = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    adscripcion = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PRIMARY", x => x.idfiscalia);
                 });
 
             migrationBuilder.CreateTable(
@@ -84,18 +72,6 @@ namespace Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PRIMARY", x => x.idreportes);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "victina",
-                columns: table => new
-                {
-                    idvictina = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    Alias = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PRIMARY", x => x.idvictina);
                 });
 
             migrationBuilder.CreateTable(
@@ -166,7 +142,6 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     idarchivo = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    reportes_idreportes = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
                     serieindevep = table.Column<int>(type: "int", nullable: true),
                     delito = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
                     carpeta = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true),
@@ -176,21 +151,15 @@ namespace Data.Migrations
                     Toca = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true),
                     Amparo = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true),
                     ExpedinteAmparo = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true),
-                    Estatus = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true),
+                    Estatus = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     idPeticionario = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    fiscalia_idfiscalia = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
                     particulares_idParticulares = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    victina_idvictina = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false)
+                    Fiscalia = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
+                    Victima = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PRIMARY", x => new { x.idarchivo, x.reportes_idreportes });
-                    table.ForeignKey(
-                        name: "fk_archivo_fiscalia1",
-                        column: x => x.fiscalia_idfiscalia,
-                        principalTable: "fiscalia",
-                        principalColumn: "idfiscalia",
-                        onDelete: ReferentialAction.Restrict);
+                    table.PrimaryKey("PRIMARY", x => x.idarchivo);
                     table.ForeignKey(
                         name: "fk_archivo_particulares1",
                         column: x => x.particulares_idParticulares,
@@ -203,18 +172,6 @@ namespace Data.Migrations
                         principalTable: "peticionario",
                         principalColumn: "idPeticionario",
                         onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "fk_archivo_reportes1",
-                        column: x => x.reportes_idreportes,
-                        principalTable: "reportes",
-                        principalColumn: "idreportes",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "fk_archivo_victina1",
-                        column: x => x.victina_idvictina,
-                        principalTable: "victina",
-                        principalColumn: "idvictina",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -226,6 +183,7 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
+                    table.PrimaryKey("PRIMARY", x => new { x.persona_idPersona, x.peticionario_idPeticionario });
                     table.ForeignKey(
                         name: "fk_famiiliar_persona",
                         column: x => x.persona_idPersona,
@@ -247,46 +205,47 @@ namespace Data.Migrations
                     idcitas = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
                     FechaAudiencia = table.Column<DateTime>(type: "datetime", nullable: true),
                     sala = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true),
-                    audiencia = table.Column<string>(type: "varchar(45)", maxLength: 45, nullable: true),
-                    archivo_idarchivo = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    archivo_reportes_idreportes = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false)
+                    audiencia = table.Column<string>(type: "varchar(155)", maxLength: 155, nullable: true),
+                    ResultadoAudiencia = table.Column<string>(type: "longtext", nullable: true),
+                    reportes_idreportes = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
+                    archivo_idarchivo = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PRIMARY", x => x.idcitas);
                     table.ForeignKey(
                         name: "fk_citas_archivo1",
-                        columns: x => new { x.archivo_idarchivo, x.archivo_reportes_idreportes },
+                        column: x => x.archivo_idarchivo,
                         principalTable: "archivo",
-                        principalColumns: new[] { "idarchivo", "reportes_idreportes" },
+                        principalColumn: "idarchivo",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "observaciones",
-                columns: table => new
-                {
-                    idobservaciones = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    resultados = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: true),
-                    archivo_idarchivo = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    archivo_idarchivo1 = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false),
-                    archivo_reportes_idreportes = table.Column<string>(type: "varchar(90)", maxLength: 90, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PRIMARY", x => x.idobservaciones);
                     table.ForeignKey(
-                        name: "fk_observaciones_archivo1",
-                        columns: x => new { x.archivo_idarchivo1, x.archivo_reportes_idreportes },
-                        principalTable: "archivo",
-                        principalColumns: new[] { "idarchivo", "reportes_idreportes" },
+                        name: "fk_citas_reportes1",
+                        column: x => x.reportes_idreportes,
+                        principalTable: "reportes",
+                        principalColumn: "idreportes",
                         onDelete: ReferentialAction.Restrict);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "fk_archivo_fiscalia1_idx",
-                table: "archivo",
-                column: "fiscalia_idfiscalia");
+            migrationBuilder.InsertData(
+                table: "cargo",
+                columns: new[] { "idcargo", "puesto" },
+                values: new object[] { "3e53adf4-53b8-11ed-b965-a4bb6dda82fc", "Defensor publico" });
+
+            migrationBuilder.InsertData(
+                table: "oficina",
+                columns: new[] { "idoficina", "abreviatura", "nombre" },
+                values: new object[] { "9d58cb76-53b7-11ed-b965-a4bb6dda82fc", "COA", "COATEPEC" });
+
+            migrationBuilder.InsertData(
+                table: "persona",
+                columns: new[] { "idPersona", "amaterno", "apaterno", "nombre" },
+                values: new object[] { "100014414521958400", "RAMIREZ", "CUEVAS", "EDNA DONAJI" });
+
+            migrationBuilder.InsertData(
+                table: "funcionario",
+                columns: new[] { "idFuncionario", "cargo_idcargo", "oficina_idoficina", "persona_idPersona" },
+                values: new object[] { "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4", "3e53adf4-53b8-11ed-b965-a4bb6dda82fc", "9d58cb76-53b7-11ed-b965-a4bb6dda82fc", "100014414521958400" });
 
             migrationBuilder.CreateIndex(
                 name: "fk_archivo_particulares1_idx",
@@ -299,19 +258,14 @@ namespace Data.Migrations
                 column: "idPeticionario");
 
             migrationBuilder.CreateIndex(
-                name: "fk_archivo_reportes1_idx1",
-                table: "archivo",
-                column: "reportes_idreportes");
-
-            migrationBuilder.CreateIndex(
-                name: "fk_archivo_victina1_idx",
-                table: "archivo",
-                column: "victina_idvictina");
-
-            migrationBuilder.CreateIndex(
-                name: "fk_citas_archivo1_idx",
+                name: "fk_citas_archivo1_idx1",
                 table: "citas",
-                columns: new[] { "archivo_idarchivo", "archivo_reportes_idreportes" });
+                column: "archivo_idarchivo");
+
+            migrationBuilder.CreateIndex(
+                name: "fk_citas_reportes1_idx",
+                table: "citas",
+                column: "reportes_idreportes");
 
             migrationBuilder.CreateIndex(
                 name: "fk_famiiliar_persona1_idx",
@@ -339,16 +293,6 @@ namespace Data.Migrations
                 column: "persona_idPersona");
 
             migrationBuilder.CreateIndex(
-                name: "fk_observaciones_archivo1_idx",
-                table: "observaciones",
-                column: "archivo_idarchivo");
-
-            migrationBuilder.CreateIndex(
-                name: "fk_observaciones_archivo1_idx1",
-                table: "observaciones",
-                columns: new[] { "archivo_idarchivo1", "archivo_reportes_idreportes" });
-
-            migrationBuilder.CreateIndex(
                 name: "fk_particulares_peticionario1_idx",
                 table: "particulares",
                 column: "idPeticionario");
@@ -373,25 +317,16 @@ namespace Data.Migrations
                 name: "famiiliar");
 
             migrationBuilder.DropTable(
-                name: "observaciones");
-
-            migrationBuilder.DropTable(
                 name: "archivo");
 
             migrationBuilder.DropTable(
-                name: "fiscalia");
+                name: "reportes");
 
             migrationBuilder.DropTable(
                 name: "particulares");
 
             migrationBuilder.DropTable(
                 name: "peticionario");
-
-            migrationBuilder.DropTable(
-                name: "reportes");
-
-            migrationBuilder.DropTable(
-                name: "victina");
 
             migrationBuilder.DropTable(
                 name: "funcionario");

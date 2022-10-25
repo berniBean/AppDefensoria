@@ -35,7 +35,7 @@ namespace Clases.Tablas.Particulares
 
                 _unitOfWork.Particulares.Upadate(registro);
 
-                return RestultadoEF.Salvado(await _unitOfWork.Fiscalia.SaveAsync());
+                return RestultadoEF.Salvado(await _unitOfWork.Particulares.SaveAsync());
 
             }
         }

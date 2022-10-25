@@ -21,6 +21,10 @@ namespace Clases.Tablas.Archivo
             public string Amparo { get; set; }
             public string ExpedinteAmparo { get; set; }
             public string Estatus { get; set; }
+            public string Fiscalia { get; set; }
+            public string Victima { get; set; }
+
+
         }
 
         public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
@@ -47,7 +51,8 @@ namespace Clases.Tablas.Archivo
                     registro.Toca = request.Toca ?? registro.Toca;
                     registro.Amparo = request.Amparo ?? registro.Amparo;
                     registro.ExpedinteAmparo = request.ExpedinteAmparo ?? registro.ExpedinteAmparo;
-
+                    registro.Victima = request.Victima ?? registro.Victima;
+                    registro.Fiscalia = request.Fiscalia ?? registro.Fiscalia;
                     _unitOfWork.Archivo.Upadate(registro);
                 }
                 catch (Exception e)

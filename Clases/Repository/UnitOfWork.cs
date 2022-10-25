@@ -10,15 +10,14 @@ namespace Clases.Repository
         private IRepository<Cargo>? _cargo;
         private IRepository<Cita>? _cita;
         private IRepository<Famiiliar>? _familiar;
-        private IRepository<Fiscalium>? _fiscalia;
         private IRepository<Funcionario>? _funcionario;
-        private IRepository<Observacione>? _observaciones;
+
         private IRepository<Oficina>? _oficina;
         private IRepository<Particulare>? _particulares;
         private IRepository<Persona>? _persona;
         private IRepository<Peticionario>? _peticionario;
         private IRepository<Reporte>? _reporte;
-        private IRepository<Victina>? _victima;
+
         public UnitOfWork(ednita_dbContext context) : base(context)
         {
         }
@@ -35,12 +34,10 @@ namespace Clases.Repository
 
         public IRepository<Famiiliar> Familiar { get { return _familiar == null ? _familiar = new Repository<Famiiliar>(_context) : _familiar; } }
 
-        public IRepository<Fiscalium> Fiscalia { get { return _fiscalia == null ? _fiscalia = new Repository<Fiscalium>(_context) : _fiscalia; } }
 
         public IRepository<Funcionario> Funcionario { get { return _funcionario == null ? _funcionario = new Repository<Funcionario>(_context) : _funcionario; } }
 
 
-        public IRepository<Observacione> Observaciones { get { return _observaciones == null ? _observaciones = new Repository<Observacione>(_context) : _observaciones; } }
 
         public IRepository<Oficina> Oficina { get { return _oficina == null ? _oficina = new Repository<Oficina>(_context) : _oficina; } }
 
@@ -48,7 +45,6 @@ namespace Clases.Repository
 
         public IRepository<Reporte> Reporte { get { return _reporte == null ? _reporte = new Repository<Reporte>(_context) : _reporte; } }
 
-        public IRepository<Victina> Victima { get { return _victima == null ? _victima = new Repository<Victina>(_context) : _victima; } }
 
         public IRepository<Persona> Persona { get { return _persona == null ? _persona = new Repository<Persona>(_context) : _persona; } }
 

@@ -10,7 +10,6 @@ namespace Data.Models
         public Archivo()
         {
             Cita = new HashSet<Cita>();
-            Observaciones = new HashSet<Observacione>();
         }
 
         public string Idarchivo { get; set; }
@@ -23,19 +22,14 @@ namespace Data.Models
         public string Toca { get; set; }
         public string Amparo { get; set; }
         public string ExpedinteAmparo { get; set; }
-        public string Estatus { get; set; }
+        public EstatusArchivo Estatus { get; set; }
         public string IdPeticionario { get; set; }
-        public string FiscaliaIdfiscalia { get; set; }
-        public string ReportesIdreportes { get; set; }
         public string ParticularesIdParticulares { get; set; }
-        public string VictinaIdvictina { get; set; }
+        public string Fiscalia { get; set; }
+        public string Victima { get; set; }
 
-        public virtual Fiscalium FiscaliaIdfiscaliaNavigation { get; set; }
         public virtual Peticionario IdPeticionarioNavigation { get; set; }
         public virtual Particulare ParticularesIdParticularesNavigation { get; set; }
-        public virtual Reporte ReportesIdreportesNavigation { get; set; }
-        public virtual Victina VictinaIdvictinaNavigation { get; set; }
         public virtual ICollection<Cita> Cita { get; set; }
-        public virtual ICollection<Observacione> Observaciones { get; set; }
     }
 }

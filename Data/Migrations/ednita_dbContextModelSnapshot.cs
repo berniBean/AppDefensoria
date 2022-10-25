@@ -24,11 +24,6 @@ namespace Data.Migrations
                         .HasColumnType("varchar(90)")
                         .HasColumnName("idarchivo");
 
-                    b.Property<string>("ReportesIdreportes")
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("reportes_idreportes");
-
                     b.Property<string>("Amparo")
                         .HasMaxLength(45)
                         .HasColumnType("varchar(45)");
@@ -43,19 +38,17 @@ namespace Data.Migrations
                         .HasColumnType("varchar(255)")
                         .HasColumnName("delito");
 
-                    b.Property<string>("Estatus")
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)");
+                    b.Property<int>("Estatus")
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
 
                     b.Property<string>("ExpedinteAmparo")
                         .HasMaxLength(45)
                         .HasColumnType("varchar(45)");
 
-                    b.Property<string>("FiscaliaIdfiscalia")
-                        .IsRequired()
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("fiscalia_idfiscalia");
+                    b.Property<string>("Fiscalia")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("IdPeticionario")
                         .IsRequired()
@@ -90,24 +83,16 @@ namespace Data.Migrations
                         .HasMaxLength(45)
                         .HasColumnType("varchar(45)");
 
-                    b.Property<string>("VictinaIdvictina")
-                        .IsRequired()
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("victina_idvictina");
+                    b.Property<string>("Victima")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
-                    b.HasKey("Idarchivo", "ReportesIdreportes")
+                    b.HasKey("Idarchivo")
                         .HasName("PRIMARY");
-
-                    b.HasIndex(new[] { "FiscaliaIdfiscalia" }, "fk_archivo_fiscalia1_idx");
 
                     b.HasIndex(new[] { "ParticularesIdParticulares" }, "fk_archivo_particulares1_idx");
 
                     b.HasIndex(new[] { "IdPeticionario" }, "fk_archivo_peticionario1_idx");
-
-                    b.HasIndex(new[] { "ReportesIdreportes" }, "fk_archivo_reportes1_idx1");
-
-                    b.HasIndex(new[] { "VictinaIdvictina" }, "fk_archivo_victina1_idx");
 
                     b.ToTable("archivo");
                 });
@@ -128,6 +113,13 @@ namespace Data.Migrations
                         .HasName("PRIMARY");
 
                     b.ToTable("cargo");
+
+                    b.HasData(
+                        new
+                        {
+                            Idcargo = "3e53adf4-53b8-11ed-b965-a4bb6dda82fc",
+                            Puesto = "Defensor publico"
+                        });
                 });
 
             modelBuilder.Entity("Data.Models.Cita", b =>
@@ -143,19 +135,22 @@ namespace Data.Migrations
                         .HasColumnType("varchar(90)")
                         .HasColumnName("archivo_idarchivo");
 
-                    b.Property<string>("ArchivoReportesIdreportes")
-                        .IsRequired()
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("archivo_reportes_idreportes");
-
                     b.Property<string>("Audiencia")
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)")
+                        .HasMaxLength(155)
+                        .HasColumnType("varchar(155)")
                         .HasColumnName("audiencia");
 
                     b.Property<DateTime?>("FechaAudiencia")
                         .HasColumnType("datetime");
+
+                    b.Property<string>("ReportesIdreportes")
+                        .IsRequired()
+                        .HasMaxLength(90)
+                        .HasColumnType("varchar(90)")
+                        .HasColumnName("reportes_idreportes");
+
+                    b.Property<string>("ResultadoAudiencia")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Sala")
                         .HasMaxLength(45)
@@ -165,7 +160,9 @@ namespace Data.Migrations
                     b.HasKey("Idcitas")
                         .HasName("PRIMARY");
 
-                    b.HasIndex(new[] { "ArchivoIdarchivo", "ArchivoReportesIdreportes" }, "fk_citas_archivo1_idx");
+                    b.HasIndex(new[] { "ArchivoIdarchivo" }, "fk_citas_archivo1_idx1");
+
+                    b.HasIndex(new[] { "ReportesIdreportes" }, "fk_citas_reportes1_idx");
 
                     b.ToTable("citas");
                 });
@@ -173,40 +170,23 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.Famiiliar", b =>
                 {
                     b.Property<string>("PersonaIdPersona")
-                        .IsRequired()
                         .HasMaxLength(90)
                         .HasColumnType("varchar(90)")
                         .HasColumnName("persona_idPersona");
 
                     b.Property<string>("PeticionarioIdPeticionario")
-                        .IsRequired()
                         .HasMaxLength(90)
                         .HasColumnType("varchar(90)")
                         .HasColumnName("peticionario_idPeticionario");
+
+                    b.HasKey("PersonaIdPersona", "PeticionarioIdPeticionario")
+                        .HasName("PRIMARY");
 
                     b.HasIndex(new[] { "PersonaIdPersona" }, "fk_famiiliar_persona1_idx");
 
                     b.HasIndex(new[] { "PeticionarioIdPeticionario" }, "fk_famiiliar_peticionario1_idx");
 
                     b.ToTable("famiiliar");
-                });
-
-            modelBuilder.Entity("Data.Models.Fiscalium", b =>
-                {
-                    b.Property<string>("Idfiscalia")
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("idfiscalia");
-
-                    b.Property<string>("Adscripcion")
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)")
-                        .HasColumnName("adscripcion");
-
-                    b.HasKey("Idfiscalia")
-                        .HasName("PRIMARY");
-
-                    b.ToTable("fiscalia");
                 });
 
             modelBuilder.Entity("Data.Models.Funcionario", b =>
@@ -244,46 +224,15 @@ namespace Data.Migrations
                     b.HasIndex(new[] { "PersonaIdPersona" }, "fk_Funcionario_persona1_idx");
 
                     b.ToTable("funcionario");
-                });
 
-            modelBuilder.Entity("Data.Models.Observacione", b =>
-                {
-                    b.Property<string>("Idobservaciones")
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("idobservaciones");
-
-                    b.Property<string>("ArchivoIdarchivo")
-                        .IsRequired()
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("archivo_idarchivo");
-
-                    b.Property<string>("ArchivoIdarchivo1")
-                        .IsRequired()
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("archivo_idarchivo1");
-
-                    b.Property<string>("ArchivoReportesIdreportes")
-                        .IsRequired()
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("archivo_reportes_idreportes");
-
-                    b.Property<string>("Resultados")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)")
-                        .HasColumnName("resultados");
-
-                    b.HasKey("Idobservaciones")
-                        .HasName("PRIMARY");
-
-                    b.HasIndex(new[] { "ArchivoIdarchivo" }, "fk_observaciones_archivo1_idx");
-
-                    b.HasIndex(new[] { "ArchivoIdarchivo1", "ArchivoReportesIdreportes" }, "fk_observaciones_archivo1_idx1");
-
-                    b.ToTable("observaciones");
+                    b.HasData(
+                        new
+                        {
+                            IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4",
+                            CargoIdcargo = "3e53adf4-53b8-11ed-b965-a4bb6dda82fc",
+                            OficinaIdoficina = "9d58cb76-53b7-11ed-b965-a4bb6dda82fc",
+                            PersonaIdPersona = "100014414521958400"
+                        });
                 });
 
             modelBuilder.Entity("Data.Models.Oficina", b =>
@@ -307,6 +256,14 @@ namespace Data.Migrations
                         .HasName("PRIMARY");
 
                     b.ToTable("oficina");
+
+                    b.HasData(
+                        new
+                        {
+                            Idoficina = "9d58cb76-53b7-11ed-b965-a4bb6dda82fc",
+                            Abreviatura = "COA",
+                            Nombre = "COATEPEC"
+                        });
                 });
 
             modelBuilder.Entity("Data.Models.Particulare", b =>
@@ -372,6 +329,15 @@ namespace Data.Migrations
                         .HasName("PRIMARY");
 
                     b.ToTable("persona");
+
+                    b.HasData(
+                        new
+                        {
+                            IdPersona = "100014414521958400",
+                            Amaterno = "RAMIREZ",
+                            Apaterno = "CUEVAS",
+                            Nombre = "EDNA DONAJI"
+                        });
                 });
 
             modelBuilder.Entity("Data.Models.Peticionario", b =>
@@ -447,31 +413,8 @@ namespace Data.Migrations
                     b.ToTable("reportes");
                 });
 
-            modelBuilder.Entity("Data.Models.Victina", b =>
-                {
-                    b.Property<string>("Idvictina")
-                        .HasMaxLength(90)
-                        .HasColumnType("varchar(90)")
-                        .HasColumnName("idvictina");
-
-                    b.Property<string>("Alias")
-                        .HasMaxLength(45)
-                        .HasColumnType("varchar(45)");
-
-                    b.HasKey("Idvictina")
-                        .HasName("PRIMARY");
-
-                    b.ToTable("victina");
-                });
-
             modelBuilder.Entity("Data.Models.Archivo", b =>
                 {
-                    b.HasOne("Data.Models.Fiscalium", "FiscaliaIdfiscaliaNavigation")
-                        .WithMany("Archivos")
-                        .HasForeignKey("FiscaliaIdfiscalia")
-                        .HasConstraintName("fk_archivo_fiscalia1")
-                        .IsRequired();
-
                     b.HasOne("Data.Models.Peticionario", "IdPeticionarioNavigation")
                         .WithMany("Archivos")
                         .HasForeignKey("IdPeticionario")
@@ -484,50 +427,40 @@ namespace Data.Migrations
                         .HasConstraintName("fk_archivo_particulares1")
                         .IsRequired();
 
-                    b.HasOne("Data.Models.Reporte", "ReportesIdreportesNavigation")
-                        .WithMany("Archivos")
-                        .HasForeignKey("ReportesIdreportes")
-                        .HasConstraintName("fk_archivo_reportes1")
-                        .IsRequired();
-
-                    b.HasOne("Data.Models.Victina", "VictinaIdvictinaNavigation")
-                        .WithMany("Archivos")
-                        .HasForeignKey("VictinaIdvictina")
-                        .HasConstraintName("fk_archivo_victina1")
-                        .IsRequired();
-
-                    b.Navigation("FiscaliaIdfiscaliaNavigation");
-
                     b.Navigation("IdPeticionarioNavigation");
 
                     b.Navigation("ParticularesIdParticularesNavigation");
-
-                    b.Navigation("ReportesIdreportesNavigation");
-
-                    b.Navigation("VictinaIdvictinaNavigation");
                 });
 
             modelBuilder.Entity("Data.Models.Cita", b =>
                 {
-                    b.HasOne("Data.Models.Archivo", "Archivo")
+                    b.HasOne("Data.Models.Archivo", "ArchivoIdarchivoNavigation")
                         .WithMany("Cita")
-                        .HasForeignKey("ArchivoIdarchivo", "ArchivoReportesIdreportes")
+                        .HasForeignKey("ArchivoIdarchivo")
                         .HasConstraintName("fk_citas_archivo1")
                         .IsRequired();
 
-                    b.Navigation("Archivo");
+                    b.HasOne("Data.Models.Reporte", "ReportesIdreportesNavigation")
+                        .WithMany("Cita")
+                        .HasForeignKey("ReportesIdreportes")
+                        .HasConstraintName("fk_citas_reportes1")
+                        .IsRequired();
+
+                    b.Navigation("ArchivoIdarchivoNavigation");
+
+                    b.Navigation("ReportesIdreportesNavigation");
                 });
 
             modelBuilder.Entity("Data.Models.Famiiliar", b =>
                 {
                     b.HasOne("Data.Models.Persona", "PersonaIdPersonaNavigation")
-                        .WithMany()
+                        .WithMany("Famiiliars")
                         .HasForeignKey("PersonaIdPersona")
                         .HasConstraintName("fk_famiiliar_persona")
                         .IsRequired();
 
                     b.HasOne("Data.Models.Peticionario", "PeticionarioIdPeticionarioNavigation")
-                        .WithMany()
+                        .WithMany("Famiiliars")
                         .HasForeignKey("PeticionarioIdPeticionario")
                         .HasConstraintName("fk_famiiliar_peticionario")
                         .IsRequired();
@@ -564,17 +497,6 @@ namespace Data.Migrations
                     b.Navigation("PersonaIdPersonaNavigation");
                 });
 
-            modelBuilder.Entity("Data.Models.Observacione", b =>
-                {
-                    b.HasOne("Data.Models.Archivo", "Archivo")
-                        .WithMany("Observaciones")
-                        .HasForeignKey("ArchivoIdarchivo1", "ArchivoReportesIdreportes")
-                        .HasConstraintName("fk_observaciones_archivo1")
-                        .IsRequired();
-
-                    b.Navigation("Archivo");
-                });
-
             modelBuilder.Entity("Data.Models.Peticionario", b =>
                 {
                     b.HasOne("Data.Models.Funcionario", "FuncionarioIdFuncionarioNavigation")
@@ -597,18 +519,11 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.Archivo", b =>
                 {
                     b.Navigation("Cita");
-
-                    b.Navigation("Observaciones");
                 });
 
             modelBuilder.Entity("Data.Models.Cargo", b =>
                 {
                     b.Navigation("Funcionarios");
-                });
-
-            modelBuilder.Entity("Data.Models.Fiscalium", b =>
-                {
-                    b.Navigation("Archivos");
                 });
 
             modelBuilder.Entity("Data.Models.Funcionario", b =>
@@ -628,6 +543,8 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Models.Persona", b =>
                 {
+                    b.Navigation("Famiiliars");
+
                     b.Navigation("Funcionarios");
 
                     b.Navigation("Peticionarios");
@@ -636,16 +553,13 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Models.Peticionario", b =>
                 {
                     b.Navigation("Archivos");
+
+                    b.Navigation("Famiiliars");
                 });
 
             modelBuilder.Entity("Data.Models.Reporte", b =>
                 {
-                    b.Navigation("Archivos");
-                });
-
-            modelBuilder.Entity("Data.Models.Victina", b =>
-                {
-                    b.Navigation("Archivos");
+                    b.Navigation("Cita");
                 });
 #pragma warning restore 612, 618
         }
