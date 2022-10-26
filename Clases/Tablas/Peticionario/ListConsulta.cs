@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Clases.ClasesBase;
 using Clases.DTO.TableViews;
 using Data.Models;
@@ -9,33 +10,40 @@ namespace Clases.Tablas.Peticionario
 {
     public class ListConsulta
     {
-        public class Ejecuta : IRequest<List<CitasDGView>>
+        public class Ejecuta : IRequest<List<PeticionarioParticularesDGView>>
         {
             public string? IdFuncionario { get; set; }
         }
-        public class Handler : HandlerRequestMapperBase, IRequestHandler<Ejecuta, List<CitasDGView>>
+        public class Handler : HandlerRequestMapperBase, IRequestHandler<Ejecuta, List<PeticionarioParticularesDGView>>
         {
             public Handler(ednita_dbContext context, IMapper mapper) : base(context, mapper)
             {
             }
 
-            public async Task<List<CitasDGView>> Handle(Ejecuta request, CancellationToken cancellationToken)
+            public async Task<List<PeticionarioParticularesDGView>> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
 
+                try
+                {
 
 
-                var ArchivoPeticionario = await _context.Archivos.Where(funcionario => funcionario.IdPeticionarioNavigation.FuncionarioIdFuncionario.Equals(request.IdFuncionario))
-                    .Include(peticionario => peticionario.IdPeticionarioNavigation.PersonaIdPersonaNavigation)
-                    .Include(particulares => particulares.ParticularesIdParticularesNavigation)
-                    .ToListAsync();
+                    var project = await _context.Archivos.ProjectTo<PeticionarioParticularesDGView>(_mapper.ConfigurationProvider).ToListAsync();
 
-                if (ArchivoPeticionario == null)
-                    throw new Exception("aun no existen Registros");
+                    if (project == null)
+                        throw new Exception("aun no existen Registros");
+
+                    return project;
+                }
+                catch (Exception )
+                {
+
+                    throw ;
+                }
 
 
-                var mapper = _mapper.Map<List<Data.Models.Archivo>, List<CitasDGView>>(ArchivoPeticionario);
 
-                return mapper.ToList();
+
+                
 
             }
         }

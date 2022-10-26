@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Clases.ClasesBase;
 using Clases.DTO.TableViews;
 using Data.Models;
@@ -22,10 +23,9 @@ namespace Clases.Tablas.Archivo
 
             public async Task<List<CitasDGView>> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var ArchivoPeticionario = await _context.Archivos.Where(funcionario => funcionario.IdPeticionarioNavigation.FuncionarioIdFuncionario.Equals(request.IdFuncionario))
-                    .Include(peticionario => peticionario.IdPeticionarioNavigation.PersonaIdPersonaNavigation)
-                    .Include(particulares => particulares.ParticularesIdParticularesNavigation)
-                    .ToListAsync();
+                var ArchivoPeticionario = await _context.Archivos.ProjectTo<CitasDGView>(_mapper.ConfigurationProvider).ToListAsync();
+
+                return ArchivoPeticionario;
             }
         }
     }

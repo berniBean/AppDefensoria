@@ -44,21 +44,11 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.DgViewCitas = new System.Windows.Forms.DataGridView();
-            this.idcitasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reportesIdreportesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.archivoIdarchivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaAudienciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.audienciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ResultadoAudiencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.estatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.archivosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.citaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.peticionariosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.citasDGViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -251,21 +241,11 @@
             this.DgViewCitas.AutoGenerateColumns = false;
             this.DgViewCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgViewCitas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idcitasDataGridViewTextBoxColumn,
-            this.reportesIdreportesDataGridViewTextBoxColumn,
-            this.archivoIdarchivoDataGridViewTextBoxColumn,
-            this.fechaAudienciaDataGridViewTextBoxColumn,
-            this.salaDataGridViewTextBoxColumn,
-            this.audienciaDataGridViewTextBoxColumn,
             this.ResultadoAudiencia,
             this.apaternoDataGridViewTextBoxColumn,
             this.amaternoDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
-            this.estatusDataGridViewTextBoxColumn,
-            this.personasDataGridViewTextBoxColumn,
-            this.archivosDataGridViewTextBoxColumn,
-            this.citaDataGridViewTextBoxColumn,
-            this.peticionariosDataGridViewTextBoxColumn});
+            this.estatusDataGridViewTextBoxColumn});
             this.DgViewCitas.DataSource = this.citasDGViewBindingSource;
             this.DgViewCitas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgViewCitas.Location = new System.Drawing.Point(0, 0);
@@ -274,48 +254,6 @@
             this.DgViewCitas.Size = new System.Drawing.Size(451, 269);
             this.DgViewCitas.TabIndex = 0;
             this.DgViewCitas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // idcitasDataGridViewTextBoxColumn
-            // 
-            this.idcitasDataGridViewTextBoxColumn.DataPropertyName = "Idcitas";
-            this.idcitasDataGridViewTextBoxColumn.HeaderText = "Idcitas";
-            this.idcitasDataGridViewTextBoxColumn.Name = "idcitasDataGridViewTextBoxColumn";
-            this.idcitasDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // reportesIdreportesDataGridViewTextBoxColumn
-            // 
-            this.reportesIdreportesDataGridViewTextBoxColumn.DataPropertyName = "ReportesIdreportes";
-            this.reportesIdreportesDataGridViewTextBoxColumn.HeaderText = "ReportesIdreportes";
-            this.reportesIdreportesDataGridViewTextBoxColumn.Name = "reportesIdreportesDataGridViewTextBoxColumn";
-            this.reportesIdreportesDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // archivoIdarchivoDataGridViewTextBoxColumn
-            // 
-            this.archivoIdarchivoDataGridViewTextBoxColumn.DataPropertyName = "ArchivoIdarchivo";
-            this.archivoIdarchivoDataGridViewTextBoxColumn.HeaderText = "ArchivoIdarchivo";
-            this.archivoIdarchivoDataGridViewTextBoxColumn.Name = "archivoIdarchivoDataGridViewTextBoxColumn";
-            this.archivoIdarchivoDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // fechaAudienciaDataGridViewTextBoxColumn
-            // 
-            this.fechaAudienciaDataGridViewTextBoxColumn.DataPropertyName = "FechaAudiencia";
-            this.fechaAudienciaDataGridViewTextBoxColumn.HeaderText = "FechaAudiencia";
-            this.fechaAudienciaDataGridViewTextBoxColumn.Name = "fechaAudienciaDataGridViewTextBoxColumn";
-            this.fechaAudienciaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // salaDataGridViewTextBoxColumn
-            // 
-            this.salaDataGridViewTextBoxColumn.DataPropertyName = "Sala";
-            this.salaDataGridViewTextBoxColumn.HeaderText = "Sala";
-            this.salaDataGridViewTextBoxColumn.Name = "salaDataGridViewTextBoxColumn";
-            this.salaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // audienciaDataGridViewTextBoxColumn
-            // 
-            this.audienciaDataGridViewTextBoxColumn.DataPropertyName = "Audiencia";
-            this.audienciaDataGridViewTextBoxColumn.HeaderText = "Audiencia";
-            this.audienciaDataGridViewTextBoxColumn.Name = "audienciaDataGridViewTextBoxColumn";
-            this.audienciaDataGridViewTextBoxColumn.Visible = false;
             // 
             // ResultadoAudiencia
             // 
@@ -347,34 +285,6 @@
             this.estatusDataGridViewTextBoxColumn.DataPropertyName = "Estatus";
             this.estatusDataGridViewTextBoxColumn.HeaderText = "Estatus";
             this.estatusDataGridViewTextBoxColumn.Name = "estatusDataGridViewTextBoxColumn";
-            // 
-            // personasDataGridViewTextBoxColumn
-            // 
-            this.personasDataGridViewTextBoxColumn.DataPropertyName = "Personas";
-            this.personasDataGridViewTextBoxColumn.HeaderText = "Personas";
-            this.personasDataGridViewTextBoxColumn.Name = "personasDataGridViewTextBoxColumn";
-            this.personasDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // archivosDataGridViewTextBoxColumn
-            // 
-            this.archivosDataGridViewTextBoxColumn.DataPropertyName = "Archivos";
-            this.archivosDataGridViewTextBoxColumn.HeaderText = "Archivos";
-            this.archivosDataGridViewTextBoxColumn.Name = "archivosDataGridViewTextBoxColumn";
-            this.archivosDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // citaDataGridViewTextBoxColumn
-            // 
-            this.citaDataGridViewTextBoxColumn.DataPropertyName = "Cita";
-            this.citaDataGridViewTextBoxColumn.HeaderText = "Cita";
-            this.citaDataGridViewTextBoxColumn.Name = "citaDataGridViewTextBoxColumn";
-            this.citaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // peticionariosDataGridViewTextBoxColumn
-            // 
-            this.peticionariosDataGridViewTextBoxColumn.DataPropertyName = "Peticionarios";
-            this.peticionariosDataGridViewTextBoxColumn.HeaderText = "Peticionarios";
-            this.peticionariosDataGridViewTextBoxColumn.Name = "peticionariosDataGridViewTextBoxColumn";
-            this.peticionariosDataGridViewTextBoxColumn.Visible = false;
             // 
             // citasDGViewBindingSource
             // 

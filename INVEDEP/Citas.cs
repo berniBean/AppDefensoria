@@ -64,7 +64,7 @@ namespace INVEDEP
         }
         private async void CargarDatosCitas()
         {
-            var citas = await _mediator.Send(new Clases.Tablas.Cita.ListCitas.Ejecuta()
+            var citas = await _mediator.Send(new Clases.Tablas.Archivo.ListConsulta.Ejecuta()
             {
                 IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
             });

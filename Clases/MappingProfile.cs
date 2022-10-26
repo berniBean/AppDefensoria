@@ -13,23 +13,35 @@ namespace Clases
             CreateMap<Data.Models.Persona, PersonaDTO>();
             CreateMap<Data.Models.Archivo, ArchivoDTO>();
             CreateMap<Data.Models.Cita, CitaDTO>();
+            CreateMap<Data.Models.Particulare, ParticularesDto>();
+
+
+
+            CreateMap<Data.Models.Archivo, PeticionarioParticularesDGView>()
+                .ForMember(dto => dto.Ocupacion, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.Ocupacion))
+                .ForMember(dto => dto.Estudios, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.Estudios))
+                .ForMember(dto => dto.Nombre, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Nombre))
+                .ForMember(dto => dto.Apaterno, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Apaterno))
+                .ForMember(dto => dto.Amaterno, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Amaterno))
+                .ForMember(dto => dto.Domicilio, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.Domicilio))
+                .ForMember(dto => dto.Lengua, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.Lengua))
+                .ForMember(dto => dto.Telefono, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.Telefono))
+                .ForMember(dto => dto.Edad, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.Edad))
+                .ForMember(dto => dto.Ocupacion, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.Ocupacion))
+                .ForMember(dto => dto.EstadoCivil, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.EstadoCivil))
+                .ForMember(dto => dto.Estudios, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.Estudios));
+                
+
 
 
 
             CreateMap<Data.Models.Archivo, CitasDGView>()
-                .ForMember(peticionario => peticionario.Apaterno, y => y.MapFrom(src => src.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Apaterno))
-                .ForMember(peticionario => peticionario.Amaterno, y => y.MapFrom(src => src.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Amaterno))
-                .ForMember(peticionario => peticionario.Nombre, y => y.MapFrom(src => src.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Nombre))
-                .ForMember(peticionario => peticionario.Domicilio, y=> y.MapFrom(src => src.IdPeticionarioNavigation.Domicilio))
-                .ForMember(peticionario => peticionario.Lengua, y => y.MapFrom(src => src.IdPeticionarioNavigation.Lengua))
-                .ForMember(peticionario => peticionario.Telefono, y => y.MapFrom(src => src.IdPeticionarioNavigation.Telefono))
-                .ForMember(peticionario => peticionario.Edad, y => y.MapFrom(src => src.ParticularesIdParticularesNavigation.Edad))
-                .ForMember(peticionario => peticionario.Ocupacion, y => y.MapFrom(src => src.ParticularesIdParticularesNavigation.Ocupacion))
-                .ForMember(peticionario => peticionario.EstadoCivil, y => y.MapFrom(src => src.ParticularesIdParticularesNavigation.EstadoCivil))
-                .ForMember(peticionario => peticionario.Estudios, y => y.MapFrom(src => src.ParticularesIdParticularesNavigation.Estudios));
+                .ForMember(dto=> dto.Idreportes, ent=>ent.MapFrom(prop=>prop.Cita.Select(s=>s.ReportesIdreportes)))
+                .ForMember(dto=> dto.Idcitas, ent=>ent.MapFrom(prop=>prop.Cita.Select(s=>s.Idcitas)))
+                .ForMember(dto => dto.Nombre, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Nombre))
+                .ForMember(dto => dto.Apaterno, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Apaterno))
+                .ForMember(dto => dto.Amaterno, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Amaterno));
 
-
-            CreateMap<Data.Models.Cita, CitasDGView>();
 
         }
     }

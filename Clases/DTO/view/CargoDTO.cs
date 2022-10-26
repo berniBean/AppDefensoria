@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Data.Models;
 
 namespace Clases.DTO.view
 {
     public class CargoDTO
     {
-        public string? Idcargo { get; set; }
-        public string? Puesto { get; set; }
+        public string Idcargo { get; set; }
+        //Datos
+        public virtual ICollection<FuncionarioDTO> Funcionarios { get; set; }
     }
 }

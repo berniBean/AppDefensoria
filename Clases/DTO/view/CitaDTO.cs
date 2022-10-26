@@ -5,12 +5,14 @@ namespace Clases.DTO.view
     public class CitaDTO
     {
         public string Idcitas { get; set; }
-        public DateTime? FechaAudiencia { get; set; }
-        public string Sala { get; set; }
-        public string Audiencia { get; set; }
+        //llaves foreaneas
+        public string ReportesIdreportes { get; set; }
         public string ArchivoIdarchivo { get; set; }
-        public string ArchivoReportesIdreportes { get; set; }
 
-        
+        //Navegaciones
+        public virtual ArchivoDTO ArchivoIdarchivoNavigation { get; set; }
+        public virtual ReporteDTO ReportesIdreportesNavigation { get; set; }
+
+
     }
 }

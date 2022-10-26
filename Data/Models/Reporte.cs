@@ -12,7 +12,7 @@ namespace Data.Models
             Cita = new HashSet<Cita>();
         }
 
-        public string Idreportes { get; set; }
+        public string? Idreportes { get; set; }
         public DateTime? Fecha { get; set; }
 
         public virtual ICollection<Cita> Cita { get; set; }

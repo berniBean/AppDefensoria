@@ -1,10 +1,13 @@
-﻿namespace Clases.DTO.TableViews
+﻿using Clases.DTO.view;
+using Data;
+using Data.Models;
+
+namespace Clases.DTO.TableViews
 {
-    public class CitasDGView 
+    public class PeticionarioParticularesDGView
     {
         public string Idarchivo { get; set; }
         public string IdPeticionario { get; set; }
-        public string ParticularesIdParticulares { get; set; }
 
         //Archivo
         public int? Serieindevep { get; set; }
@@ -16,7 +19,7 @@
         public string Toca { get; set; }
         public string Amparo { get; set; }
         public string ExpedinteAmparo { get; set; }
-        public string Estatus { get; set; }
+        public EstatusArchivo Estatus { get; set; }
         public string Fiscalia { get; set; }
         public string Victima { get; set; }
 
@@ -30,12 +33,16 @@
         public string Ocupacion { get; set; }
         public string EstadoCivil { get; set; }
         public string Estudios { get; set; }
-
+        //Familiares
+        public string ApaternoFamiliar { get; set; }
+        public string AmaternoFamiliar { get; set; }
+        public string NombreFamiliar { get; set; }
 
         public string Apaterno { get; set; }
         public string Amaterno { get; set; }
         public string Nombre { get; set; }
 
 
+        
     }
 }

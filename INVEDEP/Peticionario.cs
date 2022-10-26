@@ -124,12 +124,23 @@ namespace INVEDEP
 
         private async Task CargarDatosParticularesPeticionario()
         {
-            var datosArchivosPeticionario = await _mediator.Send(new Clases.Tablas.Peticionario.ListConsulta.Ejecuta()
+            try
             {
-                IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
-            }) ;
+                var datosArchivosPeticionario = await _mediator.Send(new Clases.Tablas.Peticionario.ListConsulta.Ejecuta()
+                {
+                    IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
+                });
 
-            DgPeticionarioParticulares.DataSource = datosArchivosPeticionario;
+                DgPeticionarioParticulares.DataSource = datosArchivosPeticionario;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
         }
 
 
