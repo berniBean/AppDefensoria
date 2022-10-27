@@ -32,7 +32,8 @@ namespace INVEDEP
 
         static IServiceProvider BuildServiceProvider()
         {
-            IServiceCollection collection = new ServiceCollection();
+            
+        IServiceCollection collection = new ServiceCollection();
             
             #region Agregar las ventanas de WindowsForms
             collection.AddTransient<Citas>();

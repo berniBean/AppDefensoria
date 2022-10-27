@@ -1,5 +1,6 @@
 ﻿
 
+using Clases.DTO.view;
 using MediatR;
 
 namespace INVEDEP
@@ -7,8 +8,6 @@ namespace INVEDEP
     public partial class Citas : Form
     {
         private string _idArchivo { get; set; }
-        private string _idReporte { get; set; }
-        private string _idCita { get; set; }
         private DateTime parsedDate;
 
         IMediator _mediator;
@@ -25,44 +24,50 @@ namespace INVEDEP
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             parsedDate = DtFechaAudiencia.Value;
-            if(_idCita is null)
+            CitaDTO? cita = await _mediator.Send(new Clases.Tablas.Cita.Consulta.Ejecuta()
+            {
+                IdArchivo = _idArchivo
+            });
+
+            if (cita is null)
             {
                 var res = await _mediator.Send(new Clases.Tablas.Cita.Nuevo.Ejecuta()
-                {                    
-                                  Sala = TbSala.Text,
-                             Audiencia = TbTipoAudiencia.Text,
-                        FechaAudiencia = parsedDate,
+                {
+                    IdArchivo = _idArchivo,
+                    Sala = TbSala.Text,
+                    Audiencia = TbTipoAudiencia.Text,
+                    FechaAudiencia = parsedDate,
                     ResultadoAudiencia = txtResultado.Text
+
                 });
             }
             else
             {
                 var res = await _mediator.Send(new Clases.Tablas.Cita.Editar.Ejecuta()
                 {
-                              
-                                 Sala = TbSala.Text,
-                              Idcitas = _idCita,
-                            Audiencia = TbTipoAudiencia.Text,
-                       FechaAudiencia = parsedDate,
-                   ResultadoAudiencia = txtResultado.Text
+
+                    Sala = TbSala.Text,
+                    Idcitas = cita.Idcitas,
+                    Audiencia = TbTipoAudiencia.Text,
+                    FechaAudiencia = parsedDate,
+                    ResultadoAudiencia = txtResultado.Text
 
                 });
             }
 
-            
 
 
-            
+
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _idReporte = DgViewCitas.Rows[e.RowIndex].Cells[1].Value.ToString();
-            _idArchivo = DgViewCitas.Rows[e.RowIndex].Cells[2].Value.ToString();
-               _idCita = DgViewCitas.Rows[e.RowIndex].Cells[3].Value.ToString();
-            
+            _idArchivo = DgViewCitas.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+            CargarRegistrosAudiencias(DgViewCitas.Rows[e.RowIndex].Cells[0].Value.ToString());
         }
-        private async void CargarDatosCitas()
+        private async Task CargarDatosCitas()
         {
             var citas = await _mediator.Send(new Clases.Tablas.Archivo.ListConsulta.Ejecuta()
             {
@@ -71,9 +76,37 @@ namespace INVEDEP
             DgViewCitas.DataSource = citas;
         }
 
-        private void Citas_Load(object sender, EventArgs e)
+        private async Task CargarRegistrosAudiencias(string id)
         {
-            CargarDatosCitas();
+            var registros = await _mediator.Send(new Clases.Tablas.Cita.ListCitas.Ejecuta()
+            {
+                IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4",
+                IdArchivo = id
+            });
+            DgRegistroAudiencia.DataSource = registros;
         }
+        
+        private  async void Citas_Load(object sender, EventArgs e)
+        {
+                await CargarDatosCitas();
+                
+            
+            
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
+
+
+
+        }
+
+        
     }
 }

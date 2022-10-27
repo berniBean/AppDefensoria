@@ -96,6 +96,8 @@ namespace INVEDEP
 
 
             });
+
+            await CargarDatosParticularesPeticionario();
         }
 
         #endregion
@@ -153,9 +155,28 @@ namespace INVEDEP
 
         private void DgPeticionarioParticulares_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            _idArchivo = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[0].Value.ToString();
-            _idPeticionario = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[1].Value.ToString();
-            _idParticulares= DgPeticionarioParticulares.Rows[e.RowIndex].Cells[2].Value.ToString();
+            try
+            {
+                _idArchivo = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[0].Value.ToString();
+                _idPeticionario = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[1].Value.ToString();
+                _idParticulares = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[2].Value.ToString();
+                tbEdad.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[3].Value?.ToString();
+                tbOcupacion.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[4].Value?.ToString();
+                tbEstadoCivil.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[5].Value?.ToString();
+                tbEstudios.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[6].Value?.ToString();
+                tbLengua.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[7].Value?.ToString();
+                tbTelefono.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[8].Value?.ToString();
+                tbDirecciones.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[9].Value?.ToString();
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+
 
 
         }
