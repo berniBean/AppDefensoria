@@ -21,6 +21,8 @@ namespace Clases.DTO.TableViews
         public string Amparo { get; set; }
         public string ExpedinteAmparo { get; set; }
         public EstatusArchivo Estatus { get; set; }
+        public MateriaLegal MateriaLegal { get; set; }
+        public SexoPeticionario sexoPeticionario { get; set; }
         public string Fiscalia { get; set; }
         public string Victima { get; set; }
 

@@ -1,6 +1,7 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
 using Clases.Repository;
+using Data;
 using MediatR;
 
 namespace Clases.Tablas.Cita
@@ -13,6 +14,7 @@ namespace Clases.Tablas.Cita
             public DateTime? FechaAudiencia { get; set; }
             public string Sala { get; set; }
             public string Audiencia { get; set; }
+            public TipoAtencion TipoAtencion { get; set; }
             public string ResultadoAudiencia { get; set; }
 
 
@@ -32,7 +34,7 @@ namespace Clases.Tablas.Cita
                 registro.Sala = request.Sala ?? registro.Sala;
                 registro.Audiencia = request.Audiencia ?? registro.Audiencia;
                 registro.ResultadoAudiencia = request.ResultadoAudiencia ?? registro.ResultadoAudiencia;
-
+                registro.tipoAtencion = request.TipoAtencion;
                 return RestultadoEF.Salvado(await _unitOfWork.Cita.SaveAsync());
 
             }

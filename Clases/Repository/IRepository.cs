@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Clases.Repository
+﻿namespace Clases.Repository
 {
     public interface IRepository<TEntity>
     {

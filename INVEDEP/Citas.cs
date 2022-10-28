@@ -1,6 +1,7 @@
 ﻿
 
 using Clases.DTO.view;
+using Data.Models;
 using MediatR;
 
 namespace INVEDEP
@@ -20,7 +21,22 @@ namespace INVEDEP
             DtFechaAudiencia.Format = DateTimePickerFormat.Custom;
 
         }
+        private async void BtnNuevacita_Click(object sender, EventArgs e)
+        {
+            parsedDate = DtFechaAudiencia.Value;
 
+                var res = await _mediator.Send(new Clases.Tablas.Cita.Nuevo.Ejecuta()
+                {
+                    IdArchivo = _idArchivo,
+                    Sala = TbSala.Text,
+                    Audiencia = TbTipoAudiencia.Text,
+                    TipoAtencion = (Data.TipoAtencion)CboxTipoAsistencia.SelectedIndex,
+                    FechaAudiencia = parsedDate,
+                    ResultadoAudiencia = txtResultado.Text
+
+                });
+            
+        }
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
             parsedDate = DtFechaAudiencia.Value;
@@ -29,43 +45,31 @@ namespace INVEDEP
                 IdArchivo = _idArchivo
             });
 
-            if (cita is null)
-            {
-                var res = await _mediator.Send(new Clases.Tablas.Cita.Nuevo.Ejecuta()
-                {
-                    IdArchivo = _idArchivo,
-                    Sala = TbSala.Text,
-                    Audiencia = TbTipoAudiencia.Text,
-                    FechaAudiencia = parsedDate,
-                    ResultadoAudiencia = txtResultado.Text
-
-                });
-            }
-            else
-            {
                 var res = await _mediator.Send(new Clases.Tablas.Cita.Editar.Ejecuta()
                 {
 
                     Sala = TbSala.Text,
                     Idcitas = cita.Idcitas,
                     Audiencia = TbTipoAudiencia.Text,
+                    TipoAtencion = (Data.TipoAtencion)CboxTipoAsistencia.SelectedIndex,
                     FechaAudiencia = parsedDate,
                     ResultadoAudiencia = txtResultado.Text
 
                 });
-            }
 
+            await CargarRegistrosAudiencias(cita.Idcitas);
 
 
 
 
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private async  void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             _idArchivo = DgViewCitas.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-            CargarRegistrosAudiencias(DgViewCitas.Rows[e.RowIndex].Cells[0].Value.ToString());
+            await CargarRegistrosAudiencias(DgViewCitas.Rows[e.RowIndex].Cells[0].Value.ToString());
+
         }
         private async Task CargarDatosCitas()
         {
@@ -107,6 +111,11 @@ namespace INVEDEP
 
         }
 
-        
+        private void DgRegistroAudiencia_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            TbSala.Text = DgRegistroAudiencia.Rows[e.RowIndex].Cells[1].Value?.ToString();
+            TbTipoAudiencia.Text = DgRegistroAudiencia.Rows[e.RowIndex].Cells[2].Value?.ToString();
+            txtResultado.Text = DgRegistroAudiencia.Rows[e.RowIndex].Cells[5].Value?.ToString();
+        }
     }
 }

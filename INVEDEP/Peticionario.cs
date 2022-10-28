@@ -1,4 +1,5 @@
 ﻿using Clases.helpers;
+using Data;
 using MediatR;
 using System.Runtime.CompilerServices;
 
@@ -22,22 +23,22 @@ namespace INVEDEP
             _datosPersona = datosPersona;
         }
 
-        private void DatosPersonaUpdateEventHandler(object sender, DatosPersona.UpdateEventArgs args)
+        private async Task DatosPersonaUpdateEventHandler(object sender, DatosPersona.UpdateEventArgs args)
         {
-            CargarDatosParticularesPeticionario();
+            await CargarDatosParticularesPeticionario();
         }
-        private  void Peticionario_Load(object sender, EventArgs e)
+        private  async void Peticionario_Load(object sender, EventArgs e)
         {
-            CargarDatosParticularesPeticionario();
+           await CargarDatosParticularesPeticionario();
         }
 
 
 
-        private void BtnRefresh_Click(object sender, EventArgs e)
+        private async void BtnRefresh_Click(object sender, EventArgs e)
         {
             try
             {
-                var res = _mediator.Send(new Clases.Tablas.Archivo.Editar.Ejecuta()
+                var res = await _mediator.Send(new Clases.Tablas.Archivo.Editar.Ejecuta()
                 {
                     Idarchivo = _idArchivo,
                     Serieindevep = Convert.ToInt16(TbInvedep.Text),
@@ -50,6 +51,7 @@ namespace INVEDEP
                     Amparo = tbAmparo.Text,
                     ExpedinteAmparo = tbArchivoAmparo.Text,
                     Victima = TbVictima.Text,
+                    materiaLegal = (MateriaLegal)CboxMateria.SelectedIndex,
                     Fiscalia = tbFiscalia.Text
                 });
             }
@@ -58,6 +60,9 @@ namespace INVEDEP
 
                 throw new Exception(lo.ToString());
             }
+
+            await CargarDatosParticularesPeticionario();
+            
         }
 
         private void btnNuevoPeticionario_Click(object sender, EventArgs e)
@@ -82,6 +87,8 @@ namespace INVEDEP
                IdPeticionario = _idPeticionario,
                Domicilio = tbDirecciones.Text,
                Lengua = tbLengua.Text,
+               sexoPeticionario = (SexoPeticionario)CboxSexo.SelectedIndex,
+               GrupoEtnico = TbGrupoIndigena.Text,
                Telefono = tbTelefono.Text
 
             });
@@ -113,16 +120,7 @@ namespace INVEDEP
         
 
         #region Funcionalidades
-        private async void CargarTablaPeticionarios()
-        {
-            var listado = await _mediator.Send(new Clases.Tablas.Peticionario.ListConsulta.Ejecuta()
-            {
-                IdFuncionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
-            });
 
-            DgPeticionarioParticulares.DataSource = listado;
-           
-        }
 
         private async Task CargarDatosParticularesPeticionario()
         {
@@ -167,7 +165,21 @@ namespace INVEDEP
                 tbLengua.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[7].Value?.ToString();
                 tbTelefono.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[8].Value?.ToString();
                 tbDirecciones.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[9].Value?.ToString();
-                
+                TbInvedep.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[10].Value?.ToString();
+                tbDelito.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[11].Value?.ToString();
+                tbCarpeta.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[12].Value?.ToString();
+                tbJuez.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[13].Value?.ToString();
+                tbProcesoPenal.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[14].Value?.ToString();
+                tbInstancia.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[15].Value?.ToString();
+                tbToca.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[16].Value?.ToString();
+                tbAmparo.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[17].Value?.ToString();
+                tbArchivoAmparo.Text= DgPeticionarioParticulares.Rows[e.RowIndex].Cells[18].Value?.ToString();
+                TbVictima.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[19].Value?.ToString();
+                tbFiscalia.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[20].Value?.ToString();
+                CboxEstatus.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[27].Value?.ToString();
+                CboxMateria.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[28].Value?.ToString();
+                CboxSexo.Text = DgPeticionarioParticulares.Rows[e.RowIndex].Cells[29].Value?.ToString();
+
             }
             catch (Exception)
             {

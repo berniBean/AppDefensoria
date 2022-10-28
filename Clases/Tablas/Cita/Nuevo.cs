@@ -1,6 +1,7 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
 using Clases.Repository;
+using Data;
 using MediatR;
 
 namespace Clases.Tablas.Cita
@@ -11,7 +12,8 @@ namespace Clases.Tablas.Cita
         {
             public DateTime? FechaAudiencia { get; set; }
             public string Sala { get; set; }
-            public string Audiencia { get; set; }      
+            public string Audiencia { get; set; }     
+            public TipoAtencion TipoAtencion { get; set; }
             public string IdArchivo { get; set; }
             public string ResultadoAudiencia { get; set; }
         }
@@ -36,6 +38,7 @@ namespace Clases.Tablas.Cita
                     FechaAudiencia = request.FechaAudiencia,
                     Sala = request.Sala,
                     Audiencia = request.Audiencia,
+                    tipoAtencion = request.TipoAtencion,
                     ReportesIdreportes = nuevoReporte.Idreportes,
                     ArchivoIdarchivo = request.IdArchivo
                 };

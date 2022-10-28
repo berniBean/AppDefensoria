@@ -27,7 +27,12 @@ namespace Data.Models
         public virtual DbSet<Peticionario> Peticionarios { get; set; }
         public virtual DbSet<Reporte> Reportes { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySQL("server=localhost; Uid=monty; Password=berninet2013; Database=ednita_db; Port=3306");
+            }
+        }
 
  
 
@@ -59,6 +64,7 @@ namespace Data.Models
                 entity.Property(e => e.Delito)
                     .HasMaxLength(255)
                     .HasColumnName("delito");
+                
 
                 entity.Property(e => e.Estatus).HasDefaultValue(EstatusArchivo.Activo);
 

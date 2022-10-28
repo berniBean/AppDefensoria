@@ -8,6 +8,7 @@ namespace Data.Models
         public DateTime? FechaAudiencia { get; set; }
         public string Sala { get; set; }
         public string Audiencia { get; set; }
+        public TipoAtencion tipoAtencion { get; set; }
         public string ResultadoAudiencia { get; set; }
         public string ReportesIdreportes { get; set; }
         public string ArchivoIdarchivo { get; set; }

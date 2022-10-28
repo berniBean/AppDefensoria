@@ -41,7 +41,7 @@ namespace INVEDEP
 
         }
 
-        public delegate void UpdateDelegate(object sender, UpdateEventArgs args);
+        public delegate Task UpdateDelegate(object sender, UpdateEventArgs args);
         public event UpdateDelegate UpdateEventHandler;
 
         public class UpdateEventArgs : EventArgs

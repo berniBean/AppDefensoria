@@ -15,6 +15,7 @@ namespace Data.Models
         public string IdentidadResguardada { get; set; }
         public string Domicilio { get; set; }
         public string GrupoEtnico { get; set; }
+        public SexoPeticionario sexoPeticionario { get; set; }
         public string Lengua { get; set; }
         public string Telefono { get; set; }
         public string PersonaIdPersona { get; set; }

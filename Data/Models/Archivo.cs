@@ -22,6 +22,7 @@ namespace Data.Models
         public string Toca { get; set; }
         public string Amparo { get; set; }
         public string ExpedinteAmparo { get; set; }
+        public MateriaLegal materiaLegal { get; set; }
         public EstatusArchivo Estatus { get; set; }
         public string IdPeticionario { get; set; }
         public string ParticularesIdParticulares { get; set; }

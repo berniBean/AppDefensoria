@@ -1,6 +1,7 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
 using Clases.Repository;
+using Data;
 using Data.Models;
 using MediatR;
 
@@ -22,6 +23,7 @@ namespace Clases.Tablas.Archivo
             public string ExpedinteAmparo { get; set; }
             public string Estatus { get; set; }
             public string Fiscalia { get; set; }
+            public MateriaLegal materiaLegal { get; set; }
             public string Victima { get; set; }
 
 
@@ -53,6 +55,7 @@ namespace Clases.Tablas.Archivo
                     registro.ExpedinteAmparo = request.ExpedinteAmparo ?? registro.ExpedinteAmparo;
                     registro.Victima = request.Victima ?? registro.Victima;
                     registro.Fiscalia = request.Fiscalia ?? registro.Fiscalia;
+                    registro.materiaLegal = request.materiaLegal;
                     _unitOfWork.Archivo.Upadate(registro);
                 }
                 catch (Exception e)

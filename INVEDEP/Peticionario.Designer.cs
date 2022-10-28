@@ -45,15 +45,19 @@
             this.tbEstadoCivil = new System.Windows.Forms.TextBox();
             this.tbEstudios = new System.Windows.Forms.TextBox();
             this.tbLengua = new System.Windows.Forms.TextBox();
-            this.tbTelefono = new System.Windows.Forms.TextBox();
-            this.tbDirecciones = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.TbFamiliar = new System.Windows.Forms.TextBox();
             this.BtnFamiliar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TbGrupoIndigena = new System.Windows.Forms.TextBox();
+            this.tbTelefono = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.CboxSexo = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbDirecciones = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.btnNuevoPeticionario = new System.Windows.Forms.Button();
@@ -87,11 +91,14 @@
             this.tbDelito = new System.Windows.Forms.TextBox();
             this.TbInvedep = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.Estatus = new System.Windows.Forms.Label();
-            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
-            this.CboxEstatus = new System.Windows.Forms.ComboBox();
             this.tbFiscalia = new System.Windows.Forms.TextBox();
             this.TbVictima = new System.Windows.Forms.TextBox();
+            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
+            this.CboxEstatus = new System.Windows.Forms.ComboBox();
+            this.Estatus = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.splitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.CboxMateria = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnRefresh = new System.Windows.Forms.Button();
@@ -118,8 +125,8 @@
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apaternoFamiliarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amaternoFamiliarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreFamiliarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,6 +134,8 @@
             this.amaternoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MateriaLegal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexoPeticionario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPesonales.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -158,6 +167,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
             this.splitContainer8.Panel1.SuspendLayout();
             this.splitContainer8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
+            this.splitContainer6.Panel1.SuspendLayout();
+            this.splitContainer6.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
@@ -245,26 +257,32 @@
             this.tableLayoutPanel6.Controls.Add(this.tbEstadoCivil, 1, 2);
             this.tableLayoutPanel6.Controls.Add(this.tbEstudios, 1, 3);
             this.tableLayoutPanel6.Controls.Add(this.tbLengua, 1, 4);
-            this.tableLayoutPanel6.Controls.Add(this.tbTelefono, 1, 5);
-            this.tableLayoutPanel6.Controls.Add(this.tbDirecciones, 1, 6);
             this.tableLayoutPanel6.Controls.Add(this.label21, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.label22, 0, 5);
-            this.tableLayoutPanel6.Controls.Add(this.label12, 0, 6);
-            this.tableLayoutPanel6.Controls.Add(this.label14, 0, 7);
-            this.tableLayoutPanel6.Controls.Add(this.splitContainer5, 1, 7);
+            this.tableLayoutPanel6.Controls.Add(this.label14, 0, 9);
+            this.tableLayoutPanel6.Controls.Add(this.splitContainer5, 1, 9);
+            this.tableLayoutPanel6.Controls.Add(this.label9, 0, 5);
+            this.tableLayoutPanel6.Controls.Add(this.TbGrupoIndigena, 1, 5);
+            this.tableLayoutPanel6.Controls.Add(this.tbTelefono, 1, 7);
+            this.tableLayoutPanel6.Controls.Add(this.label22, 0, 7);
+            this.tableLayoutPanel6.Controls.Add(this.CboxSexo, 1, 6);
+            this.tableLayoutPanel6.Controls.Add(this.label15, 0, 6);
+            this.tableLayoutPanel6.Controls.Add(this.tbDirecciones, 1, 8);
+            this.tableLayoutPanel6.Controls.Add(this.label12, 0, 8);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 19);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 9;
+            this.tableLayoutPanel6.RowCount = 11;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(854, 612);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
@@ -353,22 +371,6 @@
             this.tbLengua.Size = new System.Drawing.Size(731, 23);
             this.tbLengua.TabIndex = 16;
             // 
-            // tbTelefono
-            // 
-            this.tbTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTelefono.Location = new System.Drawing.Point(120, 157);
-            this.tbTelefono.Name = "tbTelefono";
-            this.tbTelefono.Size = new System.Drawing.Size(731, 23);
-            this.tbTelefono.TabIndex = 17;
-            // 
-            // tbDirecciones
-            // 
-            this.tbDirecciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbDirecciones.Location = new System.Drawing.Point(120, 188);
-            this.tbDirecciones.Name = "tbDirecciones";
-            this.tbDirecciones.Size = new System.Drawing.Size(731, 23);
-            this.tbDirecciones.TabIndex = 18;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -379,40 +381,20 @@
             this.label21.TabIndex = 9;
             this.label21.Text = "Lengua:";
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label22.Location = new System.Drawing.Point(59, 154);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 31);
-            this.label22.TabIndex = 10;
-            this.label22.Text = "Telefono:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label12.Location = new System.Drawing.Point(54, 185);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 38);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Dirección:";
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label14.Location = new System.Drawing.Point(62, 223);
+            this.label14.Location = new System.Drawing.Point(62, 268);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 30);
+            this.label14.Size = new System.Drawing.Size(52, 29);
             this.label14.TabIndex = 19;
             this.label14.Text = "Familiar:";
             // 
             // splitContainer5
             // 
             this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.Location = new System.Drawing.Point(120, 226);
+            this.splitContainer5.Location = new System.Drawing.Point(120, 271);
             this.splitContainer5.Name = "splitContainer5";
             // 
             // splitContainer5.Panel1
@@ -422,7 +404,7 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.BtnFamiliar);
-            this.splitContainer5.Size = new System.Drawing.Size(731, 24);
+            this.splitContainer5.Size = new System.Drawing.Size(731, 23);
             this.splitContainer5.SplitterDistance = 597;
             this.splitContainer5.TabIndex = 21;
             // 
@@ -439,11 +421,87 @@
             this.BtnFamiliar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnFamiliar.Location = new System.Drawing.Point(0, 0);
             this.BtnFamiliar.Name = "BtnFamiliar";
-            this.BtnFamiliar.Size = new System.Drawing.Size(130, 24);
+            this.BtnFamiliar.Size = new System.Drawing.Size(130, 23);
             this.BtnFamiliar.TabIndex = 0;
             this.BtnFamiliar.Text = "Editar Familiar";
             this.BtnFamiliar.UseVisualStyleBackColor = true;
             this.BtnFamiliar.Click += new System.EventHandler(this.BtnFamiliar_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label9.Location = new System.Drawing.Point(58, 154);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 31);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Indigena:";
+            // 
+            // TbGrupoIndigena
+            // 
+            this.TbGrupoIndigena.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TbGrupoIndigena.Location = new System.Drawing.Point(120, 157);
+            this.TbGrupoIndigena.Name = "TbGrupoIndigena";
+            this.TbGrupoIndigena.Size = new System.Drawing.Size(731, 23);
+            this.TbGrupoIndigena.TabIndex = 24;
+            // 
+            // tbTelefono
+            // 
+            this.tbTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbTelefono.Location = new System.Drawing.Point(120, 215);
+            this.tbTelefono.Name = "tbTelefono";
+            this.tbTelefono.Size = new System.Drawing.Size(731, 23);
+            this.tbTelefono.TabIndex = 17;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label22.Location = new System.Drawing.Point(59, 212);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(55, 28);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "Telefono:";
+            // 
+            // CboxSexo
+            // 
+            this.CboxSexo.FormattingEnabled = true;
+            this.CboxSexo.Items.AddRange(new object[] {
+            "Seleccionar",
+            "Hombre",
+            "Mujer"});
+            this.CboxSexo.Location = new System.Drawing.Point(120, 188);
+            this.CboxSexo.Name = "CboxSexo";
+            this.CboxSexo.Size = new System.Drawing.Size(133, 23);
+            this.CboxSexo.TabIndex = 25;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label15.Location = new System.Drawing.Point(79, 185);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(35, 27);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Sexo:";
+            // 
+            // tbDirecciones
+            // 
+            this.tbDirecciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbDirecciones.Location = new System.Drawing.Point(120, 243);
+            this.tbDirecciones.Name = "tbDirecciones";
+            this.tbDirecciones.Size = new System.Drawing.Size(731, 23);
+            this.tbDirecciones.TabIndex = 18;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label12.Location = new System.Drawing.Point(54, 240);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 28);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Dirección:";
             // 
             // splitContainer3
             // 
@@ -626,14 +684,16 @@
             this.tlDatosCarpeta.Controls.Add(this.tbDelito, 1, 1);
             this.tlDatosCarpeta.Controls.Add(this.TbInvedep, 1, 0);
             this.tlDatosCarpeta.Controls.Add(this.label13, 0, 0);
-            this.tlDatosCarpeta.Controls.Add(this.Estatus, 0, 11);
-            this.tlDatosCarpeta.Controls.Add(this.splitContainer8, 1, 11);
             this.tlDatosCarpeta.Controls.Add(this.tbFiscalia, 1, 10);
             this.tlDatosCarpeta.Controls.Add(this.TbVictima, 1, 9);
+            this.tlDatosCarpeta.Controls.Add(this.splitContainer8, 1, 12);
+            this.tlDatosCarpeta.Controls.Add(this.Estatus, 0, 12);
+            this.tlDatosCarpeta.Controls.Add(this.label20, 0, 11);
+            this.tlDatosCarpeta.Controls.Add(this.splitContainer6, 1, 11);
             this.tlDatosCarpeta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlDatosCarpeta.Location = new System.Drawing.Point(0, 0);
             this.tlDatosCarpeta.Name = "tlDatosCarpeta";
-            this.tlDatosCarpeta.RowCount = 13;
+            this.tlDatosCarpeta.RowCount = 14;
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
@@ -646,7 +706,8 @@
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.tlDatosCarpeta.Size = new System.Drawing.Size(869, 480);
             this.tlDatosCarpeta.TabIndex = 11;
             // 
@@ -832,40 +893,6 @@
             this.label13.TabIndex = 17;
             this.label13.Text = "INVEDEP:";
             // 
-            // Estatus
-            // 
-            this.Estatus.AutoSize = true;
-            this.Estatus.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Estatus.Location = new System.Drawing.Point(93, 357);
-            this.Estatus.Name = "Estatus";
-            this.Estatus.Size = new System.Drawing.Size(47, 34);
-            this.Estatus.TabIndex = 20;
-            this.Estatus.Text = "Estatus:";
-            // 
-            // splitContainer8
-            // 
-            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer8.Location = new System.Drawing.Point(146, 360);
-            this.splitContainer8.Name = "splitContainer8";
-            // 
-            // splitContainer8.Panel1
-            // 
-            this.splitContainer8.Panel1.Controls.Add(this.CboxEstatus);
-            this.splitContainer8.Size = new System.Drawing.Size(720, 28);
-            this.splitContainer8.SplitterDistance = 196;
-            this.splitContainer8.TabIndex = 21;
-            // 
-            // CboxEstatus
-            // 
-            this.CboxEstatus.DisplayMember = "Estatus";
-            this.CboxEstatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CboxEstatus.FormattingEnabled = true;
-            this.CboxEstatus.Location = new System.Drawing.Point(0, 0);
-            this.CboxEstatus.Name = "CboxEstatus";
-            this.CboxEstatus.Size = new System.Drawing.Size(196, 23);
-            this.CboxEstatus.TabIndex = 0;
-            this.CboxEstatus.ValueMember = "Estatus";
-            // 
             // tbFiscalia
             // 
             this.tbFiscalia.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -881,6 +908,82 @@
             this.TbVictima.Name = "TbVictima";
             this.TbVictima.Size = new System.Drawing.Size(720, 23);
             this.TbVictima.TabIndex = 23;
+            // 
+            // splitContainer8
+            // 
+            this.splitContainer8.Location = new System.Drawing.Point(146, 394);
+            this.splitContainer8.Name = "splitContainer8";
+            // 
+            // splitContainer8.Panel1
+            // 
+            this.splitContainer8.Panel1.Controls.Add(this.CboxEstatus);
+            this.splitContainer8.Size = new System.Drawing.Size(720, 24);
+            this.splitContainer8.SplitterDistance = 196;
+            this.splitContainer8.TabIndex = 21;
+            // 
+            // CboxEstatus
+            // 
+            this.CboxEstatus.DisplayMember = "Estatus";
+            this.CboxEstatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboxEstatus.FormattingEnabled = true;
+            this.CboxEstatus.Items.AddRange(new object[] {
+            "Activo",
+            "Finalizado"});
+            this.CboxEstatus.Location = new System.Drawing.Point(0, 0);
+            this.CboxEstatus.Name = "CboxEstatus";
+            this.CboxEstatus.Size = new System.Drawing.Size(196, 23);
+            this.CboxEstatus.TabIndex = 0;
+            this.CboxEstatus.ValueMember = "Estatus";
+            // 
+            // Estatus
+            // 
+            this.Estatus.AutoSize = true;
+            this.Estatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Estatus.Location = new System.Drawing.Point(93, 391);
+            this.Estatus.Name = "Estatus";
+            this.Estatus.Size = new System.Drawing.Size(47, 30);
+            this.Estatus.TabIndex = 20;
+            this.Estatus.Text = "Estatus:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label20.Location = new System.Drawing.Point(59, 357);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 34);
+            this.label20.TabIndex = 24;
+            this.label20.Text = "Materia Legal:";
+            // 
+            // splitContainer6
+            // 
+            this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer6.Location = new System.Drawing.Point(146, 360);
+            this.splitContainer6.Name = "splitContainer6";
+            // 
+            // splitContainer6.Panel1
+            // 
+            this.splitContainer6.Panel1.Controls.Add(this.CboxMateria);
+            this.splitContainer6.Size = new System.Drawing.Size(720, 28);
+            this.splitContainer6.SplitterDistance = 196;
+            this.splitContainer6.TabIndex = 25;
+            // 
+            // CboxMateria
+            // 
+            this.CboxMateria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboxMateria.FormattingEnabled = true;
+            this.CboxMateria.Items.AddRange(new object[] {
+            "Seleccionar",
+            "Penal",
+            "Civil",
+            "Mercantil",
+            "Laboral",
+            "Administrativa",
+            "Agraria"});
+            this.CboxMateria.Location = new System.Drawing.Point(0, 0);
+            this.CboxMateria.Name = "CboxMateria";
+            this.CboxMateria.Size = new System.Drawing.Size(196, 23);
+            this.CboxMateria.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
@@ -981,15 +1084,17 @@
             this.dataGridViewTextBoxColumn37,
             this.dataGridViewTextBoxColumn38,
             this.dataGridViewTextBoxColumn39,
-            this.dataGridViewTextBoxColumn41,
             this.dataGridViewTextBoxColumn42,
+            this.dataGridViewTextBoxColumn41,
             this.apaternoFamiliarDataGridViewTextBoxColumn,
             this.amaternoFamiliarDataGridViewTextBoxColumn,
             this.nombreFamiliarDataGridViewTextBoxColumn,
             this.apaternoDataGridViewTextBoxColumn,
             this.amaternoDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn40});
+            this.dataGridViewTextBoxColumn40,
+            this.MateriaLegal,
+            this.sexoPeticionario});
             this.DgPeticionarioParticulares.DataSource = this.peticionarioParticularesDGViewBindingSource;
             this.DgPeticionarioParticulares.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DgPeticionarioParticulares.Location = new System.Drawing.Point(0, 0);
@@ -1154,14 +1259,6 @@
             this.dataGridViewTextBoxColumn39.ReadOnly = true;
             this.dataGridViewTextBoxColumn39.Visible = false;
             // 
-            // dataGridViewTextBoxColumn41
-            // 
-            this.dataGridViewTextBoxColumn41.DataPropertyName = "Fiscalia";
-            this.dataGridViewTextBoxColumn41.HeaderText = "Fiscalia";
-            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
-            this.dataGridViewTextBoxColumn41.ReadOnly = true;
-            this.dataGridViewTextBoxColumn41.Visible = false;
-            // 
             // dataGridViewTextBoxColumn42
             // 
             this.dataGridViewTextBoxColumn42.DataPropertyName = "Victima";
@@ -1169,6 +1266,14 @@
             this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
             this.dataGridViewTextBoxColumn42.ReadOnly = true;
             this.dataGridViewTextBoxColumn42.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "Fiscalia";
+            this.dataGridViewTextBoxColumn41.HeaderText = "Fiscalia";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            this.dataGridViewTextBoxColumn41.Visible = false;
             // 
             // apaternoFamiliarDataGridViewTextBoxColumn
             // 
@@ -1222,6 +1327,22 @@
             this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
             this.dataGridViewTextBoxColumn40.ReadOnly = true;
             // 
+            // MateriaLegal
+            // 
+            this.MateriaLegal.DataPropertyName = "MateriaLegal";
+            this.MateriaLegal.HeaderText = "MateriaLegal";
+            this.MateriaLegal.Name = "MateriaLegal";
+            this.MateriaLegal.ReadOnly = true;
+            this.MateriaLegal.Visible = false;
+            // 
+            // sexoPeticionario
+            // 
+            this.sexoPeticionario.DataPropertyName = "sexoPeticionario";
+            this.sexoPeticionario.HeaderText = "sexoPeticionario";
+            this.sexoPeticionario.Name = "sexoPeticionario";
+            this.sexoPeticionario.ReadOnly = true;
+            this.sexoPeticionario.Visible = false;
+            // 
             // Peticionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1265,6 +1386,9 @@
             this.splitContainer8.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
             this.splitContainer8.ResumeLayout(false);
+            this.splitContainer6.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
+            this.splitContainer6.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
@@ -1336,7 +1460,6 @@
         private Button btnNuevoPeticionario;
         private Button btnGuardar;
         private Button btnEliminar;
-        private DataGridView DgPeticionarioParticulares;
         private DataGridViewTextBoxColumn idPersonaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn personasDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn idPeticionarioDataGridViewTextBoxColumn1;
@@ -1407,6 +1530,14 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
         private BindingSource peticionarioParticularesDGViewBindingSource;
+        private DataGridView DgPeticionarioParticulares;
+        private Label label9;
+        private Label label15;
+        private TextBox TbGrupoIndigena;
+        private ComboBox CboxSexo;
+        private Label label20;
+        private SplitContainer splitContainer6;
+        private ComboBox CboxMateria;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
@@ -1426,8 +1557,8 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
         private DataGridViewTextBoxColumn apaternoFamiliarDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn amaternoFamiliarDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nombreFamiliarDataGridViewTextBoxColumn;
@@ -1435,5 +1566,7 @@
         private DataGridViewTextBoxColumn amaternoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private DataGridViewTextBoxColumn MateriaLegal;
+        private DataGridViewTextBoxColumn sexoPeticionario;
     }
 }

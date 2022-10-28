@@ -2,6 +2,7 @@
 using Clases.ClasesBase;
 using Clases.helpers;
 using Clases.Repository;
+using Data;
 using MediatR;
 
 namespace Clases.Tablas.Peticionario
@@ -15,6 +16,7 @@ namespace Clases.Tablas.Peticionario
             public string IdentidadResguardada { get; set; }
             public string Domicilio { get; set; }
             public string GrupoEtnico { get; set; }
+            public SexoPeticionario sexoPeticionario { get; set; }
             public string Lengua { get; set; }
             public string Telefono { get; set; }
 
@@ -38,7 +40,9 @@ namespace Clases.Tablas.Peticionario
                 //registro.IdentidadResguardada = request.IdentidadResguardada ?? registro.IdentidadResguardada;
                 registro.Domicilio = request.Domicilio ?? registro.Domicilio;
                 registro.GrupoEtnico = request.GrupoEtnico ?? registro.GrupoEtnico;
+                registro.sexoPeticionario = request.sexoPeticionario;
                 registro.Lengua = request.Lengua ?? registro.Lengua;
+                registro.sexoPeticionario = request.sexoPeticionario;
                 registro.Telefono = request.Telefono ?? registro.Telefono;
 
 
