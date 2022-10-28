@@ -23,7 +23,7 @@ namespace Clases.Tablas.Archivo
 
             public async Task<List<CitasDGView>> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var ArchivoPeticionario = await _context.Archivos.ProjectTo<CitasDGView>(_mapper.ConfigurationProvider).ToListAsync();
+                var ArchivoPeticionario = await _context.Archivos.Where(x=>x.IdPeticionarioNavigation.FuncionarioIdFuncionario.Equals(request.IdFuncionario)) .ProjectTo<CitasDGView>(_mapper.ConfigurationProvider).ToListAsync();
 
                 return ArchivoPeticionario;
             }

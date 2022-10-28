@@ -28,7 +28,7 @@ namespace Clases.Tablas.Particulares
 
                 if(registro == null )
                     throw new Exception("El registro no existe");
-
+                registro.Ocupacion = request.Ocupacion ?? registro.Ocupacion;
                 registro.EstadoCivil = request.EstadoCivil ?? registro.EstadoCivil;
                 registro.Estudios = request.Estudios ?? registro.Estudios;
                 registro.Edad = request.Edad ?? registro.Edad;

@@ -9,7 +9,7 @@ namespace Clases.Tablas.Cita
     {
         public class Ejecuta : IRequest
         {
-            public string Idcitas { get; set; }
+            public string? Idcitas { get; set; }
             public DateTime? FechaAudiencia { get; set; }
             public string Sala { get; set; }
             public string Audiencia { get; set; }

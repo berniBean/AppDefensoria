@@ -26,7 +26,8 @@ namespace Clases.Tablas.Cita
             {
                 var nuevoReporte = new Data.Models.Reporte
                 {
-                    Idreportes = Guid.NewGuid().ToString()
+                    Idreportes = Guid.NewGuid().ToString(),
+                    Fecha = request.FechaAudiencia
                 };
 
                 var nuevaCita = new Data.Models.Cita

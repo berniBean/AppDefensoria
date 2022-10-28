@@ -36,13 +36,15 @@ namespace Clases
 
 
             CreateMap<Data.Models.Archivo, CitasDGView>()
-                .ForMember(dto=> dto.Idreportes, ent=>ent.MapFrom(prop=>prop.Cita.Select(s=>s.ReportesIdreportes)))
-                .ForMember(dto=> dto.Idcitas, ent=>ent.MapFrom(prop=>prop.Cita.Select(s=>s.Idcitas)))
                 .ForMember(dto => dto.Nombre, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Nombre))
                 .ForMember(dto => dto.Apaterno, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Apaterno))
                 .ForMember(dto => dto.Amaterno, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.PersonaIdPersonaNavigation.Amaterno));
 
-
+            CreateMap<Data.Models.Cita, RegistroCitasDGView>()
+                .ForMember(dto => dto.Delito, ent => ent.MapFrom(prop => prop.ArchivoIdarchivoNavigation.Delito))
+                .ForMember(dto => dto.ProcesoPenal, ent => ent.MapFrom(prop => prop.ArchivoIdarchivoNavigation.ProcesoPenal))
+                .ForMember(dto => dto.Estatus, ent => ent.MapFrom(prop => prop.ArchivoIdarchivoNavigation.Estatus));
+                
         }
     }
 }

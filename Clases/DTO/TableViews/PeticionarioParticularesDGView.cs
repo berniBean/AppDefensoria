@@ -8,6 +8,7 @@ namespace Clases.DTO.TableViews
     {
         public string Idarchivo { get; set; }
         public string IdPeticionario { get; set; }
+        public string ParticularesIdParticulares { get; set; }
 
         //Archivo
         public int? Serieindevep { get; set; }
