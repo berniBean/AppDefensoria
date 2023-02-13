@@ -1,5 +1,6 @@
-﻿using Data.Seeding;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
@@ -27,19 +28,16 @@ namespace Data.Models
         public virtual DbSet<Peticionario> Peticionarios { get; set; }
         public virtual DbSet<Reporte> Reportes { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL("server=localhost; Uid=monty; Password=berninet2013; Database=ednita_db; Port=3306");
+
             }
         }
 
- 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            SeedersIniciales.Seed(modelBuilder);
-
             modelBuilder.Entity<Archivo>(entity =>
             {
                 entity.HasKey(e => e.Idarchivo)
@@ -64,9 +62,8 @@ namespace Data.Models
                 entity.Property(e => e.Delito)
                     .HasMaxLength(255)
                     .HasColumnName("delito");
-                
 
-                entity.Property(e => e.Estatus).HasDefaultValue(EstatusArchivo.Activo);
+                entity.Property(e => e.Distrito).HasMaxLength(45);
 
                 entity.Property(e => e.ExpedinteAmparo).HasMaxLength(45);
 
@@ -78,6 +75,10 @@ namespace Data.Models
                     .HasColumnName("idPeticionario");
 
                 entity.Property(e => e.Juez).HasMaxLength(45);
+
+                entity.Property(e => e.Jurisdiccion).HasMaxLength(45);
+
+                entity.Property(e => e.MateriaLegal).HasColumnName("materiaLegal");
 
                 entity.Property(e => e.ParticularesIdParticulares)
                     .IsRequired()
@@ -160,6 +161,8 @@ namespace Data.Models
                     .HasMaxLength(45)
                     .HasColumnName("sala");
 
+                entity.Property(e => e.TipoAtencion).HasColumnName("tipoAtencion");
+
                 entity.HasOne(d => d.ArchivoIdarchivoNavigation)
                     .WithMany(p => p.Cita)
                     .HasForeignKey(d => d.ArchivoIdarchivo)
@@ -172,6 +175,7 @@ namespace Data.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_citas_reportes1");
             });
+
 
             modelBuilder.Entity<Famiiliar>(entity =>
             {
@@ -365,6 +369,8 @@ namespace Data.Models
                     .IsRequired()
                     .HasMaxLength(90)
                     .HasColumnName("persona_idPersona");
+
+                entity.Property(e => e.SexoPeticionario).HasColumnName("sexoPeticionario");
 
                 entity.Property(e => e.Telefono)
                     .HasMaxLength(45)

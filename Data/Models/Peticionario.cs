@@ -1,4 +1,7 @@
-﻿#nullable disable
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
 
 namespace Data.Models
 {
@@ -15,11 +18,11 @@ namespace Data.Models
         public string IdentidadResguardada { get; set; }
         public string Domicilio { get; set; }
         public string GrupoEtnico { get; set; }
-        public SexoPeticionario sexoPeticionario { get; set; }
         public string Lengua { get; set; }
         public string Telefono { get; set; }
         public string PersonaIdPersona { get; set; }
         public string FuncionarioIdFuncionario { get; set; }
+        public SexoPeticionario SexoPeticionario { get; set; }
 
         public virtual Funcionario FuncionarioIdFuncionarioNavigation { get; set; }
         public virtual Persona PersonaIdPersonaNavigation { get; set; }

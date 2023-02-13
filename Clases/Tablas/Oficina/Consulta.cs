@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Clases.ClasesBase;
 using Clases.DTO.view;
+using Clases.Repository;
 using Data.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -14,22 +15,33 @@ namespace Clases.Tablas.Oficina
             public string? IdOficina { get; set; }
         }
 
-        public class Handler : HandlerRequestMapperBase, IRequestHandler<Ejecuta,OficinaDTO>
+        public class Handler : HandlerMapperOfWork, IRequestHandler<Ejecuta,OficinaDTO>
         {
-            public Handler(ednita_dbContext context, IMapper mapper) : base(context, mapper)
+            public Handler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
             {
             }
 
-
             public async Task<OficinaDTO> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var oficina =  await _context.Oficinas.FirstOrDefaultAsync(x => x.Idoficina.Equals(request.IdOficina));
+                try
+                {
+                    var oficina = await _unitOfWork.Oficina.ConsultAsync(
+                        o => o.Idoficina.Equals(request.IdOficina));
+                    var map = _mapper.Map<OficinaDTO>(oficina);
+                    return map;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                //var oficina =  await _context.Oficinas.FirstOrDefaultAsync(x => x.Idoficina.Equals(request.IdOficina));
 
                 
 
-                var mapper = _mapper.Map<Data.Models.Oficina, OficinaDTO>(oficina);
+                //var mapper = _mapper.Map<Data.Models.Oficina, OficinaDTO>(oficina);
 
-                return mapper;
+                
             }
         }
     }

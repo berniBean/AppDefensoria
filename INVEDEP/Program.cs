@@ -1,4 +1,3 @@
-
 using Clases.Repository;
 using Data.Models;
 using MediatR;
@@ -42,6 +41,7 @@ namespace INVEDEP
             collection.AddTransient<Inicio>();
             collection.AddTransient<Peticionario>();
             collection.AddTransient<Usuario>();
+            collection.AddTransient<ListaInvedep>();
             
             
 

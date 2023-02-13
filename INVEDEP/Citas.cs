@@ -1,7 +1,4 @@
-﻿
-
-using Clases.DTO.view;
-using Data.Models;
+﻿using Clases.DTO.view;
 using MediatR;
 
 namespace INVEDEP

@@ -24,8 +24,8 @@ namespace Clases.Tablas.Persona
                 var persona = await _unitOfWork.Persona.GetAsync(request.IdPersona);
                 if (persona == null)
                     throw new Exception("No se encontró el registro");
-
-                var mapper = _mapper.Map<Data.Models.Persona, PersonaDTO>(persona);
+                
+                var mapper = _mapper.Map<PersonaDTO>(persona);
                 return mapper;
             }
         }

@@ -1,8 +1,7 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
-using Data.Models;
+using Clases.Repository;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace Clases.Tablas.Oficina
 {
@@ -13,19 +12,22 @@ namespace Clases.Tablas.Oficina
             public string? IdOficina { get; set; }
         }
 
-        public class Handler : HandlerRequestBase, IRequestHandler<Ejecuta>
+        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
         {
-            public Handler(ednita_dbContext context) : base(context)
+            public Handler(IUnitOfWork unitOfWork) : base(unitOfWork)
             {
             }
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
-                var registro = await _context.Oficinas.FirstOrDefaultAsync(x => x.Idoficina.Equals(request.IdOficina));
+                //var registro = await _context.Oficinas.FirstOrDefaultAsync(x => x.Idoficina.Equals(request.IdOficina));
+                var registro = await _unitOfWork.Oficina.ConsultAsync(o => o.Idoficina.Equals(request.IdOficina));
 
-                _context.Oficinas.Remove(registro);
+                _unitOfWork.Oficina.DeleteAsync(registro.Idoficina).Wait();
+                
+                
 
-                return RestultadoEF.Salvado(await _context.SaveChangesAsync());
+                return RestultadoEF.Salvado(await _unitOfWork.Save());
             }
         }
     }

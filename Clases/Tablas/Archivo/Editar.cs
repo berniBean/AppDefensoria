@@ -55,7 +55,7 @@ namespace Clases.Tablas.Archivo
                     registro.ExpedinteAmparo = request.ExpedinteAmparo ?? registro.ExpedinteAmparo;
                     registro.Victima = request.Victima ?? registro.Victima;
                     registro.Fiscalia = request.Fiscalia ?? registro.Fiscalia;
-                    registro.materiaLegal = request.materiaLegal;
+                    registro.MateriaLegal = request.materiaLegal;
                     _unitOfWork.Archivo.Upadate(registro);
                 }
                 catch (Exception e)

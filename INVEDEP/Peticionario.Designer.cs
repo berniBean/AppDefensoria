@@ -192,7 +192,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.75471F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1678, 680);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(899, 421);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tabPesonales
@@ -200,10 +200,10 @@
             this.tabPesonales.Controls.Add(this.tabPage1);
             this.tabPesonales.Controls.Add(this.tabPage2);
             this.tabPesonales.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabPesonales.Location = new System.Drawing.Point(606, 3);
+            this.tabPesonales.Location = new System.Drawing.Point(-173, 3);
             this.tabPesonales.Name = "tabPesonales";
             this.tabPesonales.SelectedIndex = 0;
-            this.tabPesonales.Size = new System.Drawing.Size(1069, 674);
+            this.tabPesonales.Size = new System.Drawing.Size(1069, 415);
             this.tabPesonales.TabIndex = 11;
             // 
             // tabPage1
@@ -212,7 +212,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1061, 646);
+            this.tabPage1.Size = new System.Drawing.Size(1061, 387);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Particulares";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -229,7 +229,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1055, 640);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1055, 381);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // groupBox2
@@ -238,7 +238,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(860, 634);
+            this.groupBox2.Size = new System.Drawing.Size(860, 375);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos peticionario";
@@ -283,7 +283,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(854, 612);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(854, 353);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // label16
@@ -405,7 +405,7 @@
             // 
             this.splitContainer5.Panel2.Controls.Add(this.BtnFamiliar);
             this.splitContainer5.Size = new System.Drawing.Size(731, 23);
-            this.splitContainer5.SplitterDistance = 597;
+            this.splitContainer5.SplitterDistance = 596;
             this.splitContainer5.TabIndex = 21;
             // 
             // TbFamiliar
@@ -413,7 +413,7 @@
             this.TbFamiliar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TbFamiliar.Location = new System.Drawing.Point(0, 0);
             this.TbFamiliar.Name = "TbFamiliar";
-            this.TbFamiliar.Size = new System.Drawing.Size(597, 23);
+            this.TbFamiliar.Size = new System.Drawing.Size(596, 23);
             this.TbFamiliar.TabIndex = 20;
             // 
             // BtnFamiliar
@@ -421,7 +421,7 @@
             this.BtnFamiliar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnFamiliar.Location = new System.Drawing.Point(0, 0);
             this.BtnFamiliar.Name = "BtnFamiliar";
-            this.BtnFamiliar.Size = new System.Drawing.Size(130, 23);
+            this.BtnFamiliar.Size = new System.Drawing.Size(131, 23);
             this.BtnFamiliar.TabIndex = 0;
             this.BtnFamiliar.Text = "Editar Familiar";
             this.BtnFamiliar.UseVisualStyleBackColor = true;
@@ -514,8 +514,8 @@
             // splitContainer3.Panel1
             // 
             this.splitContainer3.Panel1.Controls.Add(this.tableLayoutPanel7);
-            this.splitContainer3.Size = new System.Drawing.Size(183, 634);
-            this.splitContainer3.SplitterDistance = 309;
+            this.splitContainer3.Size = new System.Drawing.Size(183, 375);
+            this.splitContainer3.SplitterDistance = 182;
             this.splitContainer3.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -535,13 +535,13 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(183, 309);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(183, 182);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // btnNuevoPeticionario
             // 
             this.btnNuevoPeticionario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNuevoPeticionario.Location = new System.Drawing.Point(3, 105);
+            this.btnNuevoPeticionario.Location = new System.Drawing.Point(3, -22);
             this.btnNuevoPeticionario.Name = "btnNuevoPeticionario";
             this.btnNuevoPeticionario.Size = new System.Drawing.Size(177, 42);
             this.btnNuevoPeticionario.TabIndex = 1;
@@ -552,7 +552,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnGuardar.Location = new System.Drawing.Point(3, 153);
+            this.btnGuardar.Location = new System.Drawing.Point(3, 26);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(177, 42);
             this.btnGuardar.TabIndex = 0;
@@ -563,7 +563,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEliminar.Location = new System.Drawing.Point(3, 201);
+            this.btnEliminar.Location = new System.Drawing.Point(3, 74);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(177, 43);
             this.btnEliminar.TabIndex = 3;
@@ -576,7 +576,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1061, 646);
+            this.tabPage2.Size = new System.Drawing.Size(1061, 387);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Archivo";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -593,14 +593,14 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1055, 640);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1055, 381);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // PeticionarioBox
             // 
             this.PeticionarioBox.Controls.Add(this.dataGridAudiencia);
             this.PeticionarioBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PeticionarioBox.Location = new System.Drawing.Point(3, 511);
+            this.PeticionarioBox.Location = new System.Drawing.Point(3, 252);
             this.PeticionarioBox.Name = "PeticionarioBox";
             this.PeticionarioBox.Size = new System.Drawing.Size(1049, 126);
             this.PeticionarioBox.TabIndex = 1;
@@ -613,6 +613,7 @@
             this.dataGridAudiencia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridAudiencia.Location = new System.Drawing.Point(3, 19);
             this.dataGridAudiencia.Name = "dataGridAudiencia";
+            this.dataGridAudiencia.RowHeadersWidth = 62;
             this.dataGridAudiencia.RowTemplate.Height = 25;
             this.dataGridAudiencia.Size = new System.Drawing.Size(1043, 104);
             this.dataGridAudiencia.TabIndex = 0;
@@ -622,7 +623,7 @@
             this.CarpetaBox.Controls.Add(this.splitContainer1);
             this.CarpetaBox.Location = new System.Drawing.Point(3, 3);
             this.CarpetaBox.Name = "CarpetaBox";
-            this.CarpetaBox.Size = new System.Drawing.Size(1049, 502);
+            this.CarpetaBox.Size = new System.Drawing.Size(1049, 243);
             this.CarpetaBox.TabIndex = 0;
             this.CarpetaBox.TabStop = false;
             this.CarpetaBox.Text = "Carpeta";
@@ -637,8 +638,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1043, 480);
-            this.splitContainer1.SplitterDistance = 26;
+            this.splitContainer1.Size = new System.Drawing.Size(1043, 221);
+            this.splitContainer1.SplitterDistance = 25;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer2
@@ -655,15 +656,15 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tableLayoutPanel3);
-            this.splitContainer2.Size = new System.Drawing.Size(1013, 480);
-            this.splitContainer2.SplitterDistance = 869;
+            this.splitContainer2.Size = new System.Drawing.Size(1014, 221);
+            this.splitContainer2.SplitterDistance = 867;
             this.splitContainer2.TabIndex = 12;
             // 
             // tlDatosCarpeta
             // 
             this.tlDatosCarpeta.ColumnCount = 2;
             this.tlDatosCarpeta.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
-            this.tlDatosCarpeta.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 246F));
+            this.tlDatosCarpeta.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 727F));
             this.tlDatosCarpeta.Controls.Add(this.label10, 0, 10);
             this.tlDatosCarpeta.Controls.Add(this.label11, 0, 9);
             this.tlDatosCarpeta.Controls.Add(this.label8, 0, 8);
@@ -708,7 +709,7 @@
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlDatosCarpeta.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            this.tlDatosCarpeta.Size = new System.Drawing.Size(869, 480);
+            this.tlDatosCarpeta.Size = new System.Drawing.Size(867, 221);
             this.tlDatosCarpeta.TabIndex = 11;
             // 
             // label10
@@ -816,7 +817,7 @@
             this.tbArchivoAmparo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbArchivoAmparo.Location = new System.Drawing.Point(146, 269);
             this.tbArchivoAmparo.Name = "tbArchivoAmparo";
-            this.tbArchivoAmparo.Size = new System.Drawing.Size(720, 23);
+            this.tbArchivoAmparo.Size = new System.Drawing.Size(721, 23);
             this.tbArchivoAmparo.TabIndex = 7;
             // 
             // tbAmparo
@@ -824,7 +825,7 @@
             this.tbAmparo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbAmparo.Location = new System.Drawing.Point(146, 239);
             this.tbAmparo.Name = "tbAmparo";
-            this.tbAmparo.Size = new System.Drawing.Size(720, 23);
+            this.tbAmparo.Size = new System.Drawing.Size(721, 23);
             this.tbAmparo.TabIndex = 6;
             // 
             // tbToca
@@ -832,7 +833,7 @@
             this.tbToca.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbToca.Location = new System.Drawing.Point(146, 207);
             this.tbToca.Name = "tbToca";
-            this.tbToca.Size = new System.Drawing.Size(720, 23);
+            this.tbToca.Size = new System.Drawing.Size(721, 23);
             this.tbToca.TabIndex = 5;
             // 
             // tbInstancia
@@ -840,7 +841,7 @@
             this.tbInstancia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbInstancia.Location = new System.Drawing.Point(146, 178);
             this.tbInstancia.Name = "tbInstancia";
-            this.tbInstancia.Size = new System.Drawing.Size(720, 23);
+            this.tbInstancia.Size = new System.Drawing.Size(721, 23);
             this.tbInstancia.TabIndex = 4;
             // 
             // tbProcesoPenal
@@ -848,7 +849,7 @@
             this.tbProcesoPenal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbProcesoPenal.Location = new System.Drawing.Point(146, 145);
             this.tbProcesoPenal.Name = "tbProcesoPenal";
-            this.tbProcesoPenal.Size = new System.Drawing.Size(720, 23);
+            this.tbProcesoPenal.Size = new System.Drawing.Size(721, 23);
             this.tbProcesoPenal.TabIndex = 3;
             // 
             // tbJuez
@@ -856,7 +857,7 @@
             this.tbJuez.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbJuez.Location = new System.Drawing.Point(146, 112);
             this.tbJuez.Name = "tbJuez";
-            this.tbJuez.Size = new System.Drawing.Size(720, 23);
+            this.tbJuez.Size = new System.Drawing.Size(721, 23);
             this.tbJuez.TabIndex = 2;
             // 
             // tbCarpeta
@@ -864,7 +865,7 @@
             this.tbCarpeta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbCarpeta.Location = new System.Drawing.Point(146, 73);
             this.tbCarpeta.Name = "tbCarpeta";
-            this.tbCarpeta.Size = new System.Drawing.Size(720, 23);
+            this.tbCarpeta.Size = new System.Drawing.Size(721, 23);
             this.tbCarpeta.TabIndex = 1;
             // 
             // tbDelito
@@ -872,7 +873,7 @@
             this.tbDelito.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbDelito.Location = new System.Drawing.Point(146, 39);
             this.tbDelito.Name = "tbDelito";
-            this.tbDelito.Size = new System.Drawing.Size(720, 23);
+            this.tbDelito.Size = new System.Drawing.Size(721, 23);
             this.tbDelito.TabIndex = 0;
             // 
             // TbInvedep
@@ -880,7 +881,7 @@
             this.TbInvedep.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TbInvedep.Location = new System.Drawing.Point(146, 3);
             this.TbInvedep.Name = "TbInvedep";
-            this.TbInvedep.Size = new System.Drawing.Size(720, 23);
+            this.TbInvedep.Size = new System.Drawing.Size(721, 23);
             this.TbInvedep.TabIndex = 16;
             // 
             // label13
@@ -898,7 +899,7 @@
             this.tbFiscalia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbFiscalia.Location = new System.Drawing.Point(146, 331);
             this.tbFiscalia.Name = "tbFiscalia";
-            this.tbFiscalia.Size = new System.Drawing.Size(720, 23);
+            this.tbFiscalia.Size = new System.Drawing.Size(721, 23);
             this.tbFiscalia.TabIndex = 22;
             // 
             // TbVictima
@@ -906,7 +907,7 @@
             this.TbVictima.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TbVictima.Location = new System.Drawing.Point(146, 300);
             this.TbVictima.Name = "TbVictima";
-            this.TbVictima.Size = new System.Drawing.Size(720, 23);
+            this.TbVictima.Size = new System.Drawing.Size(721, 23);
             this.TbVictima.TabIndex = 23;
             // 
             // splitContainer8
@@ -918,7 +919,7 @@
             // 
             this.splitContainer8.Panel1.Controls.Add(this.CboxEstatus);
             this.splitContainer8.Size = new System.Drawing.Size(720, 24);
-            this.splitContainer8.SplitterDistance = 196;
+            this.splitContainer8.SplitterDistance = 195;
             this.splitContainer8.TabIndex = 21;
             // 
             // CboxEstatus
@@ -931,7 +932,7 @@
             "Finalizado"});
             this.CboxEstatus.Location = new System.Drawing.Point(0, 0);
             this.CboxEstatus.Name = "CboxEstatus";
-            this.CboxEstatus.Size = new System.Drawing.Size(196, 23);
+            this.CboxEstatus.Size = new System.Drawing.Size(195, 23);
             this.CboxEstatus.TabIndex = 0;
             this.CboxEstatus.ValueMember = "Estatus";
             // 
@@ -964,7 +965,7 @@
             // splitContainer6.Panel1
             // 
             this.splitContainer6.Panel1.Controls.Add(this.CboxMateria);
-            this.splitContainer6.Size = new System.Drawing.Size(720, 28);
+            this.splitContainer6.Size = new System.Drawing.Size(721, 28);
             this.splitContainer6.SplitterDistance = 196;
             this.splitContainer6.TabIndex = 25;
             // 
@@ -995,7 +996,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(140, 480);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(143, 221);
             this.tableLayoutPanel3.TabIndex = 13;
             // 
             // tableLayoutPanel2
@@ -1048,8 +1049,8 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.DgPeticionarioParticulares);
-            this.splitContainer4.Size = new System.Drawing.Size(597, 674);
-            this.splitContainer4.SplitterDistance = 28;
+            this.splitContainer4.Size = new System.Drawing.Size(1, 415);
+            this.splitContainer4.SplitterDistance = 25;
             this.splitContainer4.TabIndex = 12;
             // 
             // textBox1
@@ -1057,7 +1058,7 @@
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(597, 23);
+            this.textBox1.Size = new System.Drawing.Size(1, 23);
             this.textBox1.TabIndex = 0;
             // 
             // DgPeticionarioParticulares
@@ -1100,9 +1101,10 @@
             this.DgPeticionarioParticulares.Location = new System.Drawing.Point(0, 0);
             this.DgPeticionarioParticulares.Name = "DgPeticionarioParticulares";
             this.DgPeticionarioParticulares.ReadOnly = true;
+            this.DgPeticionarioParticulares.RowHeadersWidth = 62;
             this.DgPeticionarioParticulares.RowTemplate.Height = 25;
             this.DgPeticionarioParticulares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgPeticionarioParticulares.Size = new System.Drawing.Size(597, 642);
+            this.DgPeticionarioParticulares.Size = new System.Drawing.Size(1, 386);
             this.DgPeticionarioParticulares.TabIndex = 0;
             this.DgPeticionarioParticulares.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgPeticionarioParticulares_CellClick);
             this.DgPeticionarioParticulares.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgPeticionarioParticulares_CellContentClick);
@@ -1111,243 +1113,303 @@
             // 
             this.dataGridViewTextBoxColumn21.DataPropertyName = "Idarchivo";
             this.dataGridViewTextBoxColumn21.HeaderText = "Idarchivo";
+            this.dataGridViewTextBoxColumn21.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
             this.dataGridViewTextBoxColumn21.ReadOnly = true;
             this.dataGridViewTextBoxColumn21.Visible = false;
+            this.dataGridViewTextBoxColumn21.Width = 150;
             // 
             // dataGridViewTextBoxColumn29
             // 
             this.dataGridViewTextBoxColumn29.DataPropertyName = "IdPeticionario";
             this.dataGridViewTextBoxColumn29.HeaderText = "IdPeticionario";
+            this.dataGridViewTextBoxColumn29.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
             this.dataGridViewTextBoxColumn29.ReadOnly = true;
             this.dataGridViewTextBoxColumn29.Visible = false;
+            this.dataGridViewTextBoxColumn29.Width = 150;
             // 
             // dataGridViewTextBoxColumn30
             // 
             this.dataGridViewTextBoxColumn30.DataPropertyName = "ParticularesIdParticulares";
             this.dataGridViewTextBoxColumn30.HeaderText = "ParticularesIdParticulares";
+            this.dataGridViewTextBoxColumn30.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
             this.dataGridViewTextBoxColumn30.Visible = false;
+            this.dataGridViewTextBoxColumn30.Width = 150;
             // 
             // dataGridViewTextBoxColumn46
             // 
             this.dataGridViewTextBoxColumn46.DataPropertyName = "Edad";
             this.dataGridViewTextBoxColumn46.HeaderText = "Edad";
+            this.dataGridViewTextBoxColumn46.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
             this.dataGridViewTextBoxColumn46.ReadOnly = true;
             this.dataGridViewTextBoxColumn46.Visible = false;
+            this.dataGridViewTextBoxColumn46.Width = 150;
             // 
             // dataGridViewTextBoxColumn47
             // 
             this.dataGridViewTextBoxColumn47.DataPropertyName = "Ocupacion";
             this.dataGridViewTextBoxColumn47.HeaderText = "Ocupacion";
+            this.dataGridViewTextBoxColumn47.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
             this.dataGridViewTextBoxColumn47.ReadOnly = true;
             this.dataGridViewTextBoxColumn47.Visible = false;
+            this.dataGridViewTextBoxColumn47.Width = 150;
             // 
             // dataGridViewTextBoxColumn48
             // 
             this.dataGridViewTextBoxColumn48.DataPropertyName = "EstadoCivil";
             this.dataGridViewTextBoxColumn48.HeaderText = "EstadoCivil";
+            this.dataGridViewTextBoxColumn48.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
             this.dataGridViewTextBoxColumn48.ReadOnly = true;
             this.dataGridViewTextBoxColumn48.Visible = false;
+            this.dataGridViewTextBoxColumn48.Width = 150;
             // 
             // dataGridViewTextBoxColumn49
             // 
             this.dataGridViewTextBoxColumn49.DataPropertyName = "Estudios";
             this.dataGridViewTextBoxColumn49.HeaderText = "Estudios";
+            this.dataGridViewTextBoxColumn49.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
             this.dataGridViewTextBoxColumn49.ReadOnly = true;
             this.dataGridViewTextBoxColumn49.Visible = false;
+            this.dataGridViewTextBoxColumn49.Width = 150;
             // 
             // dataGridViewTextBoxColumn44
             // 
             this.dataGridViewTextBoxColumn44.DataPropertyName = "Lengua";
             this.dataGridViewTextBoxColumn44.HeaderText = "Lengua";
+            this.dataGridViewTextBoxColumn44.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
             this.dataGridViewTextBoxColumn44.ReadOnly = true;
             this.dataGridViewTextBoxColumn44.Visible = false;
+            this.dataGridViewTextBoxColumn44.Width = 150;
             // 
             // dataGridViewTextBoxColumn45
             // 
             this.dataGridViewTextBoxColumn45.DataPropertyName = "Telefono";
             this.dataGridViewTextBoxColumn45.HeaderText = "Telefono";
+            this.dataGridViewTextBoxColumn45.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
             this.dataGridViewTextBoxColumn45.ReadOnly = true;
             this.dataGridViewTextBoxColumn45.Visible = false;
+            this.dataGridViewTextBoxColumn45.Width = 150;
             // 
             // dataGridViewTextBoxColumn43
             // 
             this.dataGridViewTextBoxColumn43.DataPropertyName = "Domicilio";
             this.dataGridViewTextBoxColumn43.HeaderText = "Domicilio";
+            this.dataGridViewTextBoxColumn43.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
             this.dataGridViewTextBoxColumn43.ReadOnly = true;
             this.dataGridViewTextBoxColumn43.Visible = false;
+            this.dataGridViewTextBoxColumn43.Width = 150;
             // 
             // dataGridViewTextBoxColumn31
             // 
             this.dataGridViewTextBoxColumn31.DataPropertyName = "Serieindevep";
             this.dataGridViewTextBoxColumn31.HeaderText = "Serieindevep";
+            this.dataGridViewTextBoxColumn31.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
             this.dataGridViewTextBoxColumn31.Visible = false;
+            this.dataGridViewTextBoxColumn31.Width = 150;
             // 
             // dataGridViewTextBoxColumn32
             // 
             this.dataGridViewTextBoxColumn32.DataPropertyName = "Delito";
             this.dataGridViewTextBoxColumn32.HeaderText = "Delito";
+            this.dataGridViewTextBoxColumn32.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
             this.dataGridViewTextBoxColumn32.ReadOnly = true;
             this.dataGridViewTextBoxColumn32.Visible = false;
+            this.dataGridViewTextBoxColumn32.Width = 150;
             // 
             // dataGridViewTextBoxColumn33
             // 
             this.dataGridViewTextBoxColumn33.DataPropertyName = "Carpeta";
             this.dataGridViewTextBoxColumn33.HeaderText = "Carpeta";
+            this.dataGridViewTextBoxColumn33.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
             this.dataGridViewTextBoxColumn33.ReadOnly = true;
             this.dataGridViewTextBoxColumn33.Visible = false;
+            this.dataGridViewTextBoxColumn33.Width = 150;
             // 
             // dataGridViewTextBoxColumn34
             // 
             this.dataGridViewTextBoxColumn34.DataPropertyName = "Juez";
             this.dataGridViewTextBoxColumn34.HeaderText = "Juez";
+            this.dataGridViewTextBoxColumn34.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             this.dataGridViewTextBoxColumn34.ReadOnly = true;
             this.dataGridViewTextBoxColumn34.Visible = false;
+            this.dataGridViewTextBoxColumn34.Width = 150;
             // 
             // dataGridViewTextBoxColumn35
             // 
             this.dataGridViewTextBoxColumn35.DataPropertyName = "ProcesoPenal";
             this.dataGridViewTextBoxColumn35.HeaderText = "ProcesoPenal";
+            this.dataGridViewTextBoxColumn35.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
             this.dataGridViewTextBoxColumn35.ReadOnly = true;
             this.dataGridViewTextBoxColumn35.Visible = false;
+            this.dataGridViewTextBoxColumn35.Width = 150;
             // 
             // dataGridViewTextBoxColumn36
             // 
             this.dataGridViewTextBoxColumn36.DataPropertyName = "SegundaInstancia";
             this.dataGridViewTextBoxColumn36.HeaderText = "SegundaInstancia";
+            this.dataGridViewTextBoxColumn36.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
             this.dataGridViewTextBoxColumn36.ReadOnly = true;
             this.dataGridViewTextBoxColumn36.Visible = false;
+            this.dataGridViewTextBoxColumn36.Width = 150;
             // 
             // dataGridViewTextBoxColumn37
             // 
             this.dataGridViewTextBoxColumn37.DataPropertyName = "Toca";
             this.dataGridViewTextBoxColumn37.HeaderText = "Toca";
+            this.dataGridViewTextBoxColumn37.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
             this.dataGridViewTextBoxColumn37.ReadOnly = true;
             this.dataGridViewTextBoxColumn37.Visible = false;
+            this.dataGridViewTextBoxColumn37.Width = 150;
             // 
             // dataGridViewTextBoxColumn38
             // 
             this.dataGridViewTextBoxColumn38.DataPropertyName = "Amparo";
             this.dataGridViewTextBoxColumn38.HeaderText = "Amparo";
+            this.dataGridViewTextBoxColumn38.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             this.dataGridViewTextBoxColumn38.ReadOnly = true;
             this.dataGridViewTextBoxColumn38.Visible = false;
+            this.dataGridViewTextBoxColumn38.Width = 150;
             // 
             // dataGridViewTextBoxColumn39
             // 
             this.dataGridViewTextBoxColumn39.DataPropertyName = "ExpedinteAmparo";
             this.dataGridViewTextBoxColumn39.HeaderText = "ExpedinteAmparo";
+            this.dataGridViewTextBoxColumn39.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
             this.dataGridViewTextBoxColumn39.ReadOnly = true;
             this.dataGridViewTextBoxColumn39.Visible = false;
+            this.dataGridViewTextBoxColumn39.Width = 150;
             // 
             // dataGridViewTextBoxColumn42
             // 
             this.dataGridViewTextBoxColumn42.DataPropertyName = "Victima";
             this.dataGridViewTextBoxColumn42.HeaderText = "Victima";
+            this.dataGridViewTextBoxColumn42.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
             this.dataGridViewTextBoxColumn42.ReadOnly = true;
             this.dataGridViewTextBoxColumn42.Visible = false;
+            this.dataGridViewTextBoxColumn42.Width = 150;
             // 
             // dataGridViewTextBoxColumn41
             // 
             this.dataGridViewTextBoxColumn41.DataPropertyName = "Fiscalia";
             this.dataGridViewTextBoxColumn41.HeaderText = "Fiscalia";
+            this.dataGridViewTextBoxColumn41.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             this.dataGridViewTextBoxColumn41.ReadOnly = true;
             this.dataGridViewTextBoxColumn41.Visible = false;
+            this.dataGridViewTextBoxColumn41.Width = 150;
             // 
             // apaternoFamiliarDataGridViewTextBoxColumn
             // 
             this.apaternoFamiliarDataGridViewTextBoxColumn.DataPropertyName = "ApaternoFamiliar";
             this.apaternoFamiliarDataGridViewTextBoxColumn.HeaderText = "ApaternoFamiliar";
+            this.apaternoFamiliarDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.apaternoFamiliarDataGridViewTextBoxColumn.Name = "apaternoFamiliarDataGridViewTextBoxColumn";
             this.apaternoFamiliarDataGridViewTextBoxColumn.ReadOnly = true;
             this.apaternoFamiliarDataGridViewTextBoxColumn.Visible = false;
+            this.apaternoFamiliarDataGridViewTextBoxColumn.Width = 150;
             // 
             // amaternoFamiliarDataGridViewTextBoxColumn
             // 
             this.amaternoFamiliarDataGridViewTextBoxColumn.DataPropertyName = "AmaternoFamiliar";
             this.amaternoFamiliarDataGridViewTextBoxColumn.HeaderText = "AmaternoFamiliar";
+            this.amaternoFamiliarDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.amaternoFamiliarDataGridViewTextBoxColumn.Name = "amaternoFamiliarDataGridViewTextBoxColumn";
             this.amaternoFamiliarDataGridViewTextBoxColumn.ReadOnly = true;
             this.amaternoFamiliarDataGridViewTextBoxColumn.Visible = false;
+            this.amaternoFamiliarDataGridViewTextBoxColumn.Width = 150;
             // 
             // nombreFamiliarDataGridViewTextBoxColumn
             // 
             this.nombreFamiliarDataGridViewTextBoxColumn.DataPropertyName = "NombreFamiliar";
             this.nombreFamiliarDataGridViewTextBoxColumn.HeaderText = "NombreFamiliar";
+            this.nombreFamiliarDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nombreFamiliarDataGridViewTextBoxColumn.Name = "nombreFamiliarDataGridViewTextBoxColumn";
             this.nombreFamiliarDataGridViewTextBoxColumn.ReadOnly = true;
             this.nombreFamiliarDataGridViewTextBoxColumn.Visible = false;
+            this.nombreFamiliarDataGridViewTextBoxColumn.Width = 150;
             // 
             // apaternoDataGridViewTextBoxColumn
             // 
             this.apaternoDataGridViewTextBoxColumn.DataPropertyName = "Apaterno";
             this.apaternoDataGridViewTextBoxColumn.HeaderText = "Apaterno";
+            this.apaternoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.apaternoDataGridViewTextBoxColumn.Name = "apaternoDataGridViewTextBoxColumn";
             this.apaternoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.apaternoDataGridViewTextBoxColumn.Width = 150;
             // 
             // amaternoDataGridViewTextBoxColumn
             // 
             this.amaternoDataGridViewTextBoxColumn.DataPropertyName = "Amaterno";
             this.amaternoDataGridViewTextBoxColumn.HeaderText = "Amaterno";
+            this.amaternoDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.amaternoDataGridViewTextBoxColumn.Name = "amaternoDataGridViewTextBoxColumn";
             this.amaternoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.amaternoDataGridViewTextBoxColumn.Width = 150;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 150;
             // 
             // dataGridViewTextBoxColumn40
             // 
             this.dataGridViewTextBoxColumn40.DataPropertyName = "Estatus";
             this.dataGridViewTextBoxColumn40.HeaderText = "Estatus";
+            this.dataGridViewTextBoxColumn40.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
             this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            this.dataGridViewTextBoxColumn40.Width = 150;
             // 
             // MateriaLegal
             // 
             this.MateriaLegal.DataPropertyName = "MateriaLegal";
             this.MateriaLegal.HeaderText = "MateriaLegal";
+            this.MateriaLegal.MinimumWidth = 8;
             this.MateriaLegal.Name = "MateriaLegal";
             this.MateriaLegal.ReadOnly = true;
             this.MateriaLegal.Visible = false;
+            this.MateriaLegal.Width = 150;
             // 
             // sexoPeticionario
             // 
             this.sexoPeticionario.DataPropertyName = "sexoPeticionario";
             this.sexoPeticionario.HeaderText = "sexoPeticionario";
+            this.sexoPeticionario.MinimumWidth = 8;
             this.sexoPeticionario.Name = "sexoPeticionario";
             this.sexoPeticionario.ReadOnly = true;
             this.sexoPeticionario.Visible = false;
+            this.sexoPeticionario.Width = 150;
             // 
             // Peticionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1678, 680);
+            this.ClientSize = new System.Drawing.Size(899, 421);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Peticionario";
             this.Text = "Peticionario";

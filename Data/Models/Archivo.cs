@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿#nullable disable
 
 namespace Data.Models
 {
@@ -14,20 +11,23 @@ namespace Data.Models
 
         public string Idarchivo { get; set; }
         public int? Serieindevep { get; set; }
+        public int? Periodo { get; set; }
         public string Delito { get; set; }
         public string Carpeta { get; set; }
+        public string Jurisdiccion { get; set; }
         public string Juez { get; set; }
+        public string Distrito { get; set; }
         public string ProcesoPenal { get; set; }
         public string SegundaInstancia { get; set; }
         public string Toca { get; set; }
         public string Amparo { get; set; }
         public string ExpedinteAmparo { get; set; }
-        public MateriaLegal materiaLegal { get; set; }
         public EstatusArchivo Estatus { get; set; }
         public string IdPeticionario { get; set; }
         public string ParticularesIdParticulares { get; set; }
         public string Fiscalia { get; set; }
         public string Victima { get; set; }
+        public MateriaLegal MateriaLegal { get; set; }
 
         public virtual Peticionario IdPeticionarioNavigation { get; set; }
         public virtual Particulare ParticularesIdParticularesNavigation { get; set; }

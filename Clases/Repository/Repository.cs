@@ -1,6 +1,7 @@
 ﻿using Clases.ClasesBase;
 using Data.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Clases.Repository
 {
@@ -35,6 +36,24 @@ namespace Clases.Repository
 
         public async Task<int> SaveAsync() => await _context.SaveChangesAsync();
 
+        public  async Task<IQueryable<TEntity>> ObtenerAsync(Expression<Func<TEntity, bool>> entity)
+        {
+            IQueryable<TEntity> qeryEntidad = entity == null ? _context.Set<TEntity>() : _context.Set<TEntity>().Where(entity);
+            return qeryEntidad;
+        }
 
+        public async Task<TEntity> ConsultAsync(Expression<Func<TEntity, bool>> Filtro)
+        {
+            try
+            {
+                TEntity entidad = await _context.Set<TEntity>().FirstOrDefaultAsync(Filtro);
+                return entidad;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace Clases.Tablas.Cita
                 registro.Sala = request.Sala ?? registro.Sala;
                 registro.Audiencia = request.Audiencia ?? registro.Audiencia;
                 registro.ResultadoAudiencia = request.ResultadoAudiencia ?? registro.ResultadoAudiencia;
-                registro.tipoAtencion = request.TipoAtencion;
+                registro.TipoAtencion = (int)request.TipoAtencion;
                 return RestultadoEF.Salvado(await _unitOfWork.Cita.SaveAsync());
 
             }

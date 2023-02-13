@@ -40,9 +40,9 @@ namespace Clases.Tablas.Peticionario
                 //registro.IdentidadResguardada = request.IdentidadResguardada ?? registro.IdentidadResguardada;
                 registro.Domicilio = request.Domicilio ?? registro.Domicilio;
                 registro.GrupoEtnico = request.GrupoEtnico ?? registro.GrupoEtnico;
-                registro.sexoPeticionario = request.sexoPeticionario;
+                registro.SexoPeticionario = request.sexoPeticionario;
                 registro.Lengua = request.Lengua ?? registro.Lengua;
-                registro.sexoPeticionario = request.sexoPeticionario;
+                registro.SexoPeticionario = request.sexoPeticionario;
                 registro.Telefono = request.Telefono ?? registro.Telefono;
 
 

@@ -26,6 +26,7 @@ namespace Clases
                 .ForMember(dto => dto.Domicilio, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.Domicilio))
                 .ForMember(dto => dto.Lengua, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.Lengua))
                 .ForMember(dto => dto.Telefono, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.Telefono))
+                .ForMember(dto => dto.GrupoEtnico, ent => ent.MapFrom(prop => prop.IdPeticionarioNavigation.GrupoEtnico))
                 .ForMember(dto => dto.Edad, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.Edad))
                 .ForMember(dto => dto.Ocupacion, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.Ocupacion))
                 .ForMember(dto => dto.EstadoCivil, ent => ent.MapFrom(prop => prop.ParticularesIdParticularesNavigation.EstadoCivil))

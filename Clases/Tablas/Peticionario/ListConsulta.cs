@@ -2,6 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using Clases.ClasesBase;
 using Clases.DTO.TableViews;
+using Clases.Repository;
 using Data.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -14,9 +15,13 @@ namespace Clases.Tablas.Peticionario
         {
             public string? IdFuncionario { get; set; }
         }
-        public class Handler : HandlerRequestMapperBase, IRequestHandler<Ejecuta, List<PeticionarioParticularesDGView>>
+        public class Handler : HandlerMapperOfWork, IRequestHandler<Ejecuta, List<PeticionarioParticularesDGView>>
         {
-            public Handler(ednita_dbContext context, IMapper mapper) : base(context, mapper)
+            //public Handler(ednita_dbContext context, IMapper mapper) : base(context, mapper)
+            //{
+            //}
+
+            public Handler(IUnitOfWork unitOfWork, IMapper mapper) : base(unitOfWork, mapper)
             {
             }
 
@@ -27,12 +32,21 @@ namespace Clases.Tablas.Peticionario
                 {
 
 
-                    var project = await _context.Archivos.ProjectTo<PeticionarioParticularesDGView>(_mapper.ConfigurationProvider).ToListAsync();
+
+                    var project = await _unitOfWork.Archivo.ObtenerAsync(a => a.IdPeticionarioNavigation.FuncionarioIdFuncionario.Equals(request.IdFuncionario));
+
+
+                   var mapper = await project.ProjectTo<PeticionarioParticularesDGView>(_mapper.ConfigurationProvider).ToListAsync();
+                    
+                    
+
 
                     if (project == null)
                         throw new Exception("aun no existen Registros");
 
-                    return project;
+                   
+
+                    return mapper;
                 }
                 catch (Exception )
                 {

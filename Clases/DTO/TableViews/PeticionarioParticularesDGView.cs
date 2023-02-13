@@ -12,9 +12,12 @@ namespace Clases.DTO.TableViews
 
         //Archivo
         public int? Serieindevep { get; set; }
+        public int? Periodo { get; set; }
         public string Delito { get; set; }
         public string Carpeta { get; set; }
+        public string Jurisdiccion { get; set; }
         public string Juez { get; set; }
+        public string Distrito { get; set; }
         public string ProcesoPenal { get; set; }
         public string SegundaInstancia { get; set; }
         public string Toca { get; set; }
@@ -36,6 +39,8 @@ namespace Clases.DTO.TableViews
         public string Ocupacion { get; set; }
         public string EstadoCivil { get; set; }
         public string Estudios { get; set; }
+        public string GrupoEtnico { get; set; }
+        
         //Familiares
         public string ApaternoFamiliar { get; set; }
         public string AmaternoFamiliar { get; set; }

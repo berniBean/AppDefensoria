@@ -38,7 +38,7 @@ namespace Clases.Tablas.Cita
                     FechaAudiencia = request.FechaAudiencia,
                     Sala = request.Sala,
                     Audiencia = request.Audiencia,
-                    tipoAtencion = request.TipoAtencion,
+                    TipoAtencion = (int)request.TipoAtencion,
                     ReportesIdreportes = nuevoReporte.Idreportes,
                     ArchivoIdarchivo = request.IdArchivo
                 };

@@ -1,5 +1,6 @@
 ﻿using Clases.ClasesBase;
 using Clases.helpers;
+using Clases.Repository;
 using Data.Models;
 using MediatR;
 
@@ -15,13 +16,15 @@ namespace Clases.Tablas.Persona
             public string? Nombre { get; set; }
         }
 
-        public class Handler : HandlerRequestBase, IRequestHandler<Ejecuta>
+        public class Handler : HandlerOfWork, IRequestHandler<Ejecuta>
         {
             private readonly IMediator _mediator;
-            public Handler(ednita_dbContext context, IMediator mediator) : base(context)
+
+            public Handler(IUnitOfWork unitOfWork, IMediator _mediator) : base(unitOfWork)
             {
-                _mediator = mediator;
+                _mediator = _mediator;
             }
+
 
             public async Task<Unit> Handle(Ejecuta request, CancellationToken cancellationToken)
             {
@@ -33,7 +36,7 @@ namespace Clases.Tablas.Persona
                 registro.Nombre = request.Nombre ?? registro.Nombre;
 
                 
-                return RestultadoEF.Salvado(await _context.SaveChangesAsync());
+                return RestultadoEF.Salvado(await _unitOfWork.Save());
             }
         }
     }

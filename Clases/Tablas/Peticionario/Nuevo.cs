@@ -9,8 +9,8 @@ namespace Clases.Tablas.Peticionario
     {
         public class Ejecuta : IRequest<string>
         {
-            public string PersonaIdPersona { get; set; }
-            public string FuncionarioIdFuncionario { get; set; }
+            public string? PersonaIdPersona { get; set; }
+            public string? FuncionarioIdFuncionario { get; set; }
         }
         public class Handler : HandlerOfWork, IRequestHandler<Ejecuta,string>
         {

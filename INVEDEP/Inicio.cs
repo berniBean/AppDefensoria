@@ -6,8 +6,9 @@
         private readonly Informes _formInformes;
         private readonly Usuario _formUsuario;
         private readonly Peticionario _formPeticionario;
+        private readonly ListaInvedep _listaInvedep;
 
-        public Inicio(Citas formCitas, Informes formInformes, Usuario formUsuario, Peticionario formPeticionario)
+        public Inicio(Citas formCitas, Informes formInformes, Usuario formUsuario, Peticionario formPeticionario, ListaInvedep listaInvedep)
         {
             InitializeComponent();
             IsMdiContainer = true;
@@ -15,6 +16,7 @@
             _formInformes = formInformes;
             _formUsuario = formUsuario;
             _formPeticionario = formPeticionario;
+            _listaInvedep = listaInvedep; 
 
         }
 
@@ -40,6 +42,12 @@
         {
             _formUsuario.MdiParent = this;
             _formUsuario.Show();
+        }
+
+        private void registroInvedepToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _listaInvedep.MdiParent = this;
+            _listaInvedep.Show();
         }
     }
 }
