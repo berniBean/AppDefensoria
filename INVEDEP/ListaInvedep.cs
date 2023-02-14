@@ -1,4 +1,7 @@
 ﻿using Clases.DTO.TableViews;
+using Clases.DTO.view;
+using Clases.Strategy;
+using Clases.Strategy.Concretas;
 using INVEDEP.Helpers;
 using MediatR;
 using System.Reflection;
@@ -10,6 +13,7 @@ namespace INVEDEP
         
 
         IMediator _mediator;
+        private List<CaratulasAlta> ListadoCaratulas;
         public ListaInvedep(IMediator mediator)
         {
             InitializeComponent();
@@ -17,7 +21,7 @@ namespace INVEDEP
         }
         private async void ListaInvedep_Load(object sender, EventArgs e)
         {
-
+            ListadoCaratulas = new List<CaratulasAlta>();
 
         }
 
@@ -55,6 +59,35 @@ namespace INVEDEP
                 
             }
 
+        }
+
+        private async void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var Persona = new PersonaDTO();
+
+            foreach (DataGridViewRow item in this.DgListadoInvedep.Rows)
+            {
+                try
+                {
+                    if (!item.Cells[0].Value.ToString().Equals(null))
+                    {
+                        Persona.Nombre = item.Cells[2].Value.ToString();
+                        Persona.Apaterno = item.Cells[3].Value.ToString();
+                        Persona.Amaterno = item.Cells[4].Value.ToString();
+
+                        ContextPeticionario context = new ContextPeticionario(new PeticionarioStrategy(_mediator) { Funcionario = "5df131f7-4bc1-11ed-975f-f4ee08b6e8c4" });
+
+                        await context.Add(Persona);
+                    }
+                }
+                catch (NullReferenceException)
+                {
+
+                    
+                }
+
+
+            }
         }
     }
 }

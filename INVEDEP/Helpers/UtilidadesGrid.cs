@@ -19,7 +19,6 @@ namespace INVEDEP.Helpers
             DataTable dt = new DataTable();
             string TextoCopiado = Clipboard.GetText();
             string[] lineas = TextoCopiado.Split('\n');
-            int ultima = lineas.Count() - 1;
             
 
 
@@ -38,19 +37,18 @@ namespace INVEDEP.Helpers
             foreach (string line in lineas)
             {
                 DataRow tabla = dt.NewRow();
+                bool Saltar = false;
                 string[] Celdas = line.Split('\t');
-                bool saltar = false;
                 for (int indice = 0; indice < Celdas.GetLength(0); indice++)
                 {
+                    if (Celdas[0] == "")
+                        Saltar = true;
                     if (Celdas[indice] != "\r" && Celdas[indice] != "" && Celdas[indice] != " ")
                         tabla[lst[indice].Name] = Convert.ChangeType(Celdas[indice], lst[indice].PropertyType);
-
-                    
-                    //dt.Rows.Add(new object[] { Convert.ChangeType(Celdas[indice], lst[indice].PropertyType)});
                 }
 
-
-                    dt.Rows.Add(tabla);
+                    if(!Saltar)
+                     dt.Rows.Add(tabla);
             }
 
 
