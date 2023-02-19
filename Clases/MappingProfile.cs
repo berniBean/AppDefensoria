@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Clases.DTO.TableViews;
 using Clases.DTO.view;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 
 namespace Clases
 {
@@ -15,6 +16,7 @@ namespace Clases
             CreateMap<Data.Models.Cita, CitaDTO>();
             CreateMap<Data.Models.Particulare, ParticularesDto>();
 
+            CreateMap<PeticionarioParticularesDGView, CaratulasAlta>();
 
 
             CreateMap<Data.Models.Archivo, PeticionarioParticularesDGView>()

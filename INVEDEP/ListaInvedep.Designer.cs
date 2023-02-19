@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.PgBarGeneral = new System.Windows.Forms.ToolStripProgressBar();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.DgListadoInvedep = new System.Windows.Forms.DataGridView();
             this.Serieindevep = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,36 +52,42 @@
             this.Domicilio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.peticionarioParticularesDGViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.statusStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgListadoInvedep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peticionarioParticularesDGViewBindingSource)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PgBarGeneral});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 427);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1284, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1284, 23);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // PgBarGeneral
+            // 
+            this.PgBarGeneral.Name = "PgBarGeneral";
+            this.PgBarGeneral.Size = new System.Drawing.Size(100, 15);
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.DgListadoInvedep, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.menuStrip1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnAgregar, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.43094F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.56906F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 428);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1284, 427);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // DgListadoInvedep
@@ -112,8 +119,9 @@
             this.DgListadoInvedep.Name = "DgListadoInvedep";
             this.DgListadoInvedep.RowHeadersWidth = 62;
             this.DgListadoInvedep.RowTemplate.Height = 33;
-            this.DgListadoInvedep.Size = new System.Drawing.Size(1278, 369);
+            this.DgListadoInvedep.Size = new System.Drawing.Size(1278, 368);
             this.DgListadoInvedep.TabIndex = 0;
+            this.DgListadoInvedep.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DgListadoInvedep_EditingControlShowing);
             this.DgListadoInvedep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DgListadoInvedep_KeyDown);
             // 
             // Serieindevep
@@ -264,23 +272,15 @@
             // 
             this.peticionarioParticularesDGViewBindingSource.DataSource = typeof(Clases.DTO.TableViews.PeticionarioParticularesDGView);
             // 
-            // menuStrip1
+            // btnAgregar
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.guardarToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1284, 33);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // guardarToolStripMenuItem
-            // 
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(91, 29);
-            this.guardarToolStripMenuItem.Text = "Guardar";
-            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
+            this.btnAgregar.Location = new System.Drawing.Point(3, 3);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(112, 34);
+            this.btnAgregar.TabIndex = 1;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // ListaInvedep
             // 
@@ -289,16 +289,14 @@
             this.ClientSize = new System.Drawing.Size(1284, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "ListaInvedep";
             this.Text = "ListaInvedep";
             this.Load += new System.EventHandler(this.ListaInvedep_Load);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgListadoInvedep)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.peticionarioParticularesDGViewBindingSource)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,7 +326,7 @@
         private DataGridViewTextBoxColumn Lengua;
         private DataGridViewTextBoxColumn Domicilio;
         private DataGridViewTextBoxColumn Telefono;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem guardarToolStripMenuItem;
+        private ToolStripProgressBar PgBarGeneral;
+        private Button btnAgregar;
     }
 }

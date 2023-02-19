@@ -7,7 +7,7 @@ namespace Clases.Strategy.Concretas
     public class PeticionarioStrategy : IGuardarStrategy<PersonaDTO>
     {
         //"5df131f7-4bc1-11ed-975f-f4ee08b6e8c4"
-        public string Funcionario { get; set; }
+        public string? Funcionario { get; set; }
         private IMediator _mediator;
 
         public PeticionarioStrategy(IMediator mediator)
